@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54ba64b7-89b6-4384-b726-e8261154dc57" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/squelette-wish/wishlist/vendor/composer/installed.php" afterDir="false" />
-    </list>
+    <list default="true" id="54ba64b7-89b6-4384-b726-e8261154dc57" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +33,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607077790781</updated>
-      <workItem from="1607077792223" duration="488000" />
+      <workItem from="1607077792223" duration="830000" />
     </task>
     <servers />
   </component>
