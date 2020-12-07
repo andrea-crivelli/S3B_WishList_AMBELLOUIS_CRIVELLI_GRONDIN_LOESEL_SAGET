@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="54ba64b7-89b6-4384-b726-e8261154dc57" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squelette-wish/wishlist/.index.php" beforeDir="false" afterPath="$PROJECT_DIR$/squelette-wish/wishlist/.index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squelette-wish/wishlist/eloquent.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +36,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607077790781</updated>
       <workItem from="1607077792223" duration="1524000" />
-      <workItem from="1607347772994" duration="156000" />
+      <workItem from="1607347772994" duration="488000" />
     </task>
     <servers />
   </component>
