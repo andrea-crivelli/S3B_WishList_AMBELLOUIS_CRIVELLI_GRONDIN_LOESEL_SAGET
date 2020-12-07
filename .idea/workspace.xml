@@ -19,7 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54ba64b7-89b6-4384-b726-e8261154dc57" name="Default Changelist" comment="" />
+    <list default="true" id="54ba64b7-89b6-4384-b726-e8261154dc57" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wishlist/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wishlist/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wishlist/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wishlist/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/vendor/composer/installed.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +101,7 @@
       <workItem from="1607347772994" duration="488000" />
       <workItem from="1607348433392" duration="1197000" />
       <workItem from="1607349659467" duration="85000" />
-      <workItem from="1607349755547" duration="334000" />
+      <workItem from="1607349755547" duration="1723000" />
     </task>
     <servers />
   </component>
@@ -119,5 +125,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1607348455351" />
+    <state x="423" y="135" key="NewPhpClassDialog" timestamp="1607350175682">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="423" y="135" key="NewPhpClassDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1607350175682" />
   </component>
 </project>

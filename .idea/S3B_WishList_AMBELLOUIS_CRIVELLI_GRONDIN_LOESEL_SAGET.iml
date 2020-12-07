@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/wishlist/src" isTestSource="false" packagePrefix="wishlist\" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/wishlist/src/conf" isTestSource="false" packagePrefix="conf\" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/illuminate/collections" />
