@@ -209,7 +209,7 @@ trait HasRelationships
         }
 
         // Once we have the foreign key names, we'll just create a new Eloquent query
-        // for the related model and returns the relationship instance which will
+        // for the related models and returns the relationship instance which will
         // actually be responsible for retrieving and hydrating every relations.
         $ownerKey = $ownerKey ?: $instance->getKeyName();
 
@@ -256,7 +256,7 @@ trait HasRelationships
         // If the type value is null it is probably safe to assume we're eager loading
         // the relationship. In this case we'll just pass in a dummy query where we
         // need to remove any eager loads that may already be defined on a model.
-        return empty($class = $this->{$type})
+        return is_null($class = $this->getAttributeFromArray($type))
                     ? $this->morphEagerTo($name, $type, $id, $ownerKey)
                     : $this->morphInstanceTo($class, $name, $type, $id, $ownerKey);
     }
@@ -492,7 +492,7 @@ trait HasRelationships
         $relatedPivotKey = $relatedPivotKey ?: $instance->getForeignKey();
 
         // If no table name was provided, we can guess it by concatenating the two
-        // model using underscores in alphabetical order. The two model names
+        // models using underscores in alphabetical order. The two model names
         // are transformed to snake case from their default CamelCase also.
         if (is_null($table)) {
             $table = $this->joiningTable($related, $instance);
@@ -647,9 +647,9 @@ trait HasRelationships
      */
     public function joiningTable($related, $instance = null)
     {
-        // The joining table name, by convention, is simply the snake cased model
+        // The joining table name, by convention, is simply the snake cased models
         // sorted alphabetically and concatenated with an underscore, so we can
-        // just sort the model and join them together to get the table name.
+        // just sort the models and join them together to get the table name.
         $segments = [
             $instance ? $instance->joiningTableSegment()
                       : Str::snake(class_basename($related)),

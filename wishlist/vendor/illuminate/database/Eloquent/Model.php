@@ -81,7 +81,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     protected $withCount = [];
 
     /**
-     * The number of model to return for pagination.
+     * The number of models to return for pagination.
      *
      * @var int
      */
@@ -116,7 +116,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     protected static $dispatcher;
 
     /**
-     * The array of booted model.
+     * The array of booted models.
      *
      * @var array
      */
@@ -137,7 +137,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     protected static $globalScopes = [];
 
     /**
-     * The list of model classes that should not be affected with touch.
+     * The list of models classes that should not be affected with touch.
      *
      * @var array
      */
@@ -269,7 +269,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
-     * Clear the list of booted model so they will be re-booted.
+     * Clear the list of booted models so they will be re-booted.
      *
      * @return void
      */
@@ -465,7 +465,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
-     * Get all of the model from the database.
+     * Get all of the models from the database.
      *
      * @param  array|mixed  $columns
      * @return \Illuminate\Database\Eloquent\Collection|static[]
@@ -913,7 +913,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     protected function performUpdate(Builder $query)
     {
         // If the updating event returns false, we will cancel the update operation so
-        // developers can hook Validation systems into their model and cancel this
+        // developers can hook Validation systems into their models and cancel this
         // operation if the model does not pass validation. Otherwise, we update.
         if ($this->fireModelEvent('updating') === false) {
             return false;
@@ -928,7 +928,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
         // Once we have run the update operation, we will fire the "updated" event for
         // this model instance. This will allow developers to hook into these after
-        // model are updated, giving them a chance to do any special processing.
+        // models are updated, giving them a chance to do any special processing.
         $dirty = $this->getDirty();
 
         if (count($dirty) > 0) {
@@ -1018,7 +1018,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
         // If the table isn't incrementing we'll simply insert these attributes as they
         // are. These attribute arrays must contain an "id" column previously placed
-        // there by the developer as the manually determined key for these model.
+        // there by the developer as the manually determined key for these models.
         else {
             if (empty($attributes)) {
                 return true;
@@ -1054,7 +1054,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
-     * Destroy the model for the given IDs.
+     * Destroy the models for the given IDs.
      *
      * @param  \Illuminate\Support\Collection|array|int|string  $ids
      * @return int
@@ -1071,7 +1071,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
             return 0;
         }
 
-        // We will actually pull the model from the database table and call delete on
+        // We will actually pull the models from the database table and call delete on
         // each of them individually so that their events get fired properly with a
         // correct set of attributes in case the developers wants to check these.
         $key = ($instance = new static)->getKeyName();
@@ -1113,8 +1113,8 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
             return false;
         }
 
-        // Here, we'll touch the owning model, verifying these timestamps get updated
-        // for the model. This will allow any caching to get broken on the parents
+        // Here, we'll touch the owning models, verifying these timestamps get updated
+        // for the models. This will allow any caching to get broken on the parents
         // by the timestamp. Then we will go ahead and delete the model instance.
         $this->touchOwners();
 
@@ -1233,7 +1233,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
-     * Get a new query to restore one or more model by their queueable IDs.
+     * Get a new query to restore one or more models by their queueable IDs.
      *
      * @param  array|int  $ids
      * @return \Illuminate\Database\Eloquent\Builder
@@ -1425,7 +1425,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
-     * Determine if two model have the same ID and belong to the same table.
+     * Determine if two models have the same ID and belong to the same table.
      *
      * @param  \Illuminate\Database\Eloquent\Model|null  $model
      * @return bool
@@ -1439,7 +1439,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
-     * Determine if two model are not the same.
+     * Determine if two models are not the same.
      *
      * @param  \Illuminate\Database\Eloquent\Model|null  $model
      * @return bool
@@ -1515,7 +1515,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
-     * Unset the connection resolver for model.
+     * Unset the connection resolver for models.
      *
      * @return void
      */
@@ -1753,7 +1753,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
-     * Get the number of model to return per page.
+     * Get the number of models to return per page.
      *
      * @return int
      */
@@ -1763,7 +1763,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
-     * Set the number of model to return per page.
+     * Set the number of models to return per page.
      *
      * @param  int  $perPage
      * @return $this

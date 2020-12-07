@@ -23,13 +23,6 @@ abstract class HasOneOrMany extends Relation
     protected $localKey;
 
     /**
-     * The count of self joins.
-     *
-     * @var int
-     */
-    protected static $selfJoinCount = 0;
-
-    /**
      * Create a new has one or many relationship instance.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
@@ -60,7 +53,7 @@ abstract class HasOneOrMany extends Relation
     }
 
     /**
-     * Create and return an un-saved instances of the related model.
+     * Create and return an un-saved instances of the related models.
      *
      * @param  iterable  $records
      * @return \Illuminate\Database\Eloquent\Collection
@@ -144,7 +137,7 @@ abstract class HasOneOrMany extends Relation
     {
         $dictionary = $this->buildDictionary($results);
 
-        // Once we have the dictionary we can simply spin through the parent model to
+        // Once we have the dictionary we can simply spin through the parent models to
         // link them up with their children using the keyed dictionary to make the
         // matching very convenient and easy work. Then we'll just return them.
         foreach ($models as $model) {
@@ -270,7 +263,7 @@ abstract class HasOneOrMany extends Relation
     }
 
     /**
-     * Attach a collection of model to the parent instance.
+     * Attach a collection of models to the parent instance.
      *
      * @param  iterable  $models
      * @return iterable
@@ -361,16 +354,6 @@ abstract class HasOneOrMany extends Relation
         return $query->select($columns)->whereColumn(
             $this->getQualifiedParentKeyName(), '=', $hash.'.'.$this->getForeignKeyName()
         );
-    }
-
-    /**
-     * Get a relationship join table hash.
-     *
-     * @return string
-     */
-    public function getRelationCountHash()
-    {
-        return 'laravel_reserved_'.static::$selfJoinCount++;
     }
 
     /**

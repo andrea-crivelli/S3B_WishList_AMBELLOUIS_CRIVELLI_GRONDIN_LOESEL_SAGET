@@ -449,7 +449,7 @@ class Collection extends BaseCollection implements QueueableCollection
     }
 
     /**
-     * Returns only the model from the collection with the specified keys.
+     * Returns only the models from the collection with the specified keys.
      *
      * @param  mixed  $keys
      * @return static
@@ -466,7 +466,7 @@ class Collection extends BaseCollection implements QueueableCollection
     }
 
     /**
-     * Returns all model in the collection except the model with specified keys.
+     * Returns all models in the collection except the models with specified keys.
      *
      * @param  mixed  $keys
      * @return static

@@ -116,7 +116,7 @@ class MorphToMany extends BelongsToMany
     }
 
     /**
-     * Get the pivot model that are currently attached.
+     * Get the pivot models that are currently attached.
      *
      * @return \Illuminate\Support\Collection
      */

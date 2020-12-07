@@ -63,6 +63,13 @@ abstract class Relation
     public static $tableNameAsMorphType = false;
 
     /**
+     * The count of self joins.
+     *
+     * @var int
+     */
+    protected static $selfJoinCount = 0;
+
+    /**
      * Create a new relation instance.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
@@ -116,7 +123,7 @@ abstract class Relation
     abstract public function addEagerConstraints(array $models);
 
     /**
-     * Initialize the relation on a set of model.
+     * Initialize the relation on a set of models.
      *
      * @param  array  $models
      * @param  string  $relation
@@ -163,7 +170,7 @@ abstract class Relation
     }
 
     /**
-     * Touch all of the related model for the relationship.
+     * Touch all of the related models for the relationship.
      *
      * @return void
      */
@@ -221,7 +228,18 @@ abstract class Relation
     }
 
     /**
-     * Get all of the primary keys for an array of model.
+     * Get a relationship join table hash.
+     *
+     * @param  bool $incrementJoinCount
+     * @return string
+     */
+    public function getRelationCountHash($incrementJoinCount = true)
+    {
+        return 'laravel_reserved_'.($incrementJoinCount ? static::$selfJoinCount++ : static::$selfJoinCount);
+    }
+
+    /**
+     * Get all of the primary keys for an array of models.
      *
      * @param  array  $models
      * @param  string|null  $key

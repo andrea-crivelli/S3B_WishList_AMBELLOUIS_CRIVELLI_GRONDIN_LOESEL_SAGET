@@ -25,7 +25,7 @@ abstract class Factory
     protected $model;
 
     /**
-     * The number of model that should be generated.
+     * The number of models that should be generated.
      *
      * @var int|null
      */
@@ -67,7 +67,7 @@ abstract class Factory
     protected $afterCreating;
 
     /**
-     * The name of the database connection that will be used to create the model.
+     * The name of the database connection that will be used to create the models.
      *
      * @var string
      */
@@ -150,7 +150,7 @@ abstract class Factory
     }
 
     /**
-     * Get a new factory instance for the given number of model.
+     * Get a new factory instance for the given number of models.
      *
      * @param  int  $count
      * @return static
@@ -200,7 +200,7 @@ abstract class Factory
     }
 
     /**
-     * Create a collection of model and persist them to the database.
+     * Create a collection of models and persist them to the database.
      *
      * @param  iterable  $records
      * @return \Illuminate\Database\Eloquent\Collection|mixed
@@ -215,7 +215,7 @@ abstract class Factory
     }
 
     /**
-     * Create a collection of model and persist them to the database.
+     * Create a collection of models and persist them to the database.
      *
      * @param  array  $attributes
      * @param  \Illuminate\Database\Eloquent\Model|null  $parent
@@ -302,7 +302,7 @@ abstract class Factory
     }
 
     /**
-     * Create a collection of model.
+     * Create a collection of models.
      *
      * @param  array  $attributes
      * @param  \Illuminate\Database\Eloquent\Model|null  $parent
@@ -566,7 +566,7 @@ abstract class Factory
     }
 
     /**
-     * Specify how many model should be generated.
+     * Specify how many models should be generated.
      *
      * @param  int|null  $count
      * @return static
@@ -577,7 +577,7 @@ abstract class Factory
     }
 
     /**
-     * Specify the database connection that should be used to generate model.
+     * Specify the database connection that should be used to generate models.
      *
      * @param  string  $connection
      * @return static

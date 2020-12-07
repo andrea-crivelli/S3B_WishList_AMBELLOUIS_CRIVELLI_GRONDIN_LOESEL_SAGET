@@ -26,7 +26,7 @@ class MorphOne extends MorphOneOrMany
     }
 
     /**
-     * Initialize the relation on a set of model.
+     * Initialize the relation on a set of models.
      *
      * @param  array  $models
      * @param  string  $relation
