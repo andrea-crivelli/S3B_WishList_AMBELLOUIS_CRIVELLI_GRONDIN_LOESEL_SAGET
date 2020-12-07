@@ -27,6 +27,10 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
         array (
             'voku\\' => 5,
         ),
+        'c' => 
+        array (
+            'conf\\' => 5,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -71,6 +75,10 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'conf\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/conf',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
