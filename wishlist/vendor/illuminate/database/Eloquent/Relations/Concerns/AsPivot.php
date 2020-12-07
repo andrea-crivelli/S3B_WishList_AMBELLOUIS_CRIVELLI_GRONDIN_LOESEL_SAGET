@@ -267,7 +267,7 @@ trait AsPivot
     }
 
     /**
-     * Get a new query to restore one or more model by their queueable IDs.
+     * Get a new query to restore one or more models by their queueable IDs.
      *
      * @param  int[]|string[]|string  $ids
      * @return \Illuminate\Database\Eloquent\Builder
@@ -290,7 +290,7 @@ trait AsPivot
     }
 
     /**
-     * Get a new query to restore multiple model by their queueable IDs.
+     * Get a new query to restore multiple models by their queueable IDs.
      *
      * @param  int[]|string[]  $ids
      * @return \Illuminate\Database\Eloquent\Builder

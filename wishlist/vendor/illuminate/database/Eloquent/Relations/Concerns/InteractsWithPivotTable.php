@@ -10,7 +10,7 @@ use Illuminate\Support\Collection as BaseCollection;
 trait InteractsWithPivotTable
 {
     /**
-     * Toggles a model (or model) from the parent.
+     * Toggles a model (or models) from the parent.
      *
      * Each existing model is detached, and non existing ones are attached.
      *
@@ -74,7 +74,7 @@ trait InteractsWithPivotTable
     }
 
     /**
-     * Sync the intermediate tables with a list of IDs or collection of model.
+     * Sync the intermediate tables with a list of IDs or collection of models.
      *
      * @param  \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array  $ids
      * @param  bool  $detaching
@@ -86,7 +86,7 @@ trait InteractsWithPivotTable
             'attached' => [], 'detached' => [], 'updated' => [],
         ];
 
-        // First we need to attach any of the associated model that are not currently
+        // First we need to attach any of the associated models that are not currently
         // in this joining table. We'll spin through the given IDs, checking to see
         // if they exist in the array of current ones, and if not we will insert.
         $current = $this->getCurrentlyAttachedPivots()
@@ -404,7 +404,7 @@ trait InteractsWithPivotTable
     }
 
     /**
-     * Detach model from the relationship.
+     * Detach models from the relationship.
      *
      * @param  mixed  $ids
      * @param  bool  $touch
@@ -436,7 +436,7 @@ trait InteractsWithPivotTable
 
             // Once we have all of the conditions set on the statement, we are ready
             // to run the delete on the pivot table. Then, if the touch parameter
-            // is true, we will go ahead and touch all related model to sync.
+            // is true, we will go ahead and touch all related models to sync.
             $results = $query->delete();
         }
 
@@ -448,7 +448,7 @@ trait InteractsWithPivotTable
     }
 
     /**
-     * Detach model from the relationship using a custom class.
+     * Detach models from the relationship using a custom class.
      *
      * @param  mixed  $ids
      * @return int
@@ -468,7 +468,7 @@ trait InteractsWithPivotTable
     }
 
     /**
-     * Get the pivot model that are currently attached.
+     * Get the pivot models that are currently attached.
      *
      * @return \Illuminate\Support\Collection
      */

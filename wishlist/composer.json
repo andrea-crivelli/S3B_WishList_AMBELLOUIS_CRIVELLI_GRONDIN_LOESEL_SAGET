@@ -1,13 +1,13 @@
 {
-	"require":{
+	"require": {
 		"illuminate/database": "^8.0",
 		"slim/slim": "3.*",
 		"php": ">=7.3"
 	},
 
-	"autoload":{
+	"autoload": {
 		"psr-4": {
-			"wishlist\\" : "./src/",
+			"mywishlist\\": "./src",
 			"conf\\": "./src/conf"
 		}
 	}

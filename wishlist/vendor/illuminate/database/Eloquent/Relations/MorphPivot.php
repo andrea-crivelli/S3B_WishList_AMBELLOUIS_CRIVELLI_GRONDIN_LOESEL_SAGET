@@ -120,7 +120,7 @@ class MorphPivot extends Pivot
     }
 
     /**
-     * Get a new query to restore one or more model by their queueable IDs.
+     * Get a new query to restore one or more models by their queueable IDs.
      *
      * @param  array|int  $ids
      * @return \Illuminate\Database\Eloquent\Builder
@@ -144,7 +144,7 @@ class MorphPivot extends Pivot
     }
 
     /**
-     * Get a new query to restore multiple model by their queueable IDs.
+     * Get a new query to restore multiple models by their queueable IDs.
      *
      * @param  array  $ids
      * @return \Illuminate\Database\Eloquent\Builder

@@ -14,18 +14,20 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'w' => 
-        array (
-            'wishlist\\' => 9,
-        ),
         'v' => 
         array (
             'voku\\' => 5,
+        ),
+        'm' => 
+        array (
+            'mywishlist\\' => 11,
         ),
         'c' => 
         array (
@@ -44,10 +46,12 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\String\\' => 25,
             'Symfony\\Component\\Console\\' => 26,
+            'Slim\\' => 5,
         ),
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
         'I' => 
@@ -56,6 +60,10 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
             'Illuminate\\Database\\' => 20,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
+        ),
+        'F' => 
+        array (
+            'FastRoute\\' => 10,
         ),
         'D' => 
         array (
@@ -68,13 +76,13 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
     );
 
     public static $prefixDirsPsr4 = array (
-        'wishlist\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'mywishlist\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'conf\\' => 
         array (
@@ -124,9 +132,17 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Slim\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Container\\' => 
         array (
@@ -134,8 +150,8 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
         ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/collections',
-            1 => __DIR__ . '/..' . '/illuminate/macroable',
+            0 => __DIR__ . '/..' . '/illuminate/macroable',
+            1 => __DIR__ . '/..' . '/illuminate/collections',
             2 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Database\\' => 
@@ -150,6 +166,10 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
         array (
             0 => __DIR__ . '/..' . '/illuminate/container',
         ),
+        'FastRoute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
         'Doctrine\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
@@ -157,6 +177,16 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
         ),
     );
 
@@ -175,6 +205,7 @@ class ComposerStaticInitb3245903d518665abf15602059c1a59e
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitb3245903d518665abf15602059c1a59e::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitb3245903d518665abf15602059c1a59e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitb3245903d518665abf15602059c1a59e::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitb3245903d518665abf15602059c1a59e::$classMap;
 
         }, null, ClassLoader::class);
