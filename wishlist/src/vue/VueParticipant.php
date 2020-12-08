@@ -4,6 +4,8 @@
 namespace wishlist\vue;
 
 
+use wishlist\model\Liste;
+
 class VueParticipant
 {
     private $data;
@@ -13,11 +15,35 @@ class VueParticipant
         $this->data=$data;
     }
 
-    private function __affichageListeSouhait()  : string{
 
+    private function htmlListeSouhait($listes)  : string{
+        $liste=null;
+        $html=<<<END
+            <section class='content'>
+            <ul>
+            {foreach ( $listes as $liste){
+                <li>{$liste->titre}</li>
+            }
+            </ul>
+            </section>
+END;
+        return $html;
     }
 
-    private function __htmlListeItems(){
+    private function htmlListeItems(Liste $liste) : string{
+        $items=$liste->items();
+        $item=null;
+        $html=<<<END
+            <section class='content'>
+            <h2>{$liste->titre}</h2>
+            <ul>
+            {foreach ($items as $item){
+                <li>{$item->nom}</li>
+            }
+            </ul>
+            </section>
+END;
+        return $html;
 
     }
 
