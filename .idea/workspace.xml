@@ -20,8 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54ba64b7-89b6-4384-b726-e8261154dc57" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/S3B_WishList_AMBELLOUIS_CRIVELLI_GRONDIN_LOESEL_SAGET.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/S3B_WishList_AMBELLOUIS_CRIVELLI_GRONDIN_LOESEL_SAGET.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wishlist/src/vue/VueParticipant.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/src/vue/VueParticipant.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +102,7 @@
       <workItem from="1607348433392" duration="1197000" />
       <workItem from="1607349659467" duration="85000" />
       <workItem from="1607349755547" duration="2632000" />
-      <workItem from="1607421795979" duration="637000" />
+      <workItem from="1607421795979" duration="704000" />
     </task>
     <servers />
   </component>

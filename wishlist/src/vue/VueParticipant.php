@@ -17,7 +17,7 @@ class VueParticipant
 
     }
 
-    private function andrea2(){
+    private function htmlListeItems(){
 
     }
 
