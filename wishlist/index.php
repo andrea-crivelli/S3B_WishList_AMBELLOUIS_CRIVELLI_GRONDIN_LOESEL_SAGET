@@ -48,4 +48,18 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
 }
 );
 
+//TESTS
+
+// pour afficher la liste des listes de souhaits
+$listl = \mywishlist\models\Liste::all() ;
+$vue = new \mywishlist\vue\VueParticipant( $listl->toArray() ) ;
+$vue->render( 1 ) ;
+// pour afficher 1 item
+$item = \mywishlist\models\Item::find(3) ;
+$vue = new \mywishlist\vue\VueParticipant( [ $item ] ) ;
+$vue->render( 3 ) ;
+
+
+// RUN
+
 $app->run();
