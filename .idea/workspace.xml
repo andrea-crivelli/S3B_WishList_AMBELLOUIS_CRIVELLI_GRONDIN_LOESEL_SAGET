@@ -20,11 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54ba64b7-89b6-4384-b726-e8261154dc57" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/S3B_WishList_AMBELLOUIS_CRIVELLI_GRONDIN_LOESEL_SAGET.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/S3B_WishList_AMBELLOUIS_CRIVELLI_GRONDIN_LOESEL_SAGET.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishlist/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishlist/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishlist/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishlist/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wishlist/src/vue/VueParticipant.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/src/vue/VueParticipant.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +68,10 @@
       <path value="$PROJECT_DIR$/wishlist/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/wishlist/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/wishlist/vendor/composer" />
+      <path value="$PROJECT_DIR$/wishlist/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/wishlist/vendor/slim/slim" />
+      <path value="$PROJECT_DIR$/wishlist/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/wishlist/vendor/pimple/pimple" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lBkIJIjaoEL97wJa6v97fSlAHX" />
@@ -101,7 +103,8 @@
       <workItem from="1607347772994" duration="488000" />
       <workItem from="1607348433392" duration="1197000" />
       <workItem from="1607349659467" duration="85000" />
-      <workItem from="1607349755547" duration="1723000" />
+      <workItem from="1607349755547" duration="2632000" />
+      <workItem from="1607421795979" duration="637000" />
     </task>
     <servers />
   </component>

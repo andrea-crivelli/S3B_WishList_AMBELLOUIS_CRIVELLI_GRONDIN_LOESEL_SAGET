@@ -3,7 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/wishlist/src" isTestSource="false" packagePrefix="wishlist\" />
+      <sourceFolder url="file://$MODULE_DIR$/wishlist/src" isTestSource="false" packagePrefix="mywishlist\" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/wishlist/src/conf" isTestSource="false" packagePrefix="conf\" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/composer" />
@@ -15,8 +15,12 @@
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/illuminate/macroable" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/illuminate/support" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/nikic/fast-route" />
+      <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/pimple/pimple" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/slim/slim" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/wishlist/vendor/symfony/polyfill-intl-grapheme" />
