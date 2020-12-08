@@ -4,7 +4,8 @@ use Illuminate\Database\Capsule\Manager as DB;
 
 use wishlist\model\Item;
 use wishlist\model\Liste;
-use wishlist\controler\ControleurParticipant;
+//use wishlist\controler\ControleurParticipant;
+use wishlist\vue\VueParticipant;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -25,10 +26,10 @@ $app = new \Slim\App($c);
 
 // ROUTES SLIM
 
-$app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): Response {
+/**$app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): Response {
    $c = new ControleurParticipant($this);
    return $c->displayItem($rq, $rs, $args);
-})->setName('item');
+})->setName('item'); **/
 
 $app->get('/' ,function (Request $rq, Response $rs, array $args ): Response {
     $rs->getBody()->write("Page principale");
@@ -51,15 +52,14 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
 //TESTS
 
 // pour afficher la liste des listes de souhaits
-$listl = \mywishlist\models\Liste::all() ;
-$vue = new \mywishlist\vue\VueParticipant( $listl->toArray() ) ;
-$vue->render( 1 ) ;
+$listl = Liste::all();
+$vue = new VueParticipant($listl->toArray());
+$vue->affichage(1);
 // pour afficher 1 item
-$item = \mywishlist\models\Item::find(3) ;
-$vue = new \mywishlist\vue\VueParticipant( [ $item ] ) ;
-$vue->render( 3 ) ;
+$item = Item::find(3);
+$vue = new VueParticipant([$item]);
+$vue->affichage(3);
 
 
 // RUN
-
 $app->run();
