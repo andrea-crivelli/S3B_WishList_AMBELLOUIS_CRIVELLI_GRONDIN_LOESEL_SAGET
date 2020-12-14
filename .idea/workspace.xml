@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="54ba64b7-89b6-4384-b726-e8261154dc57" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/wishlist/src/controler/ControleurParticipant.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/src/controler/ControleurParticipant.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wishlist/src/vue/VueParticipant.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/src/view/VueParticipant.php" afterDir="false" />
+=======
+>>>>>>> 8e2f7a82eef7ce66dde4df9c5344236fc6714b33
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,8 +107,12 @@
       <workItem from="1607348433392" duration="1197000" />
       <workItem from="1607349659467" duration="85000" />
       <workItem from="1607349755547" duration="2632000" />
+<<<<<<< HEAD
       <workItem from="1607421795979" duration="704000" />
       <workItem from="1607955041073" duration="1130000" />
+=======
+      <workItem from="1607421795979" duration="3391000" />
+>>>>>>> 8e2f7a82eef7ce66dde4df9c5344236fc6714b33
     </task>
     <servers />
   </component>
