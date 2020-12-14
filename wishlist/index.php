@@ -5,7 +5,7 @@ use Illuminate\Database\Capsule\Manager as DB;
 use wishlist\model\Item;
 use wishlist\model\Liste;
 //use wishlist\controler\ControleurParticipant;
-use wishlist\vue\VueParticipant;
+use wishlist\view\VueParticipant;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;

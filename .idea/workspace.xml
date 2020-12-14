@@ -22,6 +22,7 @@
     <list default="true" id="54ba64b7-89b6-4384-b726-e8261154dc57" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/S3B_WishList_AMBELLOUIS_CRIVELLI_GRONDIN_LOESEL_SAGET.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/S3B_WishList_AMBELLOUIS_CRIVELLI_GRONDIN_LOESEL_SAGET.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/wishlist/composer.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wishlist/composer.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wishlist/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/index.php" afterDir="false" />
@@ -1964,6 +1965,13 @@
       <change beforePath="$PROJECT_DIR$/wishlist/vendor/voku/portable-ascii/src/voku/helper/data/x1d6.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wishlist/vendor/voku/portable-ascii/src/voku/helper/data/x1d7.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wishlist/vendor/voku/portable-ascii/src/voku/helper/data/x1f1.php" beforeDir="false" />
+=======
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/wishlist/src/controler/ControleurParticipant.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/src/controler/ControleurParticipant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wishlist/src/vue/VueParticipant.php" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/src/view/VueParticipant.php" afterDir="false" />
+=======
+>>>>>>> 8e2f7a82eef7ce66dde4df9c5344236fc6714b33
+>>>>>>> c3973f026e833ae174e85726443f9ab0e61c80e2
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -2009,10 +2017,10 @@
       <path value="$PROJECT_DIR$/wishlist/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/wishlist/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/wishlist/vendor/composer" />
+      <path value="$PROJECT_DIR$/wishlist/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/wishlist/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/wishlist/vendor/nikic/fast-route" />
       <path value="$PROJECT_DIR$/wishlist/vendor/slim/slim" />
-      <path value="$PROJECT_DIR$/wishlist/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/wishlist/vendor/pimple/pimple" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lBkIJIjaoEL97wJa6v97fSlAHX" />
@@ -2021,7 +2029,6 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -2046,8 +2053,17 @@
       <workItem from="1607348433392" duration="1197000" />
       <workItem from="1607349659467" duration="85000" />
       <workItem from="1607349755547" duration="2632000" />
+<<<<<<< HEAD
       <workItem from="1607421795979" duration="3502000" />
       <workItem from="1607954838191" duration="1749000" />
+=======
+<<<<<<< HEAD
+      <workItem from="1607421795979" duration="704000" />
+      <workItem from="1607955041073" duration="1130000" />
+=======
+      <workItem from="1607421795979" duration="3391000" />
+>>>>>>> 8e2f7a82eef7ce66dde4df9c5344236fc6714b33
+>>>>>>> c3973f026e833ae174e85726443f9ab0e61c80e2
     </task>
     <servers />
   </component>
@@ -2067,17 +2083,17 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607423230513">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607348455351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1607423230513" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1607348455351" />
     <state x="423" y="135" key="NewPhpClassDialog" timestamp="1607350175682">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="423" y="135" key="NewPhpClassDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1607350175682" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607423005685">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1607425319834">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1607423005685" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-1.1680.1010@0.0.1536.824" timestamp="1607425319834" />
   </component>
 </project>

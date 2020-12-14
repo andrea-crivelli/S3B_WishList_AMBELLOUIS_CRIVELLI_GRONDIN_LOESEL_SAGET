@@ -1,7 +1,7 @@
 <?php
 
 
-namespace wishlist\vue;
+namespace wishlist\view;
 
 
 use wishlist\model\Liste;
