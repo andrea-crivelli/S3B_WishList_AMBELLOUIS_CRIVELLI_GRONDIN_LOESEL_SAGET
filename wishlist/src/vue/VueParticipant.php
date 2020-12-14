@@ -74,7 +74,7 @@ END;
 
     public function __render(array $vars){
         $content = $this->__htmlItem($this->data[0]);
-        $html = <<<END 
+        $html=<<<END
         <!DOCTYPE html>
         <head>
         <link rel="stylesheet" href="{$vars['basepath']}/wish.css"
