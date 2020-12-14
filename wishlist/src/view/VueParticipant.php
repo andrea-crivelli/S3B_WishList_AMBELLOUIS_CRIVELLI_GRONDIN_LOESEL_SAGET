@@ -62,9 +62,9 @@ END;
     public function affichage($modeAffichage,$item){
 
         switch ($modeAffichage){
-            case 1 : $this->__affichageListeSouhait();
+            case 1 : $this->htmlListeSouhait($item);
             break;
-            case 2 : $this->__htmlListeItems();
+            case 2 : $this->__htmlListeItems($item);
             break;
             case 3 : $this->__htmlItem($item);
             break;
