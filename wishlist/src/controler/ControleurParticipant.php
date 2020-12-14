@@ -2,10 +2,11 @@
 
 namespace wishlist\controler;
 
-use http\Env\Request;
-use http\Env\Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use wishlist\vue\VueParticipant;
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
+use wish\model\Item;
+use wish\view\VueParticipant;
 
 class ControleurParticipant {
 
