@@ -79,12 +79,13 @@ END;
         $html=<<<END
         <!DOCTYPE html>
         <head>
-        <link rel="stylesheet" href="{$vars['basepath']}/wish.css"
+       
         </head>
         <body>
         $content
 </body>
 END;
+        //<link rel="stylesheet" href="{$vars['basepath']}/wish.css"
 
         return $html;
     }

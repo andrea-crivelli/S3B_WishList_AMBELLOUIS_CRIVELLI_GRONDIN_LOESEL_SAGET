@@ -18,4 +18,12 @@ class Liste extends Model
             print $liste->titre."<br>";
         }
     }
+
+    public static function creerListe($titre,$description,$date_expi){
+        $l=new Liste();
+        $l->titre=$titre;
+        $l->description=$description;
+        $l->expiration=$date_expi;
+        $l->save();
+    }
 }
