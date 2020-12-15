@@ -57,7 +57,7 @@ $listl = Liste::all();
 
 $vue = new VueParticipant($listl->toArray(),1);
 $vue->__render(array());
-=======
+
 $vue = new VueParticipant($listl->toArray());
 $vue->affichage(1,$listl);
 
