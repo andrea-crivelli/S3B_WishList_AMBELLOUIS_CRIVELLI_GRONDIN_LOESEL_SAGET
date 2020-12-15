@@ -66,7 +66,7 @@ END;
         switch ($modeAffichage){
             case 1 : $this->htmlListeSouhait($item);
             break;
-            case 2 : $this->__htmlListeItems($item);
+            case 2 : $this->htmlListeItems($item);
             break;
             case 3 : $this->__htmlItem($item);
             break;
