@@ -15,19 +15,18 @@ class VueParticipant
         $this->data=$data;
     }
 
-//afficher toutes les listes de souhaits
+    //afficher toutes les listes de souhaits
     private function htmlListeSouhait($listes)  : string{
         $liste=null;
-        var_dump($listes[0]);
         $html=<<<END
             <section class='content'>
             <ul>
             {foreach ( $listes as $liste){
-                <li>{$liste['titre']}</li>
-            }
+                <li>{$liste->titre}</li>
+            }}
             </ul>
             </section>
-END;
+    END;
         return $html;
     }
 
