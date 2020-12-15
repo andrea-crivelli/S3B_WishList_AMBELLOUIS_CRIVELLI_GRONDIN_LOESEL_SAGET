@@ -53,12 +53,12 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
 
 // pour afficher la liste des listes de souhaits
 $listl = Liste::all();
-$vue = new VueParticipant($listl->toArray());
-$vue->affichage(1,$listl);
+$vue = new VueParticipant($listl->toArray(),1);
+$vue->__render(array());
 // pour afficher 1 item
 $item = Item::find(3);
-$vue = new VueParticipant([$item]);
-$vue->affichage(3,$item);
+$vue = new VueParticipant([$item],3);
+$vue->__render(array());
 
 
 // RUN
