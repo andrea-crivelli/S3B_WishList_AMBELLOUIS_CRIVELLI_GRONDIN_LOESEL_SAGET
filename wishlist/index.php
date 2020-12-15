@@ -51,10 +51,20 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
 
 //TESTS
 
+
 // pour afficher la liste des listes de souhaits
 $listl = Liste::all();
+
 $vue = new VueParticipant($listl->toArray(),1);
 $vue->__render(array());
+=======
+$vue = new VueParticipant($listl->toArray());
+$vue->affichage(1,$listl);
+
+// pour afficher les items d'une liste
+$list = Liste::find(2);
+$vue = new VueParticipant($list);
+$vue->affichage(2, $list);
 // pour afficher 1 item
 $item = Item::find(3);
 $vue = new VueParticipant([$item],3);

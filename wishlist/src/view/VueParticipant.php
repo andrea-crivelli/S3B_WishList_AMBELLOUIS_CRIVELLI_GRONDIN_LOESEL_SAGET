@@ -63,6 +63,18 @@ END;
 
 
 
+<<<<<<< HEAD
+=======
+        switch ($modeAffichage){
+            case 1 : $this->htmlListeSouhait($item);
+            break;
+            case 2 : $this->htmlListeItems($item);
+            break;
+            case 3 : $this->__htmlItem($item);
+            break;
+        }
+    }
+>>>>>>> 8ea4366a5507c456f9d7f5b0085a2a4531305535
 
 
     public function __render(array $vars){
