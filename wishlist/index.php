@@ -55,16 +55,16 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
 // pour afficher la liste des listes de souhaits
 $listl = Liste::all();
 
-$vue = new VueParticipant($listl->toArray(),1);
+$vue = new VueParticipant($listl,1);
 $vue->__render(array());
 
-$vue = new VueParticipant($listl->toArray());
-$vue->affichage(1,$listl);
+$vue = new VueParticipant($listl,1);
+$vue->__render(array());
 
 // pour afficher les items d'une liste
 $list = Liste::find(2);
-$vue = new VueParticipant($list);
-$vue->affichage(2, $list);
+$vue = new VueParticipant($list,2);
+$vue->__render(array());
 // pour afficher 1 item
 $item = Item::find(3);
 $vue = new VueParticipant([$item],3);
