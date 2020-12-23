@@ -21,13 +21,12 @@ class VueParticipant
     //afficher toutes les listes de souhaits
     private function __htmlListeSouhait($listes)  : string{
         $liste=null;
-        $html="<<<END
-            <section class='content'>
+        $html="<section class='content'>
             <ul>";
         foreach ( $listes as $liste){
-                $html."<li>".$liste->titre."</li>";
+                $html=$html."<li>".$liste->titre."</li>";
         }
-        $html."</ul></section>END;";
+        $html."</ul></section>";
         return $html;
     }
 
@@ -35,28 +34,26 @@ class VueParticipant
     private function __htmlListeItems(Liste $liste) : string{
         $items=$liste->items();
         $item=null;
-        $html="<<<END
-            <section class='content'>
+        $html="<section class='content'>
             <h2>{$liste->titre}</h2>
             <ul>";
         foreach ($items as $item){
-                $html."<li>".$item->nom."</li>";
+                $html=$html."<li>".$item->nom."</li>";
         }
-        $html."</ul></section>END;";
+        $html."</ul></section>";
         return $html;
 
     }
 
     //afficher un item
     private function __htmlItem($item){
-        $html = "<<<END
-        <section class ='content'>";
+        $html = "<section class ='content'>";
         foreach ($item as $i) {
-            $html."<h3>" . $i->nom . "</h3>
+            $html=$html."<h3>" . $i->nom . "</h3>
         <p>" . $i->descr . "</p>
         <h4>tarif :" . $i->tarif . "</h4>";
         }
-        $html."</section>END;";
+        $html."</section>";
         return $html;
     }
 

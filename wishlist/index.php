@@ -48,6 +48,9 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
     return $rs;
 }
 );
+// RUN
+$app->run();
+
 
 //TESTS
 
@@ -56,20 +59,16 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
 $listl = Liste::all();
 
 $vue = new VueParticipant($listl,1);
-$vue->__render(array());
+print ($vue->__render(array()));
 
-$vue = new VueParticipant($listl,1);
-$vue->__render(array());
 
 // pour afficher les items d'une liste
 $list = Liste::find(2);
 $vue = new VueParticipant($list,2);
-$vue->__render(array());
+print($vue->__render(array()));
 // pour afficher 1 item
 $item = Item::find(3);
 $vue = new VueParticipant([$item],3);
 $vue->__render(array());
 
 
-// RUN
-$app->run();
