@@ -26,7 +26,7 @@ class ControleurParticipant {
             */
             $htmlvars = ['basepath'=> $rq->getUri()->getBasePath()];
 
-            $v = new VueParticipant([$item]);
+            $v = new VueParticipant([$item],3);
 
             $rs->getBody()->write($v->render($htmlvars));
 

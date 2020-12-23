@@ -4,7 +4,7 @@ use Illuminate\Database\Capsule\Manager as DB;
 
 use wishlist\model\Item;
 use wishlist\model\Liste;
-//use wishlist\controler\ControleurParticipant;
+use wishlist\controler\ControleurParticipant;
 use wishlist\view\VueParticipant;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -26,10 +26,10 @@ $app = new \Slim\App($c);
 
 // ROUTES SLIM
 
-/**$app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): Response {
+$app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): Response {
    $c = new ControleurParticipant($this);
    return $c->displayItem($rq, $rs, $args);
-})->setName('item'); **/
+})->setName('item');
 
 $app->get('/' ,function (Request $rq, Response $rs, array $args ): Response {
     $rs->getBody()->write("Page principale");
@@ -38,22 +38,27 @@ $app->get('/' ,function (Request $rq, Response $rs, array $args ): Response {
 );
 
 $app->get('/lists[/]', function (Request $rq, Response $rs, array $args ): Response {
-    $rs->getBody()->write("Affichage de la liste des listes");
+    //$rs->getBody()->write("Affichage de la liste des listes");
+    $listl = Liste::all();
+    $vue = new VueParticipant($listl,1);
+    $rs->getBody()->write($vue->__render(array()));
     return $rs;
 }
 );
 
 $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ): Response {
     $rs->getBody()->write("Affichage des items de la liste {$args['id']}");
+    $list = Liste::find($args['id']);
+    $vue = new VueParticipant($list,2);
+    print($vue->__render(array()));
     return $rs;
 }
 );
 // RUN
 $app->run();
 
-
+/*
 //TESTS
-
 
 // pour afficher la liste des listes de souhaits
 $listl = Liste::all();
@@ -70,5 +75,5 @@ print($vue->__render(array()));
 $item = Item::find(3);
 $vue = new VueParticipant([$item],3);
 $vue->__render(array());
-
+*/
 
