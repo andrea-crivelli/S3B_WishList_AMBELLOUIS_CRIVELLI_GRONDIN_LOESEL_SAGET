@@ -34,8 +34,7 @@ $app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): R
 $app->get('/' ,function (Request $rq, Response $rs, array $args ): Response {
     $rs->getBody()->write("Page principale");
     return $rs;
-}
-);
+})->setName('accueil');
 
 $app->get('/lists[/]', function (Request $rq, Response $rs, array $args ): Response {
     //$rs->getBody()->write("Affichage de la liste des listes");
@@ -52,28 +51,16 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
     $vue = new VueParticipant($list,2);
     print($vue->__render(array()));
     return $rs;
-}
-);
-// RUN
-$app->run();
+});
 
-/*
-//TESTS
+$app->post('/create/list[/]', function (Request $request, Response $response, array $args) use ($c) {
+    $control = new ListController($c);
+    return $c->createListe($request, $response, $args);
+})->setName('creationListe');
 
-// pour afficher la liste des listes de souhaits
-$listl = Liste::all();
+$app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args) use ($c) {
+    $control = new ListeController($c);
+    return $c->getListe($request, $response, $args);
+})->setName('afficherListe');
 
-$vue = new VueParticipant($listl,1);
-print ($vue->__render(array()));
-
-
-// pour afficher les items d'une liste
-$list = Liste::find(2);
-$vue = new VueParticipant($list,2);
-print($vue->__render(array()));
-// pour afficher 1 item
-$item = Item::find(3);
-$vue = new VueParticipant([$item],3);
-$vue->__render(array());
-*/
 
