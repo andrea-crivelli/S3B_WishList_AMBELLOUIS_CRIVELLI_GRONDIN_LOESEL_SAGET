@@ -1,7 +1,7 @@
 <?php
 
 
-namespace wishlist\controler;
+namespace wishlist\controllers;
 
 
 use wishlist\model\Liste;

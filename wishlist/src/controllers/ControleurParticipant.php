@@ -1,6 +1,6 @@
 <?php
 
-namespace wishlist\controler;
+namespace wishlist\controllers;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use \Psr\Http\Message\ServerRequestInterface as Request;

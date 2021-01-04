@@ -4,7 +4,7 @@ use Illuminate\Database\Capsule\Manager as DB;
 
 use wishlist\model\Item;
 use wishlist\model\Liste;
-use wishlist\controler\ControleurParticipant;
+use wishlist\controllers\ControleurParticipant;
 use wishlist\view\VueParticipant;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
