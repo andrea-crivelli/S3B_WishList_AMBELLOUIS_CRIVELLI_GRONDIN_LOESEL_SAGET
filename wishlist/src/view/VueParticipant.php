@@ -59,7 +59,7 @@ class VueParticipant
 
 
 
-    public function __render(array $vars){
+    public function render(array $vars){
        switch ($this->modeAffichage){
             case 1 : $content=$this->__htmlListeSouhait($this->data);
                 break;

@@ -28,8 +28,8 @@ $cont = $app->getContainer();
 
 // ROUTES SLIM
 $app->get('/' ,function (Request $rq, Response $rs, array $args ) use ($cont){
-    $rs = new ControleurPages($cont);
-    return $rs->pagePrincipale($rq, $rs, $args);
+    $control = new ControleurPages($cont);
+    return $control->pagePrincipale($rq, $rs, $args);
 })->setName('accueil');
 
 $app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): Response {
@@ -38,19 +38,18 @@ $app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): R
 })->setName('item');
 
 $app->get('/lists[/]', function (Request $rq, Response $rs, array $args ): Response {
-    //$rs->getBody()->write("Affichage de la liste des listes");
+    /*$rs->getBody()->write("Affichage de la liste des listes");
     $listl = Liste::all();
     $vue = new VueParticipant($listl,1);
-    $rs->getBody()->write($vue->__render(array()));
+    $rs->getBody()->write($vue->__render(array()));*/
     return $rs;
-}
-);
+});
 
 $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ): Response {
-    $rs->getBody()->write("Affichage des items de la liste {$args['id']}");
+    /*$rs->getBody()->write("Affichage des items de la liste {$args['id']}");
     $list = Liste::find($args['id']);
     $vue = new VueParticipant($list,2);
-    print($vue->__render(array()));
+    print($vue->render(array()));*/
     return $rs;
 });
 
@@ -65,3 +64,4 @@ $app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response
 })->setName('afficherListe');
 
 
+$app->run();

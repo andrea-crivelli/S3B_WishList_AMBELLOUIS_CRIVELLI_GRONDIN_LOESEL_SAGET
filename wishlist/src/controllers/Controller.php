@@ -4,14 +4,14 @@
 namespace wishlist\controllers;
 
 
+use Slim\Container;
+
 abstract class Controller
 {
-    protected $view;
-    protected $router;
+    protected $c;
 
     public function __construct(Container $container)
     {
-        $this->view = $container->view;
-        $this->router = $container->router;
+        $this->c = $container;
     }
 }

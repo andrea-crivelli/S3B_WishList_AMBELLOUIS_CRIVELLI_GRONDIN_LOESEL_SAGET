@@ -12,7 +12,7 @@ class VueAccueil{
         $this->data=$data;
     }
 
-    public function __render(array $vars){
+    public function render(array $vars){
 
         $html=<<<END
 <!DOCTYPE html>

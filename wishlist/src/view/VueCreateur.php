@@ -20,7 +20,7 @@ class VueCreateur
         return $html;
     }
 
-    public function __render(array $vars){
+    public function render(array $vars){
         switch ($this->modeAffichage){
             case 1 : $content=$this->htmlCreateListe($this->data);
                 break;

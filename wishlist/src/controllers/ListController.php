@@ -22,7 +22,7 @@ class ListController extends Controller
         $l->tokenCreation = bin2hex(openssl_random_pseudo_bytes(12));
         $l->save();
 
-        $url = $this->router->pathFor('afficherListe',['token'=>$l->token]);
+        $url = $this->c->router->pathFor('afficherListe',['token'=>$l->token]);
     }
 
 
