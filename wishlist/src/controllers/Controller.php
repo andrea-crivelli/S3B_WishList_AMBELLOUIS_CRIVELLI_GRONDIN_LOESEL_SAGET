@@ -4,7 +4,7 @@
 namespace wishlist\controllers;
 
 
-public abstract class Controller
+abstract class Controller
 {
     protected $view;
     protected $router;
