@@ -23,11 +23,12 @@ $db->bootEloquent();
 // SLIM
 $c = new \Slim\Container(['settings'=>['displayErrorDetails' => true]]);
 $app = new \Slim\App($c);
+$cont = $app->getContainer();
 
 
 // ROUTES SLIM
-$app->get('/' ,function (Request $rq, Response $rs, array $args ) use ($c){
-    $rs = new ControleurPages($c);
+$app->get('/' ,function (Request $rq, Response $rs, array $args ) use ($cont){
+    $rs = new ControleurPages($cont);
     return $rs->pagePrincipale($rq, $rs, $args);
 })->setName('accueil');
 
@@ -53,13 +54,13 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
     return $rs;
 });
 
-$app->post('/create/list[/]', function (Request $request, Response $response, array $args) use ($c) {
-    $control = new ListController($c);
+$app->post('/create/list[/]', function (Request $request, Response $response, array $args) use ($cont) {
+    $control = new ListController($cont);
     return $c->createListe($request, $response, $args);
 })->setName('creationListe');
 
-$app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args) use ($c) {
-    $control = new ListeController($c);
+$app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args) use ($cont) {
+    $control = new ListeController($cont);
     return $c->getListe($request, $response, $args);
 })->setName('afficherListe');
 
