@@ -56,12 +56,12 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
 
 $app->post('/create/list[/]', function (Request $request, Response $response, array $args) use ($cont) {
     $control = new ListController($cont);
-    return $c->createListe($request, $response, $args);
+    return $cont->createListe($request, $response, $args);
 })->setName('creationListe');
 
 $app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args) use ($cont) {
     $control = new ListeController($cont);
-    return $c->getListe($request, $response, $args);
+    return $cont->getListe($request, $response, $args);
 })->setName('afficherListe');
 
 
