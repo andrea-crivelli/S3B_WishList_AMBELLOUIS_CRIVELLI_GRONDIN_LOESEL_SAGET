@@ -26,12 +26,24 @@ $c = new \Slim\Container(['settings'=>['displayErrorDetails' => true]]);
 $app = new \Slim\App($c);
 $cont = $app->getContainer();
 
-
 // ROUTES SLIM
 $app->get('/' ,function (Request $rq, Response $rs, array $args ) use ($cont){
     $control = new ControleurPages($cont);
     return $control->pagePrincipale($rq, $rs, $args);
 })->setName('accueil');
+
+$app->get('/lists[/]', function (Request $rq, Response $rs, array $args ) use ($cont) {
+    $control = new ControleurListe($cont);
+    return $control->afficherListes($rq, $rs, $args);
+})->setName('afficherListes');
+
+$app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ) use ($cont) {
+    /*$rs->getBody()->write("Affichage des items de la liste {$args['id']}");
+    $list = Liste::find($args['id']);
+    $vue = new VueParticipant($list,2);
+    print($vue->render(array()));*/
+    return $rs;
+})->setName('afficherItemsListe');
 
 $app->post('/create/list[/]', function (Request $request, Response $response, array $args) use ($cont) {
     $control = new ControleurListe($cont);
@@ -47,22 +59,6 @@ $app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): R
    $c = new ControleurParticipant($this);
    return $c->displayItem($rq, $rs, $args);
 })->setName('item');
-
-$app->get('/lists[/]', function (Request $rq, Response $rs, array $args ): Response {
-    /*$rs->getBody()->write("Affichage de la liste des listes");
-    $listl = Liste::all();
-    $vue = new VueParticipant($listl,1);
-    $rs->getBody()->write($vue->__render(array()));*/
-    return $rs;
-});
-
-$app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ): Response {
-    /*$rs->getBody()->write("Affichage des items de la liste {$args['id']}");
-    $list = Liste::find($args['id']);
-    $vue = new VueParticipant($list,2);
-    print($vue->render(array()));*/
-    return $rs;
-});
 
 
 $app->run();

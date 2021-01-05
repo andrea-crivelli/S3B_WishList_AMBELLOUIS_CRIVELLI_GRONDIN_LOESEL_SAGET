@@ -2,6 +2,11 @@
 
 namespace wishlist\controleurs;
 
+use wishlist\modeles\Liste;
+use wishlist\vues\VueParticipant;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+
 
 class ControleurListe extends Controleur {
 
@@ -55,5 +60,13 @@ class ControleurListe extends Controleur {
             $response = $response->withRedirect($this->router->pathFor('home'));
         }
         return $response;
+    }
+
+    public function afficherListes(Request $rq, Response $rs, array $args): Response{
+        $rs->getBody()->write("Affichage de la liste des listes");
+        $listl = Liste::all();
+        $vue = new VueParticipant($listl,1);
+        $rs->getBody()->write($vue->render(array()));
+        return $rs;
     }
 }

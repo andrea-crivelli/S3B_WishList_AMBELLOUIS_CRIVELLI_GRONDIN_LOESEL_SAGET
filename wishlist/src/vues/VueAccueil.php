@@ -15,7 +15,7 @@ class VueAccueil {
 
         $html = <<<END
             <!DOCTYPE html>
-            <html lang="en">
+            <html lang="fr">
             
             <head>
             
@@ -24,7 +24,7 @@ class VueAccueil {
               <meta name="description" content="">
               <meta name="author" content="">
             
-              <title>Shop Homepage - Start Bootstrap Template</title>
+              <title>MyWishlist</title>
             
               <!-- Bootstrap core CSS -->
               <link href="public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,25 +39,25 @@ class VueAccueil {
               <!-- Navigation -->
               <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <div class="container">
-                  <a class="navbar-brand" href="#">Start Bootstrap</a>
+                  <a class="navbar-brand" href="#">MyWishlist</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                        <a class="nav-link" href="#">Accueil
                           <span class="sr-only">(current)</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#">Listes</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="#">Créer une liste</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#">Compte</a>
                       </li>
                     </ul>
                   </div>
@@ -223,7 +223,7 @@ class VueAccueil {
               <!-- Footer -->
               <footer class="py-5 bg-dark">
                 <div class="container">
-                  <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+                  <p class="m-0 text-center text-white">Copyright &copy; MyWishlist 2021</p>
                 </div>
                 <!-- /.container -->
               </footer>
