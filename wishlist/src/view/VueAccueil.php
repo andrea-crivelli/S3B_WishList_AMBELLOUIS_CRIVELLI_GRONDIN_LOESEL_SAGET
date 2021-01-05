@@ -4,8 +4,14 @@
 namespace wishlist\view;
 
 
-class VueAcceuil
-{
+class VueAccueil{
+    private $data;
+
+    public function __construct($data)
+    {
+        $this->data=$data;
+    }
+
     public function __render(array $vars){
 
         $html=<<<END
@@ -22,10 +28,10 @@ class VueAcceuil
   <title>Shop Homepage - Start Bootstrap Template</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
+  <link href="public/html/css/shop-homepage.css" rel="stylesheet">
 
 </head>
 
@@ -224,8 +230,8 @@ class VueAcceuil
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="public/html/vendor/jquery/jquery.min.js"></script>
+  <script src="public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

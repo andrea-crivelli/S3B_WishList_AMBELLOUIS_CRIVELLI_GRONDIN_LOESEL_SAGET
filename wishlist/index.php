@@ -6,6 +6,7 @@ use wishlist\model\Item;
 use wishlist\model\Liste;
 use wishlist\controllers\ControleurParticipant;
 use wishlist\view\VueParticipant;
+use \wishlist\controllers\ControleurPages;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -25,16 +26,15 @@ $app = new \Slim\App($c);
 
 
 // ROUTES SLIM
+$app->get('/' ,function (Request $rq, Response $rs, array $args ) use ($c){
+    $rs = new ControleurPages($c);
+    return $rs->pagePrincipale($rq, $rs, $args);
+})->setName('accueil');
 
 $app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): Response {
    $c = new ControleurParticipant($this);
    return $c->displayItem($rq, $rs, $args);
 })->setName('item');
-
-$app->get('/' ,function (Request $rq, Response $rs, array $args ): Response {
-    $rs->getBody()->write("Page principale");
-    return $rs;
-})->setName('accueil');
 
 $app->get('/lists[/]', function (Request $rq, Response $rs, array $args ): Response {
     //$rs->getBody()->write("Affichage de la liste des listes");
