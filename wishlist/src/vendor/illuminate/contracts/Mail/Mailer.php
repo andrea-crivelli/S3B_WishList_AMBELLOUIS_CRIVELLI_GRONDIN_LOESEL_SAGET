@@ -30,7 +30,7 @@ interface Mailer
     public function raw($text, $callback);
 
     /**
-     * Send a new message using a view.
+     * Send a new message using a vues.
      *
      * @param  \Illuminate\Contracts\Mail\Mailable|string|array  $view
      * @param  array  $data

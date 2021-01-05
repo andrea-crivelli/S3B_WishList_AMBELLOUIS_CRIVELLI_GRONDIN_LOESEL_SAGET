@@ -2,11 +2,12 @@
 require_once __DIR__ . '/src/vendor/autoload.php';
 use Illuminate\Database\Capsule\Manager as DB;
 
-use wishlist\model\Item;
-use wishlist\model\Liste;
-use wishlist\controllers\ControleurParticipant;
-use wishlist\view\VueParticipant;
-use \wishlist\controllers\ControleurPages;
+use wishlist\modeles\Item;
+use wishlist\modeles\Liste;
+use wishlist\controleurs\ControleurParticipant;
+use wishlist\controleurs\ControleurListe;
+use wishlist\vues\VueParticipant;
+use \wishlist\controleurs\ControleurPages;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -32,6 +33,16 @@ $app->get('/' ,function (Request $rq, Response $rs, array $args ) use ($cont){
     return $control->pagePrincipale($rq, $rs, $args);
 })->setName('accueil');
 
+$app->post('/create/list[/]', function (Request $request, Response $response, array $args) use ($cont) {
+    $control = new ControleurListe($cont);
+    return $cont->createListe($request, $response, $args);
+})->setName('creationListe');
+
+$app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args) use ($cont) {
+    $control = new ControleurListe($cont);
+    return $cont->getListe($request, $response, $args);
+})->setName('afficherListe');
+
 $app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): Response {
    $c = new ControleurParticipant($this);
    return $c->displayItem($rq, $rs, $args);
@@ -52,16 +63,6 @@ $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $ar
     print($vue->render(array()));*/
     return $rs;
 });
-
-$app->post('/create/list[/]', function (Request $request, Response $response, array $args) use ($cont) {
-    $control = new ListController($cont);
-    return $cont->createListe($request, $response, $args);
-})->setName('creationListe');
-
-$app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args) use ($cont) {
-    $control = new ListController($cont);
-    return $cont->getListe($request, $response, $args);
-})->setName('afficherListe');
 
 
 $app->run();

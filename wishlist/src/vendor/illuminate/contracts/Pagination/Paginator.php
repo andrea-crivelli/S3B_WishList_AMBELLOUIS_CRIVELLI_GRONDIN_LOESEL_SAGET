@@ -114,7 +114,7 @@ interface Paginator
     public function isNotEmpty();
 
     /**
-     * Render the paginator using a given view.
+     * Render the paginator using a given vues.
      *
      * @param  string|null  $view
      * @param  array  $data

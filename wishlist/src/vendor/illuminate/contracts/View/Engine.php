@@ -5,7 +5,7 @@ namespace Illuminate\Contracts\View;
 interface Engine
 {
     /**
-     * Get the evaluated contents of the view.
+     * Get the evaluated contents of the vues.
      *
      * @param  string  $path
      * @param  array  $data

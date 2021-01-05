@@ -1,12 +1,12 @@
 <?php
 
-namespace wishlist\controllers;
+namespace wishlist\controleurs;
 
-use wishlist\view\VueAccueil;
+use wishlist\vues\VueAccueil;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class ControleurPages extends Controller{
+class ControleurPages extends Controleur {
 
     public function pagePrincipale(Request $rq, Response $rs, array $args): Response{
         $v = new VueAccueil($rs);

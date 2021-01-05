@@ -54,7 +54,7 @@ trait AsPivot
 
         // We store off the parent instance so we will access the timestamp column names
         // for the model, since the pivot model timestamps aren't easily configurable
-        // from the developer's point of view. We can use the parents to get these.
+        // from the developer's point of vues. We can use the parents to get these.
         $instance->pivotParent = $parent;
 
         $instance->exists = $exists;

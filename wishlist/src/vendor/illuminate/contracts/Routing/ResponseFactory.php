@@ -24,7 +24,7 @@ interface ResponseFactory
     public function noContent($status = 204, array $headers = []);
 
     /**
-     * Create a new response for a given view.
+     * Create a new response for a given vues.
      *
      * @param  string|array  $view
      * @param  array  $data

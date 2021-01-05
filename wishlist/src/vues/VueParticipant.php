@@ -1,13 +1,12 @@
 <?php
 
-
-namespace wishlist\view;
-
+namespace wishlist\vues;
 
 use wishlist\model\Liste;
 
-class VueParticipant
-{
+
+class VueParticipant {
+
     private $data;
     private $modeAffichage;
 
@@ -74,10 +73,9 @@ class VueParticipant
        
         </head>
         <body>
-        $content
-</body>
+            $content
+        </body>
 END;
-        //<link rel="stylesheet" href="{$vars['basepath']}/wish.css"
 
         return $html;
     }

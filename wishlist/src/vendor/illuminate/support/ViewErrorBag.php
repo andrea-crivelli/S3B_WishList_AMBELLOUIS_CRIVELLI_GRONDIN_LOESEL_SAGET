@@ -11,7 +11,7 @@ use Illuminate\Contracts\Support\MessageBag as MessageBagContract;
 class ViewErrorBag implements Countable
 {
     /**
-     * The array of the view error bags.
+     * The array of the vues error bags.
      *
      * @var array
      */
@@ -96,7 +96,7 @@ class ViewErrorBag implements Countable
     }
 
     /**
-     * Dynamically access a view error bag.
+     * Dynamically access a vues error bag.
      *
      * @param  string  $key
      * @return \Illuminate\Contracts\Support\MessageBag
@@ -107,7 +107,7 @@ class ViewErrorBag implements Countable
     }
 
     /**
-     * Dynamically set a view error bag.
+     * Dynamically set a vues error bag.
      *
      * @param  string  $key
      * @param  \Illuminate\Contracts\Support\MessageBag  $value

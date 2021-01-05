@@ -1,11 +1,10 @@
 <?php
 
+namespace wishlist\vues;
 
-namespace wishlist\view;
 
+class VueCreateur {
 
-class VueCreateur
-{
     private $data;
     private $modeAffichage;
 
@@ -31,10 +30,9 @@ class VueCreateur
        
         </head>
         <body>
-        $content
-</body>
+            $content
+        </body>
 END;
-        //<link rel="stylesheet" href="{$vars['basepath']}/wish.css"
 
         return $html;
     }

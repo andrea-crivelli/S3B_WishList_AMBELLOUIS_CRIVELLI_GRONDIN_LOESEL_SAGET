@@ -1,12 +1,12 @@
 <?php
 
-namespace wishlist\controllers;
+namespace wishlist\controleurs;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-use wishlist\model\Item;
-use wishlist\view\VueParticipant;
+use wishlist\modeles\Item;
+use wishlist\vues\VueParticipant;
 
 class ControleurParticipant {
 

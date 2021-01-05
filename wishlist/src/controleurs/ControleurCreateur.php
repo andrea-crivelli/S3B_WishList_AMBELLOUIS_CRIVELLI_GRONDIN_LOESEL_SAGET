@@ -1,13 +1,13 @@
 <?php
 
-
-namespace wishlist\controllers;
-
+namespace wishlist\controleurs;
 
 use wishlist\model\Liste;
 
-class ControleurCreateur
-{
+
+class ControleurCreateur {
+
+
     public function creerListe($titre,$description,$date_expi){
         Liste::creerListe($titre,$description,$date_expi);
         //generation de token

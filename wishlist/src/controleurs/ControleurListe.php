@@ -1,11 +1,9 @@
 <?php
 
+namespace wishlist\controleurs;
 
-namespace wishlist\controllers;
 
-
-class ListController extends Controller
-{
+class ControleurListe extends Controleur {
 
     public function createListe (Request $request,Response $response, array $args) : Response{
         $titre = filter_var($request->getParsedBodyParam('titre'), FILTER_SANITIZE_STRING);
@@ -24,10 +22,6 @@ class ListController extends Controller
 
         $url = $this->c->router->pathFor('afficherListe',['token'=>$l->token]);
     }
-
-
-
-
 
 
     public function createListe2(Request $request, Response $response, array $args): Response {

@@ -112,7 +112,7 @@ class PostgresBuilder extends Builder
     }
 
     /**
-     * Get all of the view names for the database.
+     * Get all of the vues names for the database.
      *
      * @return array
      */

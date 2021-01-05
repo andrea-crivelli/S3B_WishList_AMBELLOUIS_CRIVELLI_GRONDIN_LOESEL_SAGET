@@ -243,7 +243,7 @@ class SQLiteGrammar extends Grammar
      */
     public function compileDropAllViews()
     {
-        return "delete from sqlite_master where type in ('view')";
+        return "delete from sqlite_master where type in ('vues')";
     }
 
     /**

@@ -320,7 +320,7 @@ class MailFake implements Factory, Mailer, MailQueue
     }
 
     /**
-     * Send a new message using a view.
+     * Send a new message using a vues.
      *
      * @param  string|array  $view
      * @param  array  $data

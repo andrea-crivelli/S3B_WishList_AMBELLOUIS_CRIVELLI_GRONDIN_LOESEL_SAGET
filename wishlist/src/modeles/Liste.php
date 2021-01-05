@@ -1,15 +1,15 @@
 <?php
-namespace wishlist\model;
+namespace wishlist\modeles;
 use Illuminate\Database\Eloquent\Model;
 
-class Liste extends Model
-{
+class Liste extends Model {
+
     protected $table = 'liste';
     protected $primaryKey = 'no';
     public $timestamps=false;
 
     public function items(){
-        return $this->hasMany('\wishlist\model\Item','liste_id');
+        return $this->hasMany('\wishlist\modeles\Item','liste_id');
     }
 
     public static function ListerListeSouhait(){

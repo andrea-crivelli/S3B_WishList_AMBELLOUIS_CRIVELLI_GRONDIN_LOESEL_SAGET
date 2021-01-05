@@ -229,7 +229,7 @@ class PostgresGrammar extends Grammar
      */
     public function compileDropAllViews($views)
     {
-        return 'drop view "'.implode('","', $views).'" cascade';
+        return 'drop vues "'.implode('","', $views).'" cascade';
     }
 
     /**
@@ -255,7 +255,7 @@ class PostgresGrammar extends Grammar
     }
 
     /**
-     * Compile the SQL needed to retrieve all view names.
+     * Compile the SQL needed to retrieve all vues names.
      *
      * @param  string|array  $schema
      * @return string

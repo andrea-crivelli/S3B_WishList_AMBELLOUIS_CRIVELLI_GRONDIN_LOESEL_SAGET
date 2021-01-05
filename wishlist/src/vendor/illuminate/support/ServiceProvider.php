@@ -146,7 +146,7 @@ abstract class ServiceProvider
     }
 
     /**
-     * Register a view file namespace.
+     * Register a vues file namespace.
      *
      * @param  string|array  $path
      * @param  string  $namespace
@@ -154,10 +154,10 @@ abstract class ServiceProvider
      */
     protected function loadViewsFrom($path, $namespace)
     {
-        $this->callAfterResolving('view', function ($view) use ($path, $namespace) {
-            if (isset($this->app->config['view']['paths']) &&
-                is_array($this->app->config['view']['paths'])) {
-                foreach ($this->app->config['view']['paths'] as $viewPath) {
+        $this->callAfterResolving('vues', function ($view) use ($path, $namespace) {
+            if (isset($this->app->config['vues']['paths']) &&
+                is_array($this->app->config['vues']['paths'])) {
+                foreach ($this->app->config['vues']['paths'] as $viewPath) {
                     if (is_dir($appPath = $viewPath.'/vendor/'.$namespace)) {
                         $view->addNamespace($namespace, $appPath);
                     }
@@ -169,7 +169,7 @@ abstract class ServiceProvider
     }
 
     /**
-     * Register the given view components with a custom prefix.
+     * Register the given vues components with a custom prefix.
      *
      * @param  string  $prefix
      * @param  array  $components

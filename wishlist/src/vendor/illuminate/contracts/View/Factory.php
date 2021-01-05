@@ -5,7 +5,7 @@ namespace Illuminate\Contracts\View;
 interface Factory
 {
     /**
-     * Determine if a given view exists.
+     * Determine if a given vues exists.
      *
      * @param  string  $view
      * @return bool
@@ -13,7 +13,7 @@ interface Factory
     public function exists($view);
 
     /**
-     * Get the evaluated view contents for the given path.
+     * Get the evaluated vues contents for the given path.
      *
      * @param  string  $path
      * @param  \Illuminate\Contracts\Support\Arrayable|array  $data
@@ -23,7 +23,7 @@ interface Factory
     public function file($path, $data = [], $mergeData = []);
 
     /**
-     * Get the evaluated view contents for the given view.
+     * Get the evaluated vues contents for the given vues.
      *
      * @param  string  $view
      * @param  \Illuminate\Contracts\Support\Arrayable|array  $data
@@ -42,7 +42,7 @@ interface Factory
     public function share($key, $value = null);
 
     /**
-     * Register a view composer event.
+     * Register a vues composer event.
      *
      * @param  array|string  $views
      * @param  \Closure|string  $callback
@@ -51,7 +51,7 @@ interface Factory
     public function composer($views, $callback);
 
     /**
-     * Register a view creator event.
+     * Register a vues creator event.
      *
      * @param  array|string  $views
      * @param  \Closure|string  $callback

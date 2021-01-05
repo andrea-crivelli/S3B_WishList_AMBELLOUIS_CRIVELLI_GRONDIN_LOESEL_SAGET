@@ -394,7 +394,7 @@ class MySqlGrammar extends Grammar
      */
     public function compileDropAllViews($views)
     {
-        return 'drop view '.implode(',', $this->wrapArray($views));
+        return 'drop vues '.implode(',', $this->wrapArray($views));
     }
 
     /**
@@ -408,7 +408,7 @@ class MySqlGrammar extends Grammar
     }
 
     /**
-     * Compile the SQL needed to retrieve all view names.
+     * Compile the SQL needed to retrieve all vues names.
      *
      * @return string
      */

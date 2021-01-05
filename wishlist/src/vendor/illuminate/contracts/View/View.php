@@ -7,14 +7,14 @@ use Illuminate\Contracts\Support\Renderable;
 interface View extends Renderable
 {
     /**
-     * Get the name of the view.
+     * Get the name of the vues.
      *
      * @return string
      */
     public function name();
 
     /**
-     * Add a piece of data to the view.
+     * Add a piece of data to the vues.
      *
      * @param  string|array  $key
      * @param  mixed  $value
@@ -23,7 +23,7 @@ interface View extends Renderable
     public function with($key, $value = null);
 
     /**
-     * Get the array of view data.
+     * Get the array of vues data.
      *
      * @return array
      */
