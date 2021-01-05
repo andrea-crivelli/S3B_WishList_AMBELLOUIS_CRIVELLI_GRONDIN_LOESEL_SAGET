@@ -60,7 +60,7 @@ $app->post('/create/list[/]', function (Request $request, Response $response, ar
 })->setName('creationListe');
 
 $app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args) use ($cont) {
-    $control = new ListeController($cont);
+    $control = new ListController($cont);
     return $cont->getListe($request, $response, $args);
 })->setName('afficherListe');
 
