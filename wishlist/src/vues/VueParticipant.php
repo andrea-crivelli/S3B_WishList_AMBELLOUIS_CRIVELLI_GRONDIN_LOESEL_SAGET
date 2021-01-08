@@ -8,21 +8,21 @@ use wishlist\model\Liste;
 class VueParticipant {
 
     private $data;
-    private $modeAffichage;
+    private $container;
 
-    public function __construct($data,$modeAffichage)
+    public function __construct($data, $container)
     {
         $this->data=$data;
-        $this->modeAffichage=$modeAffichage;
+        $this->container=$container;
     }
 
 
     //afficher toutes les listes de souhaits
-    private function __htmlListeSouhait($listes)  : string{
+    private function __htmlListeSouhait()  : string{
         $liste=null;
         $html="<section class='content'>
             <ul>";
-        foreach ( $listes as $liste){
+        foreach ( $this->data as $liste){
                 $html=$html."<li>".$liste->titre."</li>";
         }
         $html."</ul></section>";
@@ -58,9 +58,9 @@ class VueParticipant {
 
 
 
-    public function render(array $vars){
-       switch ($this->modeAffichage){
-            case 1 : $content=$this->__htmlListeSouhait($this->data);
+    public function render(int $select){
+       switch ($select){
+            case 1 : $content=$this->__htmlListeSouhait();
                 break;
             case 2 : $content=$this->__htmlListeItems($this->data);
                 break;

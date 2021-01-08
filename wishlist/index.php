@@ -22,37 +22,46 @@ $db->bootEloquent();
 
 
 // SLIM
-$c = new \Slim\Container(['settings'=>['displayErrorDetails' => true]]);
-$app = new \Slim\App($c);
-$cont = $app->getContainer();
+$conf = ['settings' => [
+    'displayErrorDetails' => true,
+]];
+$container = new \Slim\Container($conf);
+$app = new \Slim\App($container);
 
 // ROUTES SLIM
-$app->get('/' ,function (Request $rq, Response $rs, array $args ) use ($cont){
-    $control = new ControleurPages($cont);
+
+$app->get('/',ControleurPages::class.':pagePrincipale')->setName('accueil');
+
+$app->get('/lists[/]', ControleurListe::class.':afficherListes')->setName('afficherListes');
+
+
+/**
+$app->get('/' ,function (Request $rq, Response $rs, array $args ){
+    $control = new ControleurPages($this->container);
     return $control->pagePrincipale($rq, $rs, $args);
 })->setName('accueil');
 
-$app->get('/lists[/]', function (Request $rq, Response $rs, array $args ) use ($cont) {
-    $control = new ControleurListe($cont);
+$app->get('/lists[/]', function (Request $rq, Response $rs, array $args ){
+    $control = new ControleurListe($this->container);
     return $control->afficherListes($rq, $rs, $args);
 })->setName('afficherListes');
 
-$app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ) use ($cont) {
-    /*$rs->getBody()->write("Affichage des items de la liste {$args['id']}");
+$app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ){
+    $rs->getBody()->write("Affichage des items de la liste {$args['id']}");
     $list = Liste::find($args['id']);
     $vue = new VueParticipant($list,2);
-    print($vue->render(array()));*/
+    print($vue->render(array()));
     return $rs;
 })->setName('afficherItemsListe');
 
-$app->post('/create/list[/]', function (Request $request, Response $response, array $args) use ($cont) {
-    $control = new ControleurListe($cont);
-    return $cont->createListe($request, $response, $args);
+$app->post('/create/list[/]', function (Request $request, Response $response, array $args){
+    $control = new ControleurListe($this->container);
+    return $control->createListe($request, $response, $args);
 })->setName('creationListe');
 
-$app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args) use ($cont) {
-    $control = new ControleurListe($cont);
-    return $cont->getListe($request, $response, $args);
+$app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args){
+    $control = new ControleurListe($this->container);
+    return $control->getListe($request, $response, $args);
 })->setName('afficherListe');
 
 $app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): Response {
@@ -60,5 +69,5 @@ $app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): R
    return $c->displayItem($rq, $rs, $args);
 })->setName('item');
 
-
+**/
 $app->run();

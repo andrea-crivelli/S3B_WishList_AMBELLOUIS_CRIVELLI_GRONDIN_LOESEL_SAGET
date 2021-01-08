@@ -10,6 +10,14 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 class ControleurListe extends Controleur {
 
+    public function afficherListes(Request $rq, Response $rs, array $args): Response{
+        $rs->getBody()->write("Affichage de la liste des listes");
+        $listl = Liste::all();
+        $vue = new VueParticipant($listl, $this->c);
+        $rs->getBody()->write($vue->render(1));
+        return $rs;
+    }
+
     public function createListe (Request $request,Response $response, array $args) : Response{
         $titre = filter_var($request->getParsedBodyParam('titre'), FILTER_SANITIZE_STRING);
         $description = filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
@@ -60,13 +68,5 @@ class ControleurListe extends Controleur {
             $response = $response->withRedirect($this->router->pathFor('home'));
         }
         return $response;
-    }
-
-    public function afficherListes(Request $rq, Response $rs, array $args): Response{
-        $rs->getBody()->write("Affichage de la liste des listes");
-        $listl = Liste::all();
-        $vue = new VueParticipant($listl,1);
-        $rs->getBody()->write($vue->render(array()));
-        return $rs;
     }
 }

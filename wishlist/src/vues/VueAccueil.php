@@ -4,14 +4,19 @@ namespace wishlist\vues;
 
 
 class VueAccueil {
-    private $data;
 
-    public function __construct($data)
+    private $data;
+    private $container;
+
+    public function __construct($data, $container)
     {
         $this->data=$data;
+        $this->container=$container;
     }
 
     public function render(array $vars) {
+
+        $url_listes = $this->container->router->pathFor('afficherListes');
 
         $html = <<<END
             <!DOCTYPE html>
@@ -51,7 +56,7 @@ class VueAccueil {
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Listes</a>
+                        <a class="nav-link" href="$url_listes">Listes</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Créer une liste</a>
