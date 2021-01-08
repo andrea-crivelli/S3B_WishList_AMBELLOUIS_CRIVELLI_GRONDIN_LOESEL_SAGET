@@ -2,7 +2,7 @@
 
 namespace wishlist\vues;
 
-use wishlist\model\Liste;
+use wishlist\modeles\Liste;
 
 
 class VueParticipant {
@@ -18,23 +18,22 @@ class VueParticipant {
 
 
     //afficher toutes les listes de souhaits
-    private function __htmlListeSouhait()  : string{
-        $liste=null;
-        $html="<section class='content'>
-            <ul>";
+    private function htmlListeSouhait()  : string{
+        $html= '';
         foreach ( $this->data as $liste){
-                $html=$html."<li>".$liste->titre."</li>";
+                $html.="<section class='content'>
+                            <li>{$liste->titre}</li>
+                        </section>";
         }
-        $html."</ul></section>";
         return $html;
     }
 
     //afficher les items de la liste en parametre
-    private function __htmlListeItems(Liste $liste) : string{
-        $items=$liste->items();
+    private function htmlListeItems() : string{
+        $items=$this->data->items();
         $item=null;
         $html="<section class='content'>
-            <h2>{$liste->titre}</h2>
+            <h2>{$this->data->titre}</h2>
             <ul>";
         foreach ($items as $item){
                 $html=$html."<li>".$item->nom."</li>";
@@ -45,14 +44,14 @@ class VueParticipant {
     }
 
     //afficher un item
-    private function __htmlItem($item){
+    private function htmlItem(){
         $html = "<section class ='content'>";
-        foreach ($item as $i) {
-            $html=$html."<h3>" . $i->nom . "</h3>
-        <p>" . $i->descr . "</p>
+        foreach ($this->data as $i) {
+            $html=$html."<h3>" . $i->nom . "</h3>";
+        $html.="<p>" . $i->descr . "</p>
         <h4>tarif :" . $i->tarif . "</h4>";
         }
-        $html."</section>";
+        $html.="</section>";
         return $html;
     }
 
@@ -60,21 +59,90 @@ class VueParticipant {
 
     public function render(int $select){
        switch ($select){
-            case 1 : $content=$this->__htmlListeSouhait();
+            case 1 : {
+                $content=$this->htmlListeSouhait();
                 break;
-            case 2 : $content=$this->__htmlListeItems($this->data);
+            }
+            case 2 : {
+                $content=$this->htmlListeItems();
                 break;
-            case 3 : $content=$this->__htmlItem($this->data);
+            }
+            case 3 : {
+                $content=$this->htmlItem();
                 break;
-        };
-        $html=<<<END
-        <!DOCTYPE html>
-        <head>
-       
-        </head>
-        <body>
-            $content
-        </body>
+            }
+        }
+
+        $url_accueil = $this->container->router->pathFor('accueil');
+        $url_listes = $this->container->router->pathFor('afficherListes');
+
+        $html = <<<END
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>MyWishlist</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../public/html/css/shop-homepage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="$url_accueil">MyWishlist</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="$url_accueil">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="$url_listes">Listes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Créer une liste</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Compte</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  $content
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; MyWishlist 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../public/html/vendor/jquery/jquery.min.js"></script>
+  <script src="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
 END;
 
         return $html;

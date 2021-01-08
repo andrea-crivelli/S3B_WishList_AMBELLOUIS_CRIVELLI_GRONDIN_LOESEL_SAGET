@@ -30,22 +30,11 @@ $app = new \Slim\App($container);
 
 // ROUTES SLIM
 
-$app->get('/',ControleurPages::class.':pagePrincipale')->setName('accueil');
-
-$app->get('/lists[/]', ControleurListe::class.':afficherListes')->setName('afficherListes');
+$app->get('/'               , ControleurPages::class.':pagePrincipale'   )->setName('accueil');
+$app->get('/lists[/]'       , ControleurListe::class.':afficherListes'  )->setName('afficherListes');
 
 
 /**
-$app->get('/' ,function (Request $rq, Response $rs, array $args ){
-    $control = new ControleurPages($this->container);
-    return $control->pagePrincipale($rq, $rs, $args);
-})->setName('accueil');
-
-$app->get('/lists[/]', function (Request $rq, Response $rs, array $args ){
-    $control = new ControleurListe($this->container);
-    return $control->afficherListes($rq, $rs, $args);
-})->setName('afficherListes');
-
 $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ){
     $rs->getBody()->write("Affichage des items de la liste {$args['id']}");
     $list = Liste::find($args['id']);
