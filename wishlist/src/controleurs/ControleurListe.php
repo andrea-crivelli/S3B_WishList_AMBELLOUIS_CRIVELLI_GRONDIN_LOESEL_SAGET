@@ -3,6 +3,7 @@
 namespace wishlist\controleurs;
 
 use wishlist\modeles\Liste;
+use wishlist\vues\VueCreateurListe;
 use wishlist\vues\VueParticipant;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -26,6 +27,14 @@ class ControleurListe extends Controleur {
         $rs->getBody()->write($vue->render(2));
         return $rs;
     }
+
+    public function afficherFormulaire(Request $rq,Response $rs, array $args) : Response{
+        $rs->getBody()->write("Affichage du formulaire");
+        $vue=new VueCreateurListe($this->c);
+        $rs->getBody()->write($vue->render([]));
+        return $rs;
+    }
+
 
     public function creerListe (Request $request,Response $response, array $args) : Response{
         $titre = filter_var($request->getParsedBodyParam('titre'), FILTER_SANITIZE_STRING);
