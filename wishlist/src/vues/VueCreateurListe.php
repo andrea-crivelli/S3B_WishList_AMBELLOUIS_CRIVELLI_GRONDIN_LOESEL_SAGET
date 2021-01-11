@@ -4,16 +4,19 @@
 namespace wishlist\vues;
 
 
-class VueCreateurListe {
+class VueCreateurListe
+{
 
-    private $titre, $descr ,$dateExpi;
+    private $titre, $descr, $dateExpi;
     private $container;
 
-    public function __construct($container){
+    public function __construct($container)
+    {
         $this->container = $container;
     }
 
-    public function render(array $vars){
+    public function render(array $vars)
+    {
 
         $url_accueil = $this->container->router->pathFor('accueil');
         $url_listes = $this->container->router->pathFor('afficherListes');

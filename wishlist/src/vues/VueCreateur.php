@@ -3,28 +3,32 @@
 namespace wishlist\vues;
 
 
-class VueCreateur {
+class VueCreateur
+{
 
     private $data;
     private $modeAffichage;
 
-    public function __construct($data,$modeAffichage)
+    public function __construct($data, $modeAffichage)
     {
-        $this->data=$data;
-        $this->modeAffichage=$modeAffichage;
+        $this->data = $data;
+        $this->modeAffichage = $modeAffichage;
     }
 
-    public function htmlCreateList($url){
-        $html="<section class='content'>Bravo votre liste a été créée. L'url est le suivant : .$url.</section>";
+    public function htmlCreateList($url)
+    {
+        $html = "<section class='content'>Bravo votre liste a été créée. L'url est le suivant : .$url.</section>";
         return $html;
     }
 
-    public function render(array $vars){
-        switch ($this->modeAffichage){
-            case 1 : $content=$this->htmlCreateListe($this->data);
+    public function render(array $vars)
+    {
+        switch ($this->modeAffichage) {
+            case 1 :
+                $content = $this->htmlCreateListe($this->data);
                 break;
         };
-        $html=<<<END
+        $html = <<<END
         <!DOCTYPE html>
         <head>
        

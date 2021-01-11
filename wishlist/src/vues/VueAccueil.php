@@ -3,18 +3,20 @@
 namespace wishlist\vues;
 
 
-class VueAccueil {
+class VueAccueil
+{
 
     private $data;
     private $container;
 
     public function __construct($data, $container)
     {
-        $this->data=$data;
-        $this->container=$container;
+        $this->data = $data;
+        $this->container = $container;
     }
 
-    public function render(array $vars) {
+    public function render(array $vars)
+    {
 
 
         $url_accueil = $this->container->router->pathFor('accueil');
@@ -72,15 +74,37 @@ class VueAccueil {
                 </div>
               </nav>
             
+              <!-- Page Content -->
+              <div class="container">
             
+                <div class="row">
             
-              <!-- Footer -->
-              <footer class="py-5 bg-dark">
-                <div class="container">
-                  <p class="m-0 text-center text-white">Copyright &copy; MyWishlist 2021</p>
+                  <div class="col-lg-3">
+            
+                    <h1 class="my-4">Shop Name</h1>
+                    <div class="list-group">
+                      <a href="#" class="list-group-item">Category 1</a>
+                      <a href="#" class="list-group-item">Category 2</a>
+                      <a href="#" class="list-group-item">Category 3</a>
+                    </div>
+         
+                  </div>
+                 </div>
                 </div>
-                <!-- /.container -->
-              </footer>
+                  
+             
+                     <!-- Acceuil -->
+                    <div class = container> 
+                    <h1>Bienvenue à tous</h1>
+                    </div>
+            
+            <!-- Footer -->
+            <footer class="py-5 bg-dark">
+            <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; MyWishlist 2021</p>
+            </div>
+            <!-- /.container -->
+            </footer>
             
               <!-- Bootstrap core JavaScript -->
               <script src="public/html/vendor/jquery/jquery.min.js"></script>
@@ -93,6 +117,5 @@ END;
 
         return $html;
     }
-
 
 }
