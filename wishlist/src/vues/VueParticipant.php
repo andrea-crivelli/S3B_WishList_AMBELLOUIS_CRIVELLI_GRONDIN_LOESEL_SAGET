@@ -21,8 +21,10 @@ class VueParticipant {
     private function htmlListeSouhait()  : string{
         $html= '';
         foreach ( $this->data as $liste){
-                $html.="<section class='content'>
+            $url_liste = $this->container->router->pathFor('afficherListe', ['token' => $liste->token]);
+            $html.="<section class='content'>
                             <li>{$liste->titre}</li>
+                            <a class=\"nav-link\" href=\"$url_liste\">Afficher liste</a>
                         </section>";
         }
         return $html;
@@ -30,17 +32,18 @@ class VueParticipant {
 
     //afficher les items de la liste en parametre
     private function htmlListeItems() : string{
-        $items=$this->data->items();
-        $item=null;
-        $html="<section class='content'>
-            <h2>{$this->data->titre}</h2>
-            <ul>";
-        foreach ($items as $item){
-                $html=$html."<li>".$item->nom."</li>";
+        $html='';
+        $html.= "<h2>{$this->data->titre}</h2>";
+        foreach ($this->data as $item){
+            $html.="
+                <section class='content'>
+                    <h2>{$this->data->titre}</h2>
+                    <ul>
+                        <li>{$item->nom}</li>
+                    </ul>
+                </section>";
         }
-        $html."</ul></section>";
         return $html;
-
     }
 
     //afficher un item

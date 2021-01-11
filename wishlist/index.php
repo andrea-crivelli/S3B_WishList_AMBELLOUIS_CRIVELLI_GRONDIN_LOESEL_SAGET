@@ -32,6 +32,7 @@ $app = new \Slim\App($container);
 
 $app->get('/'               , ControleurPages::class.':pagePrincipale'  )->setName('accueil');
 $app->get('/lists[/]'       , ControleurListe::class.':afficherListes'  )->setName('afficherListes');
+$app->get('/lists/{token}[/]', ControleurListe::class.':afficherListe'  )->setName('afficherListe');
 $app->post('createList[/]'  , ControleurListe::class.':creerListe'      )->setName('creationListe');
 
 /**
