@@ -17,7 +17,9 @@ class ControleurListe extends Controleur {
         $rs->getBody()->write($vue->render(1));
         return $rs;
 
-    }public function afficherListe(Request $rq, Response $rs, array $args): Response{
+    }
+
+    public function afficherListe(Request $rq, Response $rs, array $args): Response{
         $rs->getBody()->write("Affichage de la liste");
         $listl = Liste::find($args['token']);
         $vue = new VueParticipant($listl, $this->c);

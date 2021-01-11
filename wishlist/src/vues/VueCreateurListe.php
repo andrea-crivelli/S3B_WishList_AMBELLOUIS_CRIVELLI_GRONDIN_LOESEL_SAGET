@@ -94,6 +94,7 @@ class VueCreateurListe
             </body>
             
             </html>
+
 END;
 
         return $html;
