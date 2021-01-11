@@ -31,8 +31,8 @@ $app = new \Slim\App($container);
 // ROUTES SLIM
 
 $app->get('/'               , ControleurPages::class.':pagePrincipale'  )->setName('accueil');
-$app->get('/lists[/]'       , ControleurListe::class.':afficherListes'  )->setName('afficherListes');
-$app->post('createList[/]'  , ControleurListe::class.':creerListe'      )->setName('creationListe');
+$app->get('/liste[/]'       , ControleurListe::class.':afficherListes'  )->setName('afficherListes');
+$app->post('/creationListe[/]'  , ControleurListe::class.':creerListe'      )->setName('creationListe');
 
 /**
 $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ){
