@@ -74,10 +74,20 @@ class VueCreateurListe
               </nav>
             
             <!-- Données pour créer une liste -->
-            
-            <button class="navbar-toggler" name="titre">
-            <button class="navbar-toggler" name="description">
-            <button class="navbar-toggler" name="DateExpiration">
+                <form action="/ma-page-de-traitement" method="post">
+                    <div>
+                        <label>Titre :</label>
+                        <input type="text" id="name" name="user_name">
+                    </div>
+                    <div>
+                        <label>Description :</label>
+                        <textarea type="texte" id="descr" name="user_descr"></textarea>
+                    </div>
+                    <div>
+                        <label>DateExpiration :</label>
+                        <input id="dateExpir" name="user_date">
+                    </div>
+                </form>
             
               <!-- Footer -->
               <footer class="py-5 bg-dark">
