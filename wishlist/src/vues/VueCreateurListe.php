@@ -9,10 +9,7 @@ class VueCreateurListe {
     private $titre, $descr ,$dateExpi;
     private $container;
 
-    public function __construct($titre, $description, $dateExpiration, $container){
-        $this->titre=$titre;
-        $this->descr = $description;
-        $this->dateExpi = $dateExpiration;
+    public function __construct($container){
         $this->container = $container;
     }
 
@@ -20,7 +17,7 @@ class VueCreateurListe {
 
         $url_accueil = $this->container->router->pathFor('accueil');
         $url_listes = $this->container->router->pathFor('afficherListes');
-        $url_creationl = $this->container->router->pathFor('#');
+        $url_creationl = $this->container->router->pathFor('creationListe');
 
         $html = <<<END
             <!DOCTYPE html>

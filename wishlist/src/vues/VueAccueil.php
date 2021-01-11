@@ -16,8 +16,10 @@ class VueAccueil {
 
     public function render(array $vars) {
 
+
         $url_accueil = $this->container->router->pathFor('accueil');
         $url_listes = $this->container->router->pathFor('afficherListes');
+        $url_creationl = $this->container->router->pathFor('creationListe');
 
         $html = <<<END
             <!DOCTYPE html>
@@ -60,7 +62,7 @@ class VueAccueil {
                         <a class="nav-link" href="$url_listes">Listes</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Créer une liste</a>
+                        <a class="nav-link" href="$url_creationl">Créer une liste</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Compte</a>
@@ -245,5 +247,6 @@ END;
 
         return $html;
     }
+
 
 }
