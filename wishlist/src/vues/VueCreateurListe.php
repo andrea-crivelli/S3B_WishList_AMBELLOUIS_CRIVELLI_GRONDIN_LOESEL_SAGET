@@ -1,21 +1,19 @@
 <?php
 
+
 namespace wishlist\vues;
 
 
-class VueAccueil {
+class VueCreateurListe {
 
-    private $data;
+    private $titre, $descr ,$dateExpi;
     private $container;
 
-    public function __construct($data, $container)
-    {
-        $this->data=$data;
-        $this->container=$container;
+    public function __construct($container){
+        $this->container = $container;
     }
 
-    public function render(array $vars) {
-
+    public function render(array $vars){
 
         $url_accueil = $this->container->router->pathFor('accueil');
         $url_listes = $this->container->router->pathFor('afficherListes');
@@ -72,7 +70,11 @@ class VueAccueil {
                 </div>
               </nav>
             
+            <!-- Données pour créer une liste -->
             
+            <button class="navbar-toggler" name="titre">
+            <button class="navbar-toggler" name="description">
+            <button class="navbar-toggler" name="DateExpiration">
             
               <!-- Footer -->
               <footer class="py-5 bg-dark">
