@@ -121,7 +121,7 @@ END;
                 </div>
               </nav>
             
-           
+                $content
             
               <!-- Footer -->
               <footer class="py-5 bg-dark">

@@ -30,7 +30,7 @@ class ControleurListe extends Controleur {
     public function afficherFormulaire(Request $rq,Response $rs, array $args) : Response{
         $rs->getBody()->write("Affichage du formulaire");
         $vue=new VueCreateurListe($this->c);
-        $rs->getBody()->write($vue->render([]));
+        $rs->getBody()->write($vue->render(1));
         return $rs;
     }
 
