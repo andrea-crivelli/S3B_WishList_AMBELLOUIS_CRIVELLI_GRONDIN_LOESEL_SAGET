@@ -7,7 +7,6 @@ namespace wishlist\vues;
 class VueCreateurListe
 {
 
-    private $titre, $descr, $dateExpi;
     private $container;
 
     public function __construct($container)
@@ -15,8 +14,57 @@ class VueCreateurListe
         $this->container = $container;
     }
 
-    public function render(array $vars)
-    {
+
+
+
+    //afficher la création de la liste
+    private function htmlListe(){
+        $html = <<<END
+            <section class ='content'>
+         <!-- Données pour créer une liste -->
+                <form action="/ma-page-de-traitement" method="post">
+                    <div>
+                        <label>Titre :</label>
+                        <input type="text" id="name" name="titre">
+                    </div>
+                    <div>
+                        <label>Description :</label>
+                        <textarea type="texte" id="descr" name="descr"></textarea>
+                    </div>
+                    <div>
+                        <label>DateExpiration :</label>
+                        <input id="dateExpir" name="dateExpi">
+                    </div>
+                    
+                    <div>
+                    <button> Valider </button>
+                    </div>
+                </form>
+END;
+        return $html;
+    }
+
+
+    //afficher le lien qui envoie sur la nouvelle liste créée
+    private function htmlLienListe(){
+        $html = "<section class ='content'>";
+    }
+
+
+
+    public function render(int $select){
+        switch ($select) {
+            case 1 :
+            {
+                $content = $this->htmlListe();
+                break;
+            }
+            case 2 :
+            {
+                $content = $this->htmlLienListe();
+                break;
+            }
+        }
 
         $url_accueil = $this->container->router->pathFor('accueil');
         $url_listes = $this->container->router->pathFor('afficherListes');
@@ -73,25 +121,7 @@ class VueCreateurListe
                 </div>
               </nav>
             
-            <!-- Données pour créer une liste -->
-                <form action="/ma-page-de-traitement" method="post">
-                    <div>
-                        <label>Titre :</label>
-                        <input type="text" id="name" name="titre">
-                    </div>
-                    <div>
-                        <label>Description :</label>
-                        <textarea type="texte" id="descr" name="descr"></textarea>
-                    </div>
-                    <div>
-                        <label>DateExpiration :</label>
-                        <input id="dateExpir" name="dateExpi">
-                    </div>
-                    
-                    <div>
-                    <button> Valider </button>
-                    </div>
-                </form>
+           
             
               <!-- Footer -->
               <footer class="py-5 bg-dark">
