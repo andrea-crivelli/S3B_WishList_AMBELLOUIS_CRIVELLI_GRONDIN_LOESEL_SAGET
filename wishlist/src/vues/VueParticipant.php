@@ -17,47 +17,46 @@ namespace wishlist\vues;
         }
 
 
-        //afficher toutes les listes de souhaits
-        private function htmlListeSouhait()  : string{
-            $html= '';
-            foreach ( $this->data as $liste){
-                $url_liste = $this->container->router->pathFor('afficherListe', ['token' => $liste->token]);
-                $html.="<section class='content'>
-                                <li>{$liste->titre}</li>
-                                <a class=\"nav-link\" href=\"$url_liste\">Afficher liste</a>
-                            </section>";
-            }
-            return $html;
+
+    //afficher toutes les listes de souhaits
+    private function htmlListeSouhait()  : string{
+        $html= '';
+        foreach ( $this->data as $liste){
+            $url_liste = $this->container->router->pathFor('afficherListe', ['token' => $liste->token]);
+            $html.="<section class='content'>
+                            <li>{$liste->titre}</li>
+                            <a class=\"nav-link\" href=\"$url_liste\">Afficher liste</a>
+                        </section>";
+        }
+        return $html;
+    }
+
+    //afficher les items de la liste en parametre
+    private function htmlListeItems() : string{
+        $html='';
+        $html.= "<section class='content'>
+                    <h2>{$this->data->titre}</h2>
+                    <ul>
+                        <p><strong>Description</strong> : {$this->data->description}</p>
+                        <p>Items de la liste : </p>";
+        foreach ($this->data->items as $item){
+            $html.= "<li>{$item->nom}</li>";
+        }
+        $html.= "</ul>
+                </section>";
+        return $html;
+    }
+
+    //afficher un item
+    private function htmlItem(){
+        $html = "<section class ='content'>";
+        foreach ($this->data as $i) {
+            $html = $html . "<h3>" . $i->nom . "</h3>";
+            $html .= "<p>" . $i->descr . "</p>
+        <h4>tarif :" . $i->tarif . "</h4>";
+        }
         }
 
-
-        //afficher les items de la liste en parametre
-        private function htmlListeItems() : string{
-            $html='';
-            $html.= "<h2>{$this->data->titre}</h2>";
-            foreach ($this->data as $item){
-                $html.="
-                    <section class='content'>
-                        <h2>{$this->data->titre}</h2>
-                        <ul>
-                            <li>{$item->nom}</li>
-                        </ul>
-                    </section>";
-            }
-            return $html;
-        }
-
-        //afficher un item
-        private function htmlItem(){
-            $html = "<section class ='content'>";
-            foreach ($this->data as $i) {
-                $html=$html."<h3>" . $i->nom . "</h3>";
-            $html.="<p>" . $i->descr . "</p>
-            <h4>tarif :" . $i->tarif . "</h4>";
-            }
-            $html.="</section>";
-            return $html;
- }
 
 
 
