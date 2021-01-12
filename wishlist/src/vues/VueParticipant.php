@@ -36,8 +36,12 @@ class VueParticipant {
         $html.= "<section class='content'>
                     <h2>{$this->data->titre}</h2>
                     <ul>
-                        <li>{$this->data->description}</li>
-                    </ul>
+                        <p><strong>Description</strong> : {$this->data->description}</p>
+                        <p>Items de la liste : </p>";
+        foreach ($this->data->items as $item){
+            $html.= "<li>{$item->nom}</li>";
+        }
+        $html.= "</ul>
                 </section>";
         return $html;
     }
