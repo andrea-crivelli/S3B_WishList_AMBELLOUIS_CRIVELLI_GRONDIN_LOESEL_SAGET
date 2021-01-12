@@ -18,5 +18,11 @@ class VueItem
 
     public function render($vars) {
 
+
+        $url_accueil = $this->container->router->pathFor('accueil');
+        $url_listes = $this->container->router->pathFor('afficherListes');
+        $url_creationl = $this->container->router->pathFor('creationListe');
+
+
     }
 }
