@@ -95,10 +95,10 @@ namespace wishlist\vues;
                   <title>MyWishlist</title>
                 
                   <!-- Bootstrap core CSS -->
-                  <link href="public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+                  <link href="../public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
                 
                   <!-- Custom styles for this template -->
-                  <link href="public/html/css/shop-homepage.css" rel="stylesheet">
+                  <link href="../public/html/css/shop-homepage.css" rel="stylesheet">
                 
                 </head>
                 
@@ -143,8 +143,8 @@ namespace wishlist\vues;
                 </footer>
                 
                   <!-- Bootstrap core JavaScript -->
-                  <script src="public/html/vendor/jquery/jquery.min.js"></script>
-                  <script src="public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                  <script src="../public/html/vendor/jquery/jquery.min.js"></script>
+                  <script src="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
                 
                 </body>
                 
