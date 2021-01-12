@@ -30,6 +30,7 @@ namespace wishlist\vues;
             return $html;
         }
 
+
         //afficher les items de la liste en parametre
         private function htmlListeItems() : string{
             $html='';
@@ -56,7 +57,7 @@ namespace wishlist\vues;
             }
             $html.="</section>";
             return $html;
-        }
+ }
 
 
 
