@@ -77,15 +77,19 @@ class VueCreateurListe
                 <form action="/ma-page-de-traitement" method="post">
                     <div>
                         <label>Titre :</label>
-                        <input type="text" id="name" name="user_name">
+                        <input type="text" id="name" name="titre">
                     </div>
                     <div>
                         <label>Description :</label>
-                        <textarea type="texte" id="descr" name="user_descr"></textarea>
+                        <textarea type="texte" id="descr" name="descr"></textarea>
                     </div>
                     <div>
                         <label>DateExpiration :</label>
-                        <input id="dateExpir" name="user_date">
+                        <input id="dateExpir" name="dateExpi">
+                    </div>
+                    
+                    <div>
+                    <button> Valider </button>
                     </div>
                 </form>
             
