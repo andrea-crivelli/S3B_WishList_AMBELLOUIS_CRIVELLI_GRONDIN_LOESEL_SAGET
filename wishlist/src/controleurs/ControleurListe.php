@@ -22,7 +22,7 @@ class ControleurListe extends Controleur {
 
     public function afficherListe(Request $rq, Response $rs, array $args): Response{
         $rs->getBody()->write("Affichage de la liste");
-        $listl = Liste::find($args['token']);
+        $listl = Liste::where('token', '=', $args['token'])->first();
         $vue = new VueParticipant($listl, $this->c);
         $rs->getBody()->write($vue->render(2));
         return $rs;

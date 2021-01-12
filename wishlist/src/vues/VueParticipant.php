@@ -33,16 +33,12 @@ class VueParticipant {
     //afficher les items de la liste en parametre
     private function htmlListeItems() : string{
         $html='';
-        $html.= "<h2>{$this->data->titre}</h2>";
-        foreach ($this->data as $item){
-            $html.="
-                <section class='content'>
+        $html.= "<section class='content'>
                     <h2>{$this->data->titre}</h2>
                     <ul>
-                        <li>{$item->nom}</li>
+                        <li>{$this->data->description}</li>
                     </ul>
                 </section>";
-        }
         return $html;
     }
 
