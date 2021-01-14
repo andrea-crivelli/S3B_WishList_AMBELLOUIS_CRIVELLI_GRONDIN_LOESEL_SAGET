@@ -7,6 +7,7 @@ use wishlist\modeles\Item;
 use wishlist\modeles\Liste;
 use wishlist\controleurs\ControleurParticipant;
 use wishlist\controleurs\ControleurListe;
+use wishlist\controleurs\ControleurItem;
 use wishlist\vues\VueParticipant;
 use \wishlist\controleurs\ControleurPages;
 
@@ -35,6 +36,7 @@ $app = new \Slim\App($container);
 $app->get('/', ControleurPages::class . ':pagePrincipale')->setName('accueil');
 $app->get('/liste[/]', ControleurListe::class . ':afficherListes')->setName('afficherListes');
 $app->get('/liste/{token}', ControleurListe::class . ':afficherListe')->setName('afficherListe');
+$app->get('/item/{id}', ControleurItem::class . ':afficherItem')->setName('afficherItem');
 $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->setName('afficherFormulaireCreation');
 $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName('creationListe');
 

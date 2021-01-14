@@ -40,24 +40,13 @@ namespace wishlist\vues;
                         <p><strong>Description</strong> : {$this->data->description}</p>
                         <p>Items de la liste : </p>";
         foreach ($this->data->items as $item){
-            $html.= "<li>{$item->nom}</li>";
+            $url_item = $this->container->router->pathFor('afficherItem', ['id' => $item->id]);
+            $html.= "<li>{$item->nom} <a class=\"nav - link\" href=\"$url_item\">Afficher item</a></li>";
         }
         $html.= "</ul>
                 </section>";
         return $html;
     }
-
-    //afficher un item
-    private function htmlItem(){
-        $html = "<section class ='content'>";
-        foreach ($this->data as $i) {
-            $html = $html . "<h3>" . $i->nom . "</h3>";
-            $html .= "<p>" . $i->descr . "</p>
-        <h4>tarif :" . $i->tarif . "</h4>";
-        }
-        }
-
-
 
 
         public function render(int $select){
@@ -68,10 +57,6 @@ namespace wishlist\vues;
                 }
                 case 2 : {
                     $content=$this->htmlListeItems();
-                    break;
-                }
-                case 3 : {
-                    $content=$this->htmlItem();
                     break;
                 }
             }

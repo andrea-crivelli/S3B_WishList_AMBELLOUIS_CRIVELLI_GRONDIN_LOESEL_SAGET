@@ -15,10 +15,68 @@ class VueItem
         $this->data = $dt;
         $this->container = $c;
     }
-    
-    public function render($vars)
+
+    private function htmlAfficherItem()  : string{
+        $html= "<main class='container'>
+                  <div class='pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center'>
+                    <h1 class='display-4'>{$this->data->nom}</h1>
+                    <img src='../public/img/{$this->data->img}'>
+                  </div>
+
+
+                    <div class='col'>
+                      <div class='card mb-4 shadow-sm'>
+                      <div class='card-header''>
+                        <h4 class='my-0 fw-normal'>{$this->data->nom}</h4>
+                      </div>
+                      <div class='card-body'>
+                        <h1 class='card-title pricing-card-title'>{$this->data->tarif}€</h1>
+                        <ul class='list-unstyled mt-3 mb-4'>
+                          <p>{$this->data->descr}</p>
+                        </ul>
+                      </div>
+                    </div>
+                    </div>
+                </main> ";
+
+        return $html;
+    }
+
+    public function htmlReserverItem() :string {
+        $html = "\"<main class='container'>
+                  <div class='pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center'>
+                    <h1 class='display-4'>Nom du produit</h1>
+                    <img src='img.jpg'>
+                  </div>
+
+
+                    <div class='col'>
+                      <div class='card mb-4 shadow-sm'>
+                      <div class='card-header''>
+                        <h4 class='my-0 fw-normal'>Nom produit</h4>
+                      </div>
+                      <div class='card-body'>
+                        <h1 class='card-title pricing-card-title'>Prix Produit</h1>
+                        <ul class='list-unstyled mt-3 mb-4'>
+                          <p>Description Produit</p>
+                        </ul>
+                      </div>
+                    </div>
+                    </div>
+                </main> \";";
+        return $html;
+    }
+    public function render(int $select)
     {
-        
+        switch ($select){
+            case 1 : {
+                $content=$this->htmlAfficherItem();
+                break;
+            }case 2 : {
+                $content=$this->htmlReserverItem();
+                break;
+            }
+        }
         
         $url_accueil = $this->container->router->pathFor('accueil');
         $url_listes = $this->container->router->pathFor('afficherListes');
@@ -37,10 +95,10 @@ class VueItem
               <title>MyWishlist</title>
 
               <!-- Bootstrap core CSS -->
-              <link href="public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+              <link href="../public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
               <!-- Custom styles for this template -->
-              <link href="public/html/css/shop-homepage.css" rel="stylesheet">
+              <link href="../public/html/css/shop-homepage.css" rel="stylesheet">
 
             </head>
 
@@ -76,39 +134,8 @@ class VueItem
 
               <!-- Page Content -->
               <div class="container">
-
-                <div class="row">
-
-                  <div class="col-lg-3">
-
-
-                  </div>
-                 </div>
-                </div>
-
-
-                <main class="container">
-                  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-                    <h1 class="display-4">Nom du Produit</h1>
-                    <img src="img.jpg">
-                  </div>
-
-
-                    <div class="col">
-                      <div class="card mb-4 shadow-sm">
-                      <div class="card-header">
-                        <h4 class="my-0 fw-normal">Nom produit</h4>
-                      </div>
-                      <div class="card-body">
-                        <h1 class="card-title pricing-card-title">Prix Produit</h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                          <p>Description Produit</p>
-                        </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-primary" id="Reservation">Réserver</button>
-                      </div>
-                    </div>
-                    </div>
-                </main>
+                $content
+              </div>
 
             <!-- Footer -->
             <footer class="py-5 bg-dark">
@@ -119,8 +146,8 @@ class VueItem
             </footer>
 
               <!-- Bootstrap core JavaScript -->
-              <script src="public/html/vendor/jquery/jquery.min.js"></script>
-              <script src="public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+              <script src="../public/html/vendor/jquery/jquery.min.js"></script>
+              <script src="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
             </body>
 
@@ -128,6 +155,6 @@ class VueItem
 
 
 END;
-    
+    return $html;
     }
 }
