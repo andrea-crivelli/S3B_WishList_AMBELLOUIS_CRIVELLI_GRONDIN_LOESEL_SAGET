@@ -2,6 +2,8 @@
 
 namespace wishlist\controleurs;
 
+use DateTime;
+use Exception;
 use wishlist\modeles\Liste;
 use wishlist\vues\VueCreateurListe;
 use wishlist\vues\VueParticipant;
@@ -30,7 +32,7 @@ class ControleurListe extends Controleur {
     public function afficherFormulaire(Request $rq,Response $rs, array $args) : Response{
         $rs->getBody()->write("Affichage du formulaire");
         $vue=new VueCreateurListe($this->c);
-        $rs->getBody()->write($vue->render(1));
+        $rs->getBody()->write($vue->render(1),[]);
         return $rs;
     }
 
@@ -42,14 +44,17 @@ class ControleurListe extends Controleur {
         if (new DateTime() > new DateTime($dateExpiration)){
             throw new Exception("La date d'expiration est antérieure à la date courante.");
         }
-        $l=new Liste();
-        $l->titre=$titre;
-        $l->description=$description;
-        $l->expiration=$dateExpiration;
-        $l->token = bin2hex(openssl_random_pseudo_bytes(32));
-        $l->save();
+        if($titre != '') {
+            $l = new Liste();
+            $l->titre = $titre;
+            $l->description = $description;
+            $l->expiration = $dateExpiration;
+            $l->token = bin2hex(openssl_random_pseudo_bytes(32));
+            $l->tokencreation=bin2hex(openssl_random_pseudo_bytes(12));
+            $l->save();
+        }
 
-        $url = $this->c->router->pathFor('valdiationCreation');
+        $url = $this->c->router->pathFor('validationCreation');
         return $response->withRedirect($url);
     }
 }

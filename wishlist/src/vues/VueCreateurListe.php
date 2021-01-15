@@ -24,7 +24,7 @@ class VueCreateurListe
         $html = <<<END
             <section class ='content'>
          <!-- Données pour créer une liste -->
-                <form action="/ma-page-de-traitement" method="post">
+                <form method="post">
                     <div>
                         <label>Titre :</label>
                         <input type="text" id="name" name="titre">
@@ -52,9 +52,10 @@ END;
         $html = <<<END
             <section class ='content'>
                 <h2>Votre liste a été créée.</h2><br>
-                Si vous voulez la modifier, il vous fait utiliser l'url suivant : url...<br>
+                Si vous voulez la modifier, il vous fait utiliser l'url suivant :url_modification<br>
                 Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées : url_partage
         END;
+        return $html;
     }
 
 

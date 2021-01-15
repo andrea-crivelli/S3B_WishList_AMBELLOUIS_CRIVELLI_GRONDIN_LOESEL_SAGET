@@ -39,28 +39,7 @@ $app->get('/liste/{token}', ControleurListe::class . ':afficherListe')->setName(
 $app->get('/item/{id}', ControleurItem::class . ':afficherItem')->setName('afficherItem');
 $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->setName('afficherFormulaireCreation');
 $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName('creationListe');
-$app->get('/creationListe/validation[/]',ControleurPages::class.':pageValidation')->setName('valdiationCreation');
+$app->get('/creationListe/validation[/]',ControleurPages::class.':pageValidation')->setName('validationCreation');
+//$app->get('/modification/{token}',ControleurPages::
 
-
-/**
- * $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ){
- * $rs->getBody()->write("Affichage des items de la liste {$args['id']}");
- * $list = Liste::find($args['id']);
- * $vue = new VueParticipant($list,2);
- * print($vue->render(array()));
- * return $rs;
- * })->setName('afficherItemsListe');
- *
- *
- *
- * $app->get('/lists/{token:[a-zA-Z0-9]+[/]}', function (Request $request, Response $response, array $args){
- * $control = new ControleurListe($this->container);
- * return $control->getListe($request, $response, $args);
- * })->setName('afficherListe');
- *
- * $app->get('/items/{id}[/]', function (Request $rq, Response $rs, array $args): Response {
- * $c = new ControleurParticipant($this);
- * return $c->displayItem($rq, $rs, $args);
- * })->setName('item');
- **/
 $app->run();
