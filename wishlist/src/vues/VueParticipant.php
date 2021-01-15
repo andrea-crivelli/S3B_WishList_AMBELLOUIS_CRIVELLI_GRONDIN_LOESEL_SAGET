@@ -41,7 +41,7 @@ namespace wishlist\vues;
                         <p>Items de la liste : </p>";
         foreach ($this->data->items as $item){
             $url_item = $this->container->router->pathFor('afficherItem', ['id' => $item->id]);
-            $html.= "<li>{$item->nom} <a class=\"nav - link\" href=\"$url_item\">Afficher item</a></li>";
+            $html.= "<li> <a class=\"nav - link\" href=\"$url_item\">{$item->nom}</a></li>";
         }
         $html.= "</ul>
                 </section>";
