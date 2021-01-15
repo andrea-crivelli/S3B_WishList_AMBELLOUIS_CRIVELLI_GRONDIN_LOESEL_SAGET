@@ -49,7 +49,7 @@ END;
     //afficher le lien qui envoie sur la nouvelle liste créée
     private function htmlLienListe(){
 
-        $url_creationItem = $this->container->router->pathFor('creationItem');
+        $url_creationItem = $this->container->router->pathFor('formulaireItem');
         $html = <<<END
             <section class ='content'>
                 <h2>Votre liste a été créée.</h2><br>

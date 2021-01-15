@@ -50,7 +50,13 @@ END;
 
 
     public function render(int $select){
-
+            switch ($select) {
+                case 1 :
+                {
+                    $content = $this->creerItem();
+                    break;
+                }
+            }
         $url_accueil = $this->container->router->pathFor('accueil');
         $url_listes = $this->container->router->pathFor('afficherListes');
         $url_creationl = $this->container->router->pathFor('creationListe');
@@ -106,7 +112,8 @@ END;
                 </div>
               </nav>
 
-<h1>coucou les loulous</h1>
+                <h1>coucou les loulous</h1>
+                $content
             
               <!-- Footer -->
               <footer class="py-5 bg-dark">
