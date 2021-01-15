@@ -15,4 +15,8 @@ class ControleurItem extends Controleur {
         $rs->getBody()->write($vue->render(1));
         return $rs;
     }
+
+    public function creerItem (Request $rq, Response $rs, array $args) : Response{
+
+    }
 }
