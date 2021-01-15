@@ -32,18 +32,26 @@ $app = new \Slim\App($container);
 
 // ROUTES SLIM
 
-
+//page d'accueil
 $app->get('/', ControleurPages::class . ':pagePrincipale')->setName('accueil');
+//affichage listes publiques
 $app->get('/liste[/]', ControleurListe::class . ':afficherListes')->setName('afficherListes');
+//ajout d'item avec le token creation (createur)
+$app->get('liste/{tokencreation}/ajouterItem', ControleurItem::class.':creerItem')->setName('creationItem');
+//affichage d'une liste avec token (participant)
 $app->get('/liste/{token}', ControleurListe::class . ':afficherListe')->setName('afficherListe');
-$app->get('/item/{id}', ControleurItem::class . ':afficherItem')->setName('afficherItem');
+//affichage d'un item avec token
+$app->get('/item/{token}', ControleurItem::class . ':afficherItem')->setName('afficherItem');
+//affichage formulaire de creation
 $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->setName('afficherFormulaireCreation');
+//creation de liste
 $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName('creationListe');
+//affichage page de validation de creation
 $app->get('/creationListe/validation',ControleurPages::class.':pageValidation')->setName('validationCreation');
 
 //$app->get('/item/', ControleurItem::class.':afficherItem')->setName('afficherItem');
 
-$app->get('/item/', ControleurItem::class.':creerItem')->setName('creationItem');
+
 
 
 /**
