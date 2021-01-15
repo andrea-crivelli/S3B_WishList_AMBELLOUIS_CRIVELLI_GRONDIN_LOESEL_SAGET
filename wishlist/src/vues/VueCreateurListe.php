@@ -19,7 +19,7 @@ class VueCreateurListe
 
     //afficher la création de la liste
     private function htmlListe(){
-        $url_validation=$this->container->router->pathFor('creationListe');
+        $url_validation=$this->container->router->pathFor('');
 
         $html = <<<END
             <section class ='content'>
@@ -39,7 +39,7 @@ class VueCreateurListe
                     </div>
                     
                     <div>
-                    <button> Valider </button>
+                    <button><a href="$url_validation"> Valider </button></a>
                     </div>
                 </form>
 END;
@@ -49,12 +49,17 @@ END;
 
     //afficher le lien qui envoie sur la nouvelle liste créée
     private function htmlLienListe(){
+
+        $url_creationItem = $this->container->router->pathFor('creationItem');
         $html = <<<END
             <section class ='content'>
                 <h2>Votre liste a été créée.</h2><br>
                 Si vous voulez la modifier, il vous fait utiliser l'url suivant : url...<br>
                 Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées : url_partage
-        END;
+
+            <button><a  href="#">Creer liste</button></a>
+</section>
+END;
     }
 
 

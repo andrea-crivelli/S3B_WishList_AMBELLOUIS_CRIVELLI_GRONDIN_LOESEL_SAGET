@@ -41,6 +41,8 @@ $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->
 $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName('creationListe');
 $app->get('/creationListe/validation[/]',ControleurPages::class.':pageValidation')->setName('valdiationCreation');
 
+$app->get('/item/', ControleurItem::class.':afficherItem')->setName('creationItem');
+
 
 /**
  * $app->get('/lists/{id}/items[/]', function (Request $rq, Response $rs, array $args ){
