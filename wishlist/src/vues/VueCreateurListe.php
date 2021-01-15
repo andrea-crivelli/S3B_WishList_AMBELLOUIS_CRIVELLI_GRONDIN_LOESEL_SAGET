@@ -49,10 +49,12 @@ END;
 
     //afficher le lien qui envoie sur la nouvelle liste créée
     private function htmlLienListe(){
-        $html = "<section class ='content'>
-            <h2>Votre liste a été créée.</h2><br>
-            Si vous voulez la modifier, il vous fait utiliser l'url suivant : url...<br>
-            Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées : url_partage";
+        $html = <<<END
+            <section class ='content'>
+                <h2>Votre liste a été créée.</h2><br>
+                Si vous voulez la modifier, il vous fait utiliser l'url suivant : url...<br>
+                Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées : url_partage
+        END;
     }
 
 
