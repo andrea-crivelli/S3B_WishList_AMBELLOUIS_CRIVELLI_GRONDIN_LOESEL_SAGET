@@ -4,7 +4,7 @@
 namespace wishlist\vues;
 
 
-class VueCreateurListe
+class VueAjouterItem
 {
 
     private $container;
@@ -15,68 +15,7 @@ class VueCreateurListe
     }
 
 
-
-
-    //afficher la création de la liste
-    private function htmlListe(){
-
-        $html = <<<END
-            <section class ='content'>
-         <!-- Données pour créer une liste -->
-                <form method="post">
-                    <div>
-                        <label>Titre :</label>
-                        <input type="text" id="name" name="titre">
-                    </div>
-                    <div>
-                        <label>Description :</label>
-                        <textarea type="texte" id="descr" name="descr"></textarea>
-                    </div>
-                    <div>
-                        <label>DateExpiration :</label>
-                        <input id="dateExpir" name="dateExpi">
-                    </div>
-                    
-                    <div>
-                    <button>Valider </button></a>
-                    </div>
-                </form>
-END;
-        return $html;
-    }
-
-
-    //afficher le lien qui envoie sur la nouvelle liste créée
-    private function htmlLienListe(){
-
-        $url_creationItem = $this->container->router->pathFor('creationItem');
-        $html = <<<END
-            <section class ='content'>
-                <h2>Votre liste a été créée.</h2><br>
-                Si vous voulez la modifier, il vous fait utiliser l'url suivant :url_modification<br>
-                Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées : url_partage
-
-            <button><a  href="$url_creationItem">Modifier/Ajouter Item</button></a>
-</section>
-END;
-        return $html;
-    }
-
-
-
     public function render(int $select){
-        switch ($select) {
-            case 1 :
-            {
-                $content = $this->htmlListe();
-                break;
-            }
-            case 2 :
-            {
-                $content = $this->htmlLienListe();
-                break;
-            }
-        }
 
         $url_accueil = $this->container->router->pathFor('accueil');
         $url_listes = $this->container->router->pathFor('afficherListes');
@@ -132,8 +71,8 @@ END;
                   </div>
                 </div>
               </nav>
-            
-                $content
+
+<h1>coucou les loulous</h1>
             
               <!-- Footer -->
               <footer class="py-5 bg-dark">
@@ -155,6 +94,5 @@ END;
 
         return $html;
     }
-
 
 }

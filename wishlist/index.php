@@ -40,10 +40,10 @@ $app->get('/item/{id}', ControleurItem::class . ':afficherItem')->setName('affic
 $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->setName('afficherFormulaireCreation');
 $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName('creationListe');
 $app->get('/creationListe/validation[/]',ControleurPages::class.':pageValidation')->setName('validationCreation');
-//$app->get('/modification/{token}',ControleurPages::
 
+//$app->get('/item/', ControleurItem::class.':afficherItem')->setName('afficherItem');
 
-$app->get('/item/', ControleurItem::class.':afficherItem')->setName('creationItem');
+$app->get('/item/', ControleurItem::class.':creerItem')->setName('creationItem');
 
 
 /**
