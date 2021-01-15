@@ -49,7 +49,7 @@ class ControleurListe extends Controleur {
         $l->token = bin2hex(openssl_random_pseudo_bytes(32));
         $l->save();
 
-        $url = $this->c->router->pathFor('afficherListe');
+        $url = $this->c->router->pathFor('valdiationCreation');
         return $response->withRedirect($url);
     }
 }

@@ -5,12 +5,19 @@ namespace wishlist\controleurs;
 use wishlist\vues\VueAccueil;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use wishlist\vues\VueCreateurListe;
 
 class ControleurPages extends Controleur {
 
     public function pagePrincipale(Request $rq, Response $rs, array $args): Response{
         $v = new VueAccueil([],$this->c);
         $rs->getBody()->write($v->render($args));
+        return $rs;
+    }
+
+    public function pageValidation(Request $rq, Response $rs, array $args) : Response{
+        $v=new VueCreateurListe($this->c);
+        $rs->getBody()->write($v->render(2));
         return $rs;
     }
 }

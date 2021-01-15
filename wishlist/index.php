@@ -39,6 +39,7 @@ $app->get('/liste/{token}', ControleurListe::class . ':afficherListe')->setName(
 $app->get('/item/{id}', ControleurItem::class . ':afficherItem')->setName('afficherItem');
 $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->setName('afficherFormulaireCreation');
 $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName('creationListe');
+$app->get('/creationListe/validation[/]',ControleurPages::class.':pageValidation')->setName('valdiationCreation');
 
 
 /**
