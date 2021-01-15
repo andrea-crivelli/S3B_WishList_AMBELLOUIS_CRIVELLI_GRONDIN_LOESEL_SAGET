@@ -56,6 +56,7 @@ END;
                 Si vous voulez la modifier, il vous fait utiliser l'url suivant :url_modification<br>
                 Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées : url_partage<br>
 
+           
            <button><a  href="$url_creationItem">Modifier/Ajouter Item</button></a>
 </section>
 END;

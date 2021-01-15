@@ -14,6 +14,40 @@ class VueAjouterItem
         $this->container = $container;
     }
 
+    public function creerItem(){
+        $html = <<<END
+            <section class ='content'>
+         <!-- Données pour créer une liste -->
+                <form method="post">
+                    <div>
+                        <label>Titre :</label>
+                        <input type="text" id="name" name="titre">
+                    </div>
+                    <div>
+                        <label>Description :</label>
+                        <textarea type="texte" id="descr" name="descr"></textarea>
+                    </div>
+                    <div>
+                        <label>Image :</label>
+                        <input id="img" name="img">
+                    </div>
+                    <div>
+                        <label>Prix :</label>
+                        <input id="tarif" name="tarif">
+                    </div>
+                    <div>
+                        <label>Url :</label>
+                        <input id="url" name="url">
+                    </div>
+                    
+                    <div>
+                    <button>Valider </button></a>
+                    </div>
+                </form>
+END;
+        return $html;
+    }
+
 
     public function render(int $select){
 
