@@ -17,10 +17,12 @@ class VueAjouterItem
     public function creerItem(){
         $html = <<<END
             <section class ='content'>
+            <h1>Ajouter un item</h1>
+            Veuillez rentrer les informatiosn sur l'item à ajouter à votre liste :
          <!-- Données pour créer une liste -->
                 <form method="post">
                     <div>
-                        <label>Titre :</label>
+                        <label>Titre* :</label>
                         <input type="text" id="name" name="titre">
                     </div>
                     <div>
@@ -112,7 +114,6 @@ END;
                 </div>
               </nav>
 
-                <h1>coucou les loulous</h1>
                 $content
             
               <!-- Footer -->

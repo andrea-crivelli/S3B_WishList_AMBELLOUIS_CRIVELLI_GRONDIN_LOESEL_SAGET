@@ -57,16 +57,24 @@ class ControleurListe extends Controleur {
     }
 
     public function afficherPageValidation(Request $rq, Response $rs, array $args) : Response{
+        //tokencreation
+        $data[0]=$args['tokencreation'];
         //url de modification
-        $data[0]=$this->c->router->pathFor('modificationListe',['tokencreation' => $args['tokencreation']]);
+        $data[1]=$this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
         //url de partage
-        $data[1]=$this->c->router->pathFor('afficherListe',['token' => $args['token']]);
+        $data[2]=$this->c->router->pathFor('afficherListe',['token' => $args['token']]);
         $v=new VueCreateurListe($this->c,$data);
         $rs->getBody()->write($v->render(2));
         return $rs;
     }
 
-    public function modifierListe(Request $rq, Response $rs, array $args) : Response
+    public function afficherModifAjoutListe(Request $rq, Response $rs, array $args) : Response
         {
+            $data['tokencreation']=$args['tokencreation' ];
+            $data[0]=$this->c->router->pathFor('formulaireItem',['tokencreation'=>$args['tokencreation']]);
+            $data[1]=$this->c->router->pathFor('modifierListe',['tokencreation'=>$args['tokencreation']]);
+            $v=new VueCreateurListe($this->c,$data);
+            $rs->getBody()->write($v->render(3));
+            return $rs;
         }
     }

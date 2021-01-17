@@ -27,7 +27,7 @@ class VueCreateurListe
          <!-- Données pour créer une liste -->
                 <form method="post">
                     <div>
-                        <label>Titre :</label>
+                        <label>Titre* :</label>
                         <input type="text" id="name" name="titre" class="creationListe">
                     </div>
                     <div>
@@ -50,10 +50,11 @@ END;
 
     //afficher le lien qui envoie sur la nouvelle liste créée
     private function htmlLienListe(){
+        $tokencreation=$this->data[0];
+        $url_modifAjout = $this->container->router->pathFor('modificationAjoutListe',['tokencreation'=>$tokencreation]);
+        $url_modification=$this->data[1];
+        $url_partage=$this->data[2];
 
-        //$url_creationItem = $this->container->router->pathFor('formulaireItem');
-        $url_modification=$this->data[0];
-        $url_partage=$this->data[1];
         $html = <<<END
             <a class ='content'>
                 <h2>Votre liste a été créée.</h2><br>
@@ -61,7 +62,25 @@ END;
                 Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées :<br> <a href = "$url_partage">$url_partage</a><br>
 
            
-           <button><a  href="url_creationItem">Modifier/Ajouter Item</button></a>
+           <button><a  href="$url_modifAjout">Modifier/Ajouter Item</button></a>
+</section>
+END;
+        return $html;
+    }
+
+    private function htmlModifAjout(){
+    $url_ajout=$this->data[0];
+    $url_modif=$this->data[1];
+
+        $html = <<<END
+            <a class ='content'>
+                <h2 align="center">Modification / ajout d'items</h2>
+                Souhaitez-vous ajouter des items à votre liste ou modifier la liste ?<br><br>
+                
+                <button align = "center"><a href="$url_modif">Modifier la liste</a></button>
+                <button><a href="$url_ajout">Ajouter des items</a> </button>
+
+           
 </section>
 END;
         return $html;
@@ -81,6 +100,12 @@ END;
                 $content = $this->htmlLienListe();
                 break;
             }
+            case 3 :
+            {
+                $content = $this->htmlModifAjout();
+                break;
+            }
+
         }
 
         $url_accueil = $this->container->router->pathFor('accueil');

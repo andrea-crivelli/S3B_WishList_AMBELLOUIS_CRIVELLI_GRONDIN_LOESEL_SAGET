@@ -36,23 +36,40 @@ $app = new \Slim\App($container);
 $app->get('/', ControleurPages::class . ':pagePrincipale')->setName('accueil');
 //affichage listes publiques
 $app->get('/liste[/]', ControleurListe::class . ':afficherListes')->setName('afficherListes');
-//affichage du formulaire d'ajout d'item
-//$app->get('liste/{tokencreation}/ajouterItem', ControleurItem::class.':afficherFormulaireItem')->setName('formulaireItem');
-//ajout d'item avec le token creation (createur)
-//$app->post('liste/{tokencreation}/ajouterItem', ControleurItem::class.':creerItem')->setName('creationItem');
+/**
+ * Routes concernant les listes
+ */
 //affichage d'une liste avec token (participant)
 $app->get('/liste/{token}', ControleurListe::class . ':afficherListe')->setName('afficherListe');
-//affichage d'un item avec token
-$app->get('/item/{token}', ControleurItem::class . ':afficherItem')->setName('afficherItem');
+
 //affichage formulaire de creation
 $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->setName('afficherFormulaireCreation');
 //creation de liste
 $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName('creationListe');
+
 //affichage page de validation de creation
 $app->get('/creationListe/validation/{tokencreation}/{token}/',ControleurListe::class.':afficherPageValidation')->setName('validationCreation');
-//modification d'une liste
-$app->get('liste/modification/{tokencreation}',ControleurListe::class.':modifierListe')->setName('modificationListe');
+
+//choisir entre ajouter des items ou modifier la liste
+$app->get('/liste/modificationAjout/{tokencreation}[/]',ControleurListe::class.':afficherModifAjoutListe')->setName('modificationAjoutListe');
+
+//modifier la liste
+$app->get('/liste/modification/{tokencreation}',ControleurListe::class.':modifierListe')->setName('modifierListe');
+/**
+ * Routes concernant les items
+ */
+//affichage d'un item avec token
+$app->get('/item/{token}', ControleurItem::class . ':afficherItem')->setName('afficherItem');
+
+//affichage du formulaire d'ajout d'item
+$app->get('/liste/{tokencreation}/ajouterItem', ControleurItem::class.':afficherFormulaireItem')->setName('formulaireItem');
+//ajout d'item avec le token creation (createur)
+//$app->post('liste/{tokencreation}/ajouterItem', ControleurItem::class.':creerItem')->setName('creationItem');
+
 //$app->get('/item/', ControleurItem::class.':afficherItem')->setName('afficherItem');
+
+
+
 
 
 
