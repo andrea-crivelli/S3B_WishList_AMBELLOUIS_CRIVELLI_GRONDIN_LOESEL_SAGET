@@ -23,19 +23,20 @@ class VueCreateurListe
 
         $html = <<<END
             <section class ='content'>
+            <h1 align = center>Création d'une nouvelle liste</h1>
          <!-- Données pour créer une liste -->
                 <form method="post">
                     <div>
                         <label>Titre :</label>
-                        <input type="text" id="name" name="titre">
+                        <input type="text" id="name" name="titre" class="creationListe">
                     </div>
                     <div>
                         <label>Description :</label>
-                        <textarea type="texte" id="descr" name="descr"></textarea>
+                        <textarea type="texte" id="descr" name="descr" class="creationListe"></textarea>
                     </div>
                     <div>
                         <label>DateExpiration :</label>
-                        <input id="dateExpir" name="dateExpi">
+                        <input type="date" id="dateExpir" name="dateExpi" class ="creationListe">
                     </div>
                     
                     <div>
@@ -148,8 +149,8 @@ END;
               </footer>
             
               <!-- Bootstrap core JavaScript -->
-              <script src="public/html/vendor/jquery/jquery.min.js"></script>
-              <script src="public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+              <script src="../public/html/vendor/jquery/jquery.min.js"></script>
+              <script src="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
             
             </body>
             

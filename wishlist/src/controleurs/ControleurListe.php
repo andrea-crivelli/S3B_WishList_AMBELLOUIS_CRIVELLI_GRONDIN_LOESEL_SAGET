@@ -30,7 +30,6 @@ class ControleurListe extends Controleur {
     }
 
     public function afficherFormulaire(Request $rq,Response $rs, array $args) : Response{
-        $rs->getBody()->write("Affichage du formulaire");
         $vue=new VueCreateurListe($this->c,[]);
         $rs->getBody()->write($vue->render(1),[]);
         return $rs;
@@ -53,7 +52,6 @@ class ControleurListe extends Controleur {
             $l->tokencreation=bin2hex(openssl_random_pseudo_bytes(12));
             $l->save();
         }
-        print ($l->tokencreation);
         $url = $this->c->router->pathFor('validationCreation',['tokencreation' => $l->tokencreation,'token' => $l->token]);
         return $response->withRedirect($url);
     }

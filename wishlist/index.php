@@ -49,7 +49,7 @@ $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->
 //creation de liste
 $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName('creationListe');
 //affichage page de validation de creation
-$app->get('/creationListe/validation/{tokencreation}/{token}[/]',ControleurListe::class.':afficherPageValidation')->setName('validationCreation');
+$app->get('/creationListe/validation/{tokencreation}/{token}/',ControleurListe::class.':afficherPageValidation')->setName('validationCreation');
 //modification d'une liste
 $app->get('liste/modification/{tokencreation}',ControleurListe::class.':modifierListe')->setName('modificationListe');
 //$app->get('/item/', ControleurItem::class.':afficherItem')->setName('afficherItem');
