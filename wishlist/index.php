@@ -37,9 +37,9 @@ $app->get('/', ControleurPages::class . ':pagePrincipale')->setName('accueil');
 //affichage listes publiques
 $app->get('/liste[/]', ControleurListe::class . ':afficherListes')->setName('afficherListes');
 //affichage du formulaire d'ajout d'item
-$app->get('liste/{tokencreation}/ajouterItem', ControleurItem::class.':afficherFormulaireItem')->setName('formulaireItem');
+//$app->get('liste/{tokencreation}/ajouterItem', ControleurItem::class.':afficherFormulaireItem')->setName('formulaireItem');
 //ajout d'item avec le token creation (createur)
-$app->post('liste/{tokencreation}/ajouterItem', ControleurItem::class.':creerItem')->setName('creationItem');
+//$app->post('liste/{tokencreation}/ajouterItem', ControleurItem::class.':creerItem')->setName('creationItem');
 //affichage d'une liste avec token (participant)
 $app->get('/liste/{token}', ControleurListe::class . ':afficherListe')->setName('afficherListe');
 //affichage d'un item avec token
@@ -49,8 +49,9 @@ $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->
 //creation de liste
 $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName('creationListe');
 //affichage page de validation de creation
-$app->get('/creationListe/{tokencreation}/validation',ControleurPages::class.':pageValidation')->setName('validationCreation');
-
+$app->get('/creationListe/validation/{tokencreation}/{token}[/]',ControleurListe::class.':afficherPageValidation')->setName('validationCreation');
+//modification d'une liste
+$app->get('liste/modification/{tokencreation}',ControleurListe::class.':modifierListe')->setName('modificationListe');
 //$app->get('/item/', ControleurItem::class.':afficherItem')->setName('afficherItem');
 
 

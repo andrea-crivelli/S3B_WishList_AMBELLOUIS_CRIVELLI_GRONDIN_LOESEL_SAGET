@@ -7,11 +7,12 @@ namespace wishlist\vues;
 class VueCreateurListe
 {
 
-    private $container;
+    private $container,$data;
 
-    public function __construct($container)
+    public function __construct($container,$data)
     {
         $this->container = $container;
+        $this->data=$data;
     }
 
 
@@ -49,15 +50,17 @@ END;
     //afficher le lien qui envoie sur la nouvelle liste créée
     private function htmlLienListe(){
 
-        $url_creationItem = $this->container->router->pathFor('formulaireItem');
+        //$url_creationItem = $this->container->router->pathFor('formulaireItem');
+        $url_modification=$this->data[0];
+        $url_partage=$this->data[1];
         $html = <<<END
-            <section class ='content'>
+            <a class ='content'>
                 <h2>Votre liste a été créée.</h2><br>
-                Si vous voulez la modifier, il vous fait utiliser l'url suivant :url_modification<br>
-                Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées : url_partage<br>
+                Si vous voulez la modifier, il vous fait utiliser l'url suivant :<br><a href="$url_modification">$url_modification</a><br><br>
+                Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées :<br> <a href = "$url_partage">$url_partage</a><br>
 
            
-           <button><a  href="$url_creationItem">Modifier/Ajouter Item</button></a>
+           <button><a  href="url_creationItem">Modifier/Ajouter Item</button></a>
 </section>
 END;
         return $html;

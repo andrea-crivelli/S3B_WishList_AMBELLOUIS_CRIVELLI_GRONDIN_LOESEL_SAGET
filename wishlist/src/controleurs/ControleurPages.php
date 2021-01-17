@@ -15,9 +15,5 @@ class ControleurPages extends Controleur {
         return $rs;
     }
 
-    public function pageValidation(Request $rq, Response $rs, array $args) : Response{
-        $v=new VueCreateurListe($this->c);
-        $rs->getBody()->write($v->render(2));
-        return $rs;
-    }
+
 }
