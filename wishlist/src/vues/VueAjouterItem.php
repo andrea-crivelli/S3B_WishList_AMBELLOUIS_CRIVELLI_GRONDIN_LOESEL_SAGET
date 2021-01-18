@@ -35,7 +35,7 @@ class VueAjouterItem
                     </div>
                     <div>
                         <label>Prix :</label>
-                        <input id="tarif" name="tarif">
+                        <input type="number" id="tarif" name="tarif">
                     </div>
                     <div>
                         <label>Url :</label>

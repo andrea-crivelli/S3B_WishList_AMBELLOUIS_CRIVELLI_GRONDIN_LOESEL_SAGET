@@ -28,7 +28,7 @@ class ControleurItem extends Controleur {
     public function creerItem (Request $request, Response $response, array $args) : Response{
         $titre=filter_var($request->getParsedBodyParam('titre'),FILTER_SANITIZE_STRING);
         $description=filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
-        $prix=filter_var($request->getParsedBodyParam('prix'),FILTER_SANITIZE_NUMBER_FLOAT);
+        $prix=filter_var($request->getParsedBodyParam('prix'),FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         $image=filter_var($request->getParsedBodyParam('img'),FILTER_SANITIZE_STRING);
         $urlexterne=filter_var($request->getParsedBodyParam('url'),FILTER_SANITIZE_STRING);
         $idListe=Liste::where('tokencreation','=',$args['tokencreation'])->first()->no;
