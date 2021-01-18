@@ -28,11 +28,10 @@ class ControleurItem extends Controleur {
     public function creerItem (Request $request, Response $response, array $args) : Response{
         $titre=filter_var($request->getParsedBodyParam('titre'),FILTER_SANITIZE_STRING);
         $description=filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
-        $prix=filter_var($request->getParsedBodyParam('prix'),FILTER_SANITIZE_STRING);
-        $image=filter_var($request->getParsedBodyParam('image'),FILTER_SANITIZE_STRING);
+        $prix=filter_var($request->getParsedBodyParam('prix'),FILTER_SANITIZE_NUMBER_FLOAT);
+        $image=filter_var($request->getParsedBodyParam('img'),FILTER_SANITIZE_STRING);
         $urlexterne=filter_var($request->getParsedBodyParam('url'),FILTER_SANITIZE_STRING);
         $idListe=Liste::where('tokencreation','=',$args['tokencreation'])->first()->no;
-        $token=Liste::where('tokencreation','=',$args['tokencreation'])->first()->token;
 
         if($titre != '') {
             $i = new Item();
@@ -47,7 +46,7 @@ class ControleurItem extends Controleur {
             $i->save();
         }
 
-        $url= $this->c->router->pathFor('validationCreation',['tokencreation'=>$args['tokencreation'],'token'=>$token]);
+        $url= $this->c->router->pathFor('modificationAjoutListe',['tokencreation'=>$args['tokencreation']]);
         return $response->withRedirect($url);
     }
 }

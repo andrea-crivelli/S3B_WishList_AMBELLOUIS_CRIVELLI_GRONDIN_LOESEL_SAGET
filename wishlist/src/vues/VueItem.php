@@ -35,6 +35,11 @@ class VueItem
                           <p>{$this->data->descr}</p>
                         </ul>
                       </div>
+                      <div>
+                       <ul class='list-unstyled mt-3 mb-4'>
+                          <p><a href='{$this->data->url}'>{$this->data->url}</a></p>
+                        </ul>
+                      </div>
                     </div>
                     </div>
                 </main> ";
