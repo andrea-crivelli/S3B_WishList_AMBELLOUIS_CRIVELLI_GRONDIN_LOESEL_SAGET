@@ -4,6 +4,7 @@ namespace wishlist\controleurs;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use wishlist\modeles\Item;
+use wishlist\modeles\Liste;
 use wishlist\vues\VueAjouterItem;
 use wishlist\vues\VueItem;
 
@@ -25,16 +26,18 @@ class ControleurItem extends Controleur {
     }
 
     public function creerItem (Request $request, Response $response, array $args) : Response{
-        $titre=filter_var($request->getParsedBody('titre'),FILTER_SANITIZE_STRING);
-        $description=filter_var($request->getParsedBody('descr'), FILTER_SANITIZE_STRING);
-        $prix=filter_var($request->getParsedBody('prix'),FILTER_SANITIZE_STRING);
-        $image=filter_var($request->getParsedBody('image'),FILTER_SANITIZE_STRING);
-        $urlexterne=filter_var($request->getParsedBody('url'),FILTER_SANITIZE_STRING);
+        $titre=filter_var($request->getParsedBodyParam('titre'),FILTER_SANITIZE_STRING);
+        $description=filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
+        $prix=filter_var($request->getParsedBodyParam('prix'),FILTER_SANITIZE_STRING);
+        $image=filter_var($request->getParsedBodyParam('image'),FILTER_SANITIZE_STRING);
+        $urlexterne=filter_var($request->getParsedBodyParam('url'),FILTER_SANITIZE_STRING);
         $idListe=Liste::where('tokencreation','=',$args['tokencreation'])->first()->no;
+        $token=Liste::where('tokencreation','=',$args['tokencreation'])->first()->token;
 
         if($titre != '') {
             $i = new Item();
-            $i->titre = $titre;
+            $i->liste_id=$idListe;
+            $i->nom = $titre;
             $i->descr = $description;
             $i->img = $image;
             $i->url = $urlexterne;
@@ -44,7 +47,7 @@ class ControleurItem extends Controleur {
             $i->save();
         }
 
-        $url= $this->c->router->pathFor('validationCreation');
+        $url= $this->c->router->pathFor('validationCreation',['tokencreation'=>$args['tokencreation'],'token'=>$token]);
         return $response->withRedirect($url);
     }
 }

@@ -37,7 +37,8 @@ namespace wishlist\vues;
         $html.= "<section class='content'>
                     <h2>{$this->data->titre}</h2>
                     <ul>
-                        <p><strong>Description</strong> : {$this->data->description}</p>
+                        <p><strong>Description </strong>: {$this->data->description}</p>
+                        <p><strong>Date d'expiration </strong>: {$this->data->expiration}</p>
                         <p>Items de la liste : </p>";
         foreach ($this->data->items as $item){
             $url_item = $this->container->router->pathFor('afficherItem', ['token' => $item->token]);

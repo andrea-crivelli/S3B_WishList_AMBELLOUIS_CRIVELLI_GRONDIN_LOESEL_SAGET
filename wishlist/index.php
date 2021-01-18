@@ -64,7 +64,7 @@ $app->get('/item/{token}', ControleurItem::class . ':afficherItem')->setName('af
 //affichage du formulaire d'ajout d'item
 $app->get('/liste/{tokencreation}/ajouterItem', ControleurItem::class.':afficherFormulaireItem')->setName('formulaireItem');
 //ajout d'item avec le token creation (createur)
-//$app->post('liste/{tokencreation}/ajouterItem', ControleurItem::class.':creerItem')->setName('creationItem');
+$app->post('/liste/{tokencreation}/ajouterItem', ControleurItem::class.':creerItem')->setName('creationItem');
 
 //$app->get('/item/', ControleurItem::class.':afficherItem')->setName('afficherItem');
 
