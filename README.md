@@ -11,7 +11,7 @@ cd S3B_WishList_AMBELLOUIS_CRIVELLI_GRONDIN_LOESEL_SAGET
 composer install
 ```
 
-Il faut créer un fichier de configuration pour la base de donnée nommé **db.config.ini** dans le répertoire ([wishlist/conf]).
+Il faut créer un fichier de configuration pour la base de donnée nommé **db.config.ini** dans le répertoire [wishlist/conf](wishlist/conf).
 En insérant:
 
 | Paramètre     | Valeur d'exemple | Description               |
@@ -26,7 +26,7 @@ En insérant:
 
 ## Utilisation
 
-Lancez un serveur XAMP, importez le fichier de création de la BDD ([document/donnees/wishlist.sql] et connectez-vous sur le site.
+Lancez un serveur XAMP, importez le fichier de création de la BDD [document/donnees/wishlist.sql](document/donnees/wishlist.sql) et connectez-vous sur le site.
 
 ## Fonctionnalités
 
