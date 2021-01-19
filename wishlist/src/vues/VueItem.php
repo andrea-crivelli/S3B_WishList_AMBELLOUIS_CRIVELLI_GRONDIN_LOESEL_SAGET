@@ -181,7 +181,7 @@ END;
             return $html;
         }
 
-
+//<form action="." method=POST"><a onclick="this.parentNode.submit()">Oui</a></form>
     public function render(int $select)
     {
         switch ($select){

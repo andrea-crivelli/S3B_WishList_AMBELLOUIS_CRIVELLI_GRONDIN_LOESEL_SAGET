@@ -134,7 +134,8 @@ class ControleurItem extends Controleur {
 
     //methode pour supprimer une liste avec son token de creation
     public function supprimerItem(Request $request, Response $response, array $args) : Response{
-        Item::where('id','=',$args['id'])->delete();
+        var_dump($args);
+        Item::where('id','=',$args['id'])->first()->delete();
 
         $url = $this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
         return $response->withRedirect($url);

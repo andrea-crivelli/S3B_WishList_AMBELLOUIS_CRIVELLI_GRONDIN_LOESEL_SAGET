@@ -60,6 +60,7 @@ class ControleurListe extends Controleur {
         $data[1]=$this->c->router->pathFor('afficherFormulaireModification',['tokencreation'=>$args['tokencreation']]);
         $data[2]=$this->c->router->pathFor('choixModification',['tokencreation'=>$args['tokencreation']]);
         $data[3]=$this->c->router->pathFor('choixSuppression',['tokencreation'=>$args['tokencreation']]);
+        $data[4]=$this->c->router->pathFor('afficherFormulaireSuppression',['tokencreation'=>$args['tokencreation']]);
         $v=new VueCreateurListe($this->c,$data);
         $rs->getBody()->write($v->render(3));
         return $rs;
@@ -67,15 +68,16 @@ class ControleurListe extends Controleur {
 
     //affichage du formulaire permettant la modification de la liste
     public function afficherFormulaireModification(Request $rq, Response $rs, array $args) : Response {
-        $vue=new VueCreateurListe($this->c,[]);
-        $rs->getBody()->write($vue->render(4),[]);
+        $data['tokencreation']=$args['tokencreation'];
+        $vue=new VueCreateurListe($this->c,$data);
+        $rs->getBody()->write($vue->render(4));
         return $rs;
     }
 
     //affichage du formulaire permettant la modification de la liste
     public function afficherFormulaireSuppression(Request $rq, Response $rs, array $args) : Response {
-        $vue=new VueCreateurListe($this->c,[]);
-        $rs->getBody()->write($vue->render(4),[]);
+        $vue=new VueCreateurListe($this->c,['tokencreation'=>$args['tokencreation']]);
+        $rs->getBody()->write($vue->render(5));
         return $rs;
     }
 

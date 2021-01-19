@@ -74,13 +74,15 @@ END;
         $url_modif = $this->data[1];
         $url_choixModif=$this->data[2];
         $url_choixSuppr=$this->data[3];
+        $url_suppr=$this->data[4];
 
         $html = <<<END
             <section class ='content'>
                 <h2 align="center">Modifications des items et de la liste</h2>
                 Que souhaitez-vous faire ?<br><br>
                 
-                <button align = "center"><a href="$url_modif">Modifier la liste</a></button>
+                <button><a href="$url_modif">Modifier la liste</a></button>
+                <button><a href="$url_suppr">Supprimer la liste</a></button>
                 <button><a href="$url_ajout">Ajouter des items</a> </button>
                 <button><a href="$url_choixModif">Modifier des items</a></button>
                 <button><a href="$url_choixSuppr">Supprimer des items</a></button>
@@ -123,13 +125,18 @@ END;
 
     //fonction qui affiche le formulaire de suppression de la liste
     private function htmlFormulaireSuppression(){
-        $url_oui = $this->container->router->pathFor('suppressionListe', ['tokencreation'=>$this->data['tokencreation']]);
+        $url_oui = $this->container->router->pathFor('supprimerListe', ['tokencreation'=>$this->data['tokencreation']]);
         $url_non=$this->container->router->pathFor('modificationAjoutListe', ['tokencreation'=>$this->data['tokencreation']]);
         $html=<<<END
         <section class='content'>
-        <h1 align="center">Suppression des items </h1>
-       Voulez-vous réellement supprimer cet item ?
-       <button><a href="$url_oui">Oui</a></button>
+        <h1 align="center">Suppression de la liste </h1>
+       Voulez-vous réellement supprimer cette liste ?
+                <form method="post">
+       <div>
+               <button id="valider"><a href="$url_oui">Oui</a></button>
+
+       </div>
+    </form>
        <button><a href="$url_non">Non</a></button>
         </section>
 END;
@@ -175,6 +182,14 @@ END;
                 $link4="../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
                 break;
             }
+
+            case 5 :
+                $content=$this->htmlFormulaireSuppression();
+                $link1="../../../public/html/vendor/bootstrap/css/bootstrap.min.css";
+                $link2="../../../public/html/css/shop-homepage.css";
+                $link3="../../../public/html/vendor/jquery/jquery.min.js";
+                $link4="../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
+
         }
 
         $url_accueil = $this->container->router->pathFor('accueil');

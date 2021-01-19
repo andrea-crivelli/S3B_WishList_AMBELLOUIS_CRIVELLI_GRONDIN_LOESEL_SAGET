@@ -87,6 +87,7 @@ $app->get('/liste/{tokencreation}/modifierItem[/]',ControleurItem::class.':affic
 
 //affichage formulaire modification item
 $app->get('/liste/{tokencreation}/modifierItem/{id}[/]', ControleurItem::class.':afficherFormulaireItemModification')->setName('formulaireModificationItem');
+
 //modification d'item avec le token creation (createur)
 $app->post('/liste/{tokencreation}/modifierItem/{id}[/]', ControleurItem::class.':modifierItem')->setName('modificationItem');
 
