@@ -72,4 +72,10 @@ $app->get('/liste/{tokencreation}/ajouterItem[/]', ControleurItem::class.':affic
 //ajout d'item avec le token creation (createur)
 $app->post('/liste/{tokencreation}/ajouterItem[/]', ControleurItem::class.':creerItem')->setName('creationItem');
 
+//affichage formulaire reservation item
+$app->get('/reservationItem[/]', ControleurItem::class.'afficherFormulaire')->setName('afficherReservation');
+//reservation de l'item
+$app->post('/reservationItem[/]', ControleurItem::class.'reserverItem')->setName('reserverItem');
+
+
 $app->run();

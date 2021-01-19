@@ -38,7 +38,7 @@ class VueItem
                       <div>
                        <ul class='list-unstyled mt-3 mb-4'>
                           <p><a href='{$this->data->url}'>{$this->data->url}</a></p>
-                          <p>Participant : {this->data->participant}</p>
+                          <p>Participant : {$this->data->participant}</p>
                         </ul>
                       </div>
                     </div>
@@ -48,8 +48,8 @@ class VueItem
         return $html;
     }
 
-    public function htmlReserverItemNonReserve() :string {
-        $url_liste = $this->container->router->pathFor('afficherListe');
+    public function htmlAfficherItemNonReserve() :string {
+        $url_reservation = $this->container->router->pathFor('afficherReservation');
         $html= "<main class='container'>
                   <div class='pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center'>
                     <h1 class='display-4'>{$this->data->nom}</h1>
@@ -71,12 +71,10 @@ class VueItem
                       <div>
                        <ul class='list-unstyled mt-3 mb-4'>
                           <p><a href='{$this->data->url}'>{$this->data->url}</a></p>
-                          <p>Participant : {this->data->participant}</p>
+                          <p>Participant : {$this->data->participant}</p>
                           
                         </ul>
-                        <label><strong>Participant :</strong></label><br>
-                        <input type='text' id='participant' name='participant'>
-                        <button><a  href='$url_liste'>Reserver</a></button>
+                        <button><a  href='$url_reservation'>Réserver</a></button>
                       </div>
                     </div>
                     </div>
@@ -104,16 +102,33 @@ class VueItem
                 </main> \";";*/
         return $html;
     }
+
+    public function afficherReservation() {
+        $url_participer = $this->container->router->pathFor('reserverItem');
+        $html= "<main class='container'>
+                <form method=post>
+                <br>
+                <p> Participant : </p>             
+                <input type='text', id='participant', name='participant'>
+                </section>
+                <br>
+                <a href='$url_participer'><button>Participer</button></a>
+                </form>
+                </main> ";
+    }
     public function render(int $select)
     {
         switch ($select){
             case 1 : {
-                $content=$this->htmlAfficherItem();
+                $content=$this->htmlAfficherItemReserve();
                 break;
             }case 2 : {
-                $content=$this->htmlReserverItem();
+                $content=$this->htmlAfficherItemNonReserve();
                 break;
-            }
+            }case 3 : {
+                $content=$this->afficherReservation();
+                break;
+        }
         }
         
         $url_accueil = $this->container->router->pathFor('accueil');
