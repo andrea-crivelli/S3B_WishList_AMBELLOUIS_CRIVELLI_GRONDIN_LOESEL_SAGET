@@ -53,13 +53,18 @@ $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName
 //affichage page de validation de creation
 $app->get('/creationListe/validation/{tokencreation}/{token}[/]',ControleurListe::class.':afficherPageValidation')->setName('validationCreation');
 
-//page pour faire des modifications
+///page pour faire des modifications
 $app->get('/liste/modificationAjout/{tokencreation}[/]',ControleurListe::class.':afficherModifAjoutListe')->setName('modificationAjoutListe');
 
 //afficher le formulaire de modification la liste
 $app->get('/liste/modification/{tokencreation}[/]',ControleurListe::class.':afficherFormulaireModification')->setName('afficherFormulaireModification');
 //modifier la liste
 $app->post('/liste/modification/{tokencreation}[/]',ControleurListe::class.':modifierListe')->setName('modifierListe');
+
+//afficher le formulaire de suppression la liste
+$app->get('/liste/supression/{tokencreation}[/]',ControleurListe::class.':afficherFormulaireSuppression')->setName('afficherFormulaireSuppression');
+//modifier la liste
+$app->post('/liste/suppression/{tokencreation}[/]',ControleurListe::class.':supprimerListe')->setName('supprimerListe');
 
 /**
  * Routes concernant les items
@@ -74,14 +79,23 @@ $app->post('/liste/{tokencreation}/ajouterItem[/]', ControleurItem::class.':cree
 
 //affichage formulaire reservation item
 $app->get('/item/{token}/reservationItem[/]', ControleurItem::class.':afficherFormulaire')->setName('afficherReservation');
+//reservation d'un item
 $app->post('/item/{token}/reservationItem[/]', ControleurItem::class.':reserverItem')->setName('reserverItem');
 
 //affichage choix items a modifier
-$app->get('/liste/{tokencreation}/modifierItem[/]',ControleurItem::class.':afficherChoixItem')->setName('choixModification');
+$app->get('/liste/{tokencreation}/modifierItem[/]',ControleurItem::class.':afficherChoixItemMod')->setName('choixModification');
 
 //affichage formulaire modification item
 $app->get('/liste/{tokencreation}/modifierItem/{id}[/]', ControleurItem::class.':afficherFormulaireItemModification')->setName('formulaireModificationItem');
 //modification d'item avec le token creation (createur)
 $app->post('/liste/{tokencreation}/modifierItem/{id}[/]', ControleurItem::class.':modifierItem')->setName('modificationItem');
+
+//affichage choix items a supprimer
+$app->get('/liste/{tokencreation}/supprimerItem[/]',ControleurItem::class.':afficherChoixItemSup')->setName('choixSuppression');
+
+//affichage formulaire suppression item
+$app->get('/liste/{tokencreation}/supprimerItem/{id}[/]', ControleurItem::class.':afficherFormulaireItemSuppression')->setName('formulaireSuppressionItem');
+//suppression d'item avec le token creation (createur)
+$app->post('/liste/{tokencreation}/supprimerItem/{id}[/]', ControleurItem::class.':supprimerItem')->setName('suppressionItem');
 
 $app->run();

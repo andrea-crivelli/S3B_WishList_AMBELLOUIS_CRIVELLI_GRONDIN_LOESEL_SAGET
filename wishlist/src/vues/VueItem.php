@@ -101,7 +101,7 @@ class VueItem
     private function afficherItemModifier(){
         $html="<section class ='content'>
         <h1 align='center'>Items de la liste</h1>
-        Voici les items que vous pouvez modifier ou supprimer :
+        Voici les items que vous pouvez modifier :
         <ul>";
         foreach ($this->data['liste']->items as $item){
             $url_item = $this->container->router->pathFor('formulaireModificationItem', ['id' => $item->id, 'tokencreation'=>$this->data['tokencreation']]);
@@ -113,8 +113,9 @@ class VueItem
     }
 
     //fonction qui affiche le formulaire de modification de l'item
-    private function htmlFormulaireModification(){
-        $html=<<<END
+    private function htmlFormulaireModification()
+    {
+        $html = <<<END
         <section class='content'>
         <h1 align="center">Modification des items </h1>
         Veuillez rentrer les informations que vous souhaitez modifier sur cet item :
@@ -147,8 +148,38 @@ class VueItem
                 </form>
         </section>
 END;
-    return $html;
+        return $html;
     }
+
+    //fonction qui affiche les items qui peuvent etre modifies
+    private function afficherItemSupprimer(){
+        $html="<section class ='content'>
+        <h1 align='center'>Items de la liste</h1>
+        Voici les items que vous pouvez supprimer :
+        <ul>";
+        foreach ($this->data['liste']->items as $item){
+            $url_item = $this->container->router->pathFor('formulaireSuppressionItem', ['id' => $item->id, 'tokencreation'=>$this->data['tokencreation']]);
+            $html.= "<li><a class=\"nav - link\" href=\"$url_item\">{$item->nom}</a></li>";
+        }
+        $html.= "</ul>
+    </section>";
+        return $html;
+    }
+
+        //fonction qui affiche le formulaire de suppression de l'item
+        private function htmlFormulaireSuppression(){
+            $url_oui = $this->container->router->pathFor('suppressionItem', ['id' => $this->data['id'], 'tokencreation'=>$this->data['tokencreation']]);
+            $url_non=$this->container->router->pathFor('modificationAjoutListe', ['tokencreation'=>$this->data['tokencreation']]);
+            $html=<<<END
+        <section class='content'>
+        <h1 align="center">Suppression des items </h1>
+       Voulez-vous réellement supprimer cet item ?
+       <button><a href="$url_oui">Oui</a></button>
+       <button><a href="$url_non">Non</a></button>
+        </section>
+END;
+            return $html;
+        }
 
 
     public function render(int $select)
@@ -191,7 +222,26 @@ END;
                 $link3="../..§../../public/html/vendor/jquery/jquery.min.js";
                 $link4="../../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
             break;
-            }
+            }case 6:
+
+        {
+            $content = $this->afficherItemSupprimer();
+            $link1 = "../../../public/html/vendor/bootstrap/css/bootstrap.min.css";
+            $link2 = "../../../public/html/css/shop-homepage.css";
+            $link3 = "../../../public/html/vendor/jquery/jquery.min.js";
+            $link4 = "../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
+            break;
+        }
+        case 7:
+        {
+            $content = $this->htmlFormulaireSuppression();
+            $link1 = "../../../../public/html/vendor/bootstrap/css/bootstrap.min.css";
+            $link2 = "../../../../public/html/css/shop-homepage.css";
+            $link3 = "../..§../../public/html/vendor/jquery/jquery.min.js";
+            $link4 = "../../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
+            break;
+        }
+
         }
         
         $url_accueil = $this->container->router->pathFor('accueil');

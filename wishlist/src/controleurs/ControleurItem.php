@@ -38,13 +38,23 @@ class ControleurItem extends Controleur {
         return $response;
     }
 
-    //affichage des items d'une liste (pour suppression ou modification)
-    public function afficherChoixItem(Request $request, Response $response, array $args) : Response{
+    //affichage des items d'une liste (pour modification)
+    public function afficherChoixItemMod(Request $request, Response $response, array $args) : Response{
         $l=Liste::where('tokencreation','=',$args['tokencreation'])->first();
         $data['liste']=$l;
         $data['tokencreation']=$args['tokencreation'];
         $vue = new VueItem($data,$this->c);
         $response->getBody()->write($vue->render(4));
+        return $response;
+    }
+
+    //affichage des items d'une liste (pour suppression)
+    public function afficherChoixItemSup(Request $request, Response $response, array $args) : Response{
+        $l=Liste::where('tokencreation','=',$args['tokencreation'])->first();
+        $data['liste']=$l;
+        $data['tokencreation']=$args['tokencreation'];
+        $vue = new VueItem($data,$this->c);
+        $response->getBody()->write($vue->render(6));
         return $response;
     }
 
@@ -55,7 +65,17 @@ class ControleurItem extends Controleur {
         return $response;
     }
 
-    //methode qu icree un item et l'ajoute a la base de donnees
+    //affichage du formulaire de suppression
+    public function afficherFormulaireItemSuppression (Request $request, Response $response, array $args) : Response{
+        $data['id']=$args['id'];
+        $data['tokencreation']=$args['tokencreation'];
+        $vue = new VueItem($data, $this->c);
+        $response->getBody()->write($vue->render(7));
+        return $response;
+    }
+
+
+    //methode qui cree un item et l'ajoute a la base de donnees
     public function creerItem (Request $request, Response $response, array $args) : Response{
         $titre=filter_var($request->getParsedBodyParam('titre'),FILTER_SANITIZE_STRING);
         $description=filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
@@ -111,4 +131,14 @@ class ControleurItem extends Controleur {
         $url = $this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
         return $response->withRedirect($url);
     }
+
+    //methode pour supprimer une liste avec son token de creation
+    public function supprimerItem(Request $request, Response $response, array $args) : Response{
+        Item::where('id','=',$args['id'])->delete();
+
+        $url = $this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
+        return $response->withRedirect($url);
+
+    }
+
 }

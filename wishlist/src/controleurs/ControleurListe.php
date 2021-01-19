@@ -59,6 +59,7 @@ class ControleurListe extends Controleur {
         $data[0]=$this->c->router->pathFor('formulaireItem',['tokencreation'=>$args['tokencreation']]);
         $data[1]=$this->c->router->pathFor('afficherFormulaireModification',['tokencreation'=>$args['tokencreation']]);
         $data[2]=$this->c->router->pathFor('choixModification',['tokencreation'=>$args['tokencreation']]);
+        $data[3]=$this->c->router->pathFor('choixSuppression',['tokencreation'=>$args['tokencreation']]);
         $v=new VueCreateurListe($this->c,$data);
         $rs->getBody()->write($v->render(3));
         return $rs;
@@ -66,6 +67,13 @@ class ControleurListe extends Controleur {
 
     //affichage du formulaire permettant la modification de la liste
     public function afficherFormulaireModification(Request $rq, Response $rs, array $args) : Response {
+        $vue=new VueCreateurListe($this->c,[]);
+        $rs->getBody()->write($vue->render(4),[]);
+        return $rs;
+    }
+
+    //affichage du formulaire permettant la modification de la liste
+    public function afficherFormulaireSuppression(Request $rq, Response $rs, array $args) : Response {
         $vue=new VueCreateurListe($this->c,[]);
         $rs->getBody()->write($vue->render(4),[]);
         return $rs;
@@ -123,6 +131,14 @@ class ControleurListe extends Controleur {
         if($description != ''&& $description != $l->description) $l->description=$description;
         if ($dateExpiration != '' && new DateTime($dateExpiration)!= $l->expiration) $l->expiration=new DateTime($dateExpiration);
         $l->save();
+
+        $url = $this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
+        return $response->withRedirect($url);
+    }
+
+    //methode pour supprimer une liste avec son token de creation
+    public function supprimerListe(Request $request, Response $response, array $args) : Response{
+        Liste::where('tokencreation','=',$args['tokencreation'])->delete();
 
         $url = $this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
         return $response->withRedirect($url);
