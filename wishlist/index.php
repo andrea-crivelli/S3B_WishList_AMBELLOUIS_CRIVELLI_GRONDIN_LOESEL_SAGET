@@ -42,6 +42,9 @@ $app->get('/liste[/]', ControleurListe::class . ':afficherListes')->setName('aff
 //affichage d'une liste avec token (participant)
 $app->get('/liste/{token}', ControleurListe::class . ':afficherListe')->setName('afficherListe');
 
+//ajout du message et redirection vers l'affichage
+$app->post('/liste/{token}', ControleurListe::class . ':creerMessageListe')->setName('creerMessageListe');
+
 //affichage formulaire de creation
 $app->get('/creationListe[/]', ControleurListe::class . ':afficherFormulaire')->setName('afficherFormulaireCreation');
 //creation de liste
@@ -67,6 +70,7 @@ $app->get('/liste/{tokencreation}/ajouterItem', ControleurItem::class.':afficher
 $app->post('/liste/{tokencreation}/ajouterItem', ControleurItem::class.':creerItem')->setName('creationItem');
 
 //$app->get('/item/', ControleurItem::class.':afficherItem')->setName('afficherItem');
+
 
 
 

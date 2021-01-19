@@ -4,7 +4,9 @@ namespace wishlist\controleurs;
 
 use DateTime;
 use Exception;
+use http\Message;
 use wishlist\modeles\Liste;
+use wishlist\modeles\Messages;
 use wishlist\vues\VueCreateurListe;
 use wishlist\vues\VueParticipant;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -53,6 +55,23 @@ class ControleurListe extends Controleur {
             $l->save();
         }
         $url = $this->c->router->pathFor('validationCreation',['tokencreation' => $l->tokencreation,'token' => $l->token]);
+        return $response->withRedirect($url);
+    }
+
+    public function creerMessageListe(Request $request,Response $response, array $args) : Response {
+        $message = filter_var($request->getParsedBodyParam('msg'), FILTER_SANITIZE_STRING);
+        $prenom = filter_var($request->getParsedBodyParam('prenom'), FILTER_SANITIZE_STRING);
+
+        $idListe=Liste::where('token','=',$args['token'])->first()->no;
+
+        if($message != ''){
+            $m = new Messages();
+            $m->idListe = $idListe;
+            $m->message=$message;
+            $m->participant=$prenom;
+            $m->save();
+        }
+        $url = $this->c->router->pathFor('afficherListe',['token' => $args['token']]);
         return $response->withRedirect($url);
     }
 
