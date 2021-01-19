@@ -15,9 +15,9 @@ class ControleurItem extends Controleur {
     public function afficherItem(Request $rq, Response $rs, array $args): Response{
         $item = Item::where('token', '=', $args['token'])->first();
         $vue = new VueItem($item, $this->c);
-        if ($item->reserve = 'non'){
+        if ($item->reserve == 'non'){
             $rs->getBody()->write($vue->render(2));
-        } elseif ($item->reserve = 'oui'){
+        } elseif ($item->reserve == 'oui'){
             $rs->getBody()->write($vue->render(1));
         }
         return $rs;
