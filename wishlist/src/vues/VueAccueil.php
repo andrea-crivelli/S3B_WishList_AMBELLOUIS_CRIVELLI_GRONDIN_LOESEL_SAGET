@@ -81,8 +81,8 @@
                        <h1>Bienvenue à tous</h1>
                        <br>
                        <p> Ceci est une application qui permet d'avoir une organisation irréprochable.</p>
-                       <p> Le but est simple, vous pouvez consulter les listes déjà créées, ou en créer vous-même.</p>
-                       <p> Rien de mieux pour organiser un anniversaire entre copains ou une sortie entre collègues pour vous organiser.</p>
+                       <p> Le but est simple, vous pouvez consulter les listes déjà créées, ou en créer vous-même et les partager pour que d'autres participe.</p>
+                       <p> Rien de mieux pour prévoir un anniversaire entre copains ou une sortie entre collègues, sans les prises de tête.</p>
                        <br>
                             </div>
                       
