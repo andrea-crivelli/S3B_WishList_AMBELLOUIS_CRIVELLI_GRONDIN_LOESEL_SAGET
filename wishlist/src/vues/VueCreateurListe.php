@@ -15,16 +15,13 @@ class VueCreateurListe
         $this->data=$data;
     }
 
-
-
-
     //afficher la création de la liste
-    private function htmlListe(){
+    private function htmlCreationListe(){
 
         $html = <<<END
             <section class ='content'>
             <h1 align = center>Création d'une nouvelle liste</h1>
-            Veuillez rentrer les informations la lsite que vous souhaitez créer :
+            Veuillez rentrer les informations la liste que vous souhaitez créer :
 
          <!-- Données pour créer une liste -->
                 <form method="post">
@@ -71,9 +68,10 @@ END;
         return $html;
     }
 
-    private function htmlModifAjout(){
-    $url_ajout=$this->data[0];
-    $url_modif=$this->data[1];
+    private function htmlModifAjout()
+    {
+        $url_ajout = $this->data[0];
+        $url_modif = $this->data[1];
 
         $html = <<<END
             <section class ='content'>
@@ -89,13 +87,42 @@ END;
         return $html;
     }
 
+    private function htmlFormulaireModification(){
+        $html = <<<END
+            <section class ='content'>
+            <h1 align = center>Modification de votre liste</h1>
+            Veuillez rentrer les informations que vous souhaitez modifier sur cette liste :
+
+         <!-- Données pour créer une liste -->
+                <form method="post">
+                    <div>
+                        <label><strong>Titre* :</strong></label><br>
+                        <input type="text" id="name" name="titre" class="creationListe">
+                    </div>
+                    <div>
+                        <label><strong>Description :</strong></label><br>
+                        <textarea type="texte" id="descr" name="descr" class="creationListe"></textarea>
+                    </div>
+                    <div>
+                        <label><strong>DateExpiration :</strong></label><br>
+                        <input type="date" id="dateExpir" name="dateExpi" class ="creationListe">
+                    </div>
+                    
+                    <div>
+                    <br> <button>Valider </button></a>
+                    </div>
+                </form>
+</section>
+END;
+        return $html;
+    }
 
 
     public function render(int $select){
         switch ($select) {
             case 1 :
             {
-                $content = $this->htmlListe();
+                $content = $this->htmlCreationListe();
                 $link1="../public/html/vendor/bootstrap/css/bootstrap.min.css";
                 $link2="../public/html/css/shop-homepage.css";
                 $link3="../public/html/vendor/jquery/jquery.min.js";
@@ -121,6 +148,15 @@ END;
                 break;
             }
 
+            case 4 :
+            {
+                $content = $this->htmlFormulaireModification();
+                $link1="../../../public/html/vendor/bootstrap/css/bootstrap.min.css";
+                $link2="../../../public/html/css/shop-homepage.css";
+                $link3="../../../public/html/vendor/jquery/jquery.min.js";
+                $link4="../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
+                break;
+            }
         }
 
         $url_accueil = $this->container->router->pathFor('accueil');
