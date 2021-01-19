@@ -49,4 +49,13 @@ class ControleurItem extends Controleur {
         $url= $this->c->router->pathFor('modificationAjoutListe',['tokencreation'=>$args['tokencreation']]);
         return $response->withRedirect($url);
     }
+
+    public function reserverItem(Request $request, Response $response, array $args) : Response{
+        $st-> $db->exec('update Item set reserve = 1, reserveur = ?  where id = ?');
+        $st->bidParam(1, $args['reserveur'], PDO::PARAM_STR, 40);
+        $st->bidParam(2, $args['id'], PDO::PARAM_INT);
+        $st->execute();
+
+        return $response->withRedirect(pathFor('afficherListe',['token' => $args['token']]));
+    }
 }
