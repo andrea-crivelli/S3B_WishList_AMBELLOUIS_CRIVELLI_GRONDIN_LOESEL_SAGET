@@ -11,7 +11,7 @@ cd S3B_WishList_AMBELLOUIS_CRIVELLI_GRONDIN_LOESEL_SAGET
 composer install
 ```
 
-Il faut créer un fichier de configuration pour la base de donnée nommé **db.config.ini** dans le répertoire [wishlist/conf](wishlist/conf).
+Il faut créer un fichier de configuration pour la base de donnée nommé **db.config.ini** dans le répertoire wishlist/conf (il faut créer le répertoire).
 En insérant:
 
 | Paramètre     | Valeur d'exemple | Description               |
