@@ -16,7 +16,7 @@ class VueItem
         $this->container = $c;
     }
 
-    private function htmlAfficherItem()  : string{
+    private function htmlAfficherItemReserve()  : string{
         $html= "<main class='container'>
                   <div class='pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center'>
                     <h1 class='display-4'>{$this->data->nom}</h1>
@@ -38,6 +38,7 @@ class VueItem
                       <div>
                        <ul class='list-unstyled mt-3 mb-4'>
                           <p><a href='{$this->data->url}'>{$this->data->url}</a></p>
+                          <p>Participant : {this->data->participant}</p>
                         </ul>
                       </div>
                     </div>
@@ -47,8 +48,40 @@ class VueItem
         return $html;
     }
 
-    public function htmlReserverItem() :string {
-        $html = "\"<main class='container'>
+    public function htmlReserverItemNonReserve() :string {
+        $url_liste = $this->container->router->pathFor('afficherListe');
+        $html= "<main class='container'>
+                  <div class='pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center'>
+                    <h1 class='display-4'>{$this->data->nom}</h1>
+                    <img src='../public/img/{$this->data->img}'>
+                  </div>
+
+
+                    <div class='col'>
+                      <div class='card mb-4 shadow-sm'>
+                      <div class='card-header''>
+                        <h4 class='my-0 fw-normal'>{$this->data->nom}</h4>
+                      </div>
+                      <div class='card-body'>
+                        <h1 class='card-title pricing-card-title'>{$this->data->tarif}€</h1>
+                        <ul class='list-unstyled mt-3 mb-4'>
+                          <p>{$this->data->descr}</p>
+                        </ul>
+                      </div>
+                      <div>
+                       <ul class='list-unstyled mt-3 mb-4'>
+                          <p><a href='{$this->data->url}'>{$this->data->url}</a></p>
+                          <p>Participant : {this->data->participant}</p>
+                          
+                        </ul>
+                        <label><strong>Participant :</strong></label><br>
+                        <input type='text' id='participant' name='participant'>
+                        <button><a  href='$url_liste'>Reserver</a></button>
+                      </div>
+                    </div>
+                    </div>
+                </main> ";
+        /*$html = "\"<main class='container'>
                   <div class='pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center'>
                     <h1 class='display-4'>Nom du produit</h1>
                     <img src='img.jpg'>
@@ -68,7 +101,7 @@ class VueItem
                       </div>
                     </div>
                     </div>
-                </main> \";";
+                </main> \";";*/
         return $html;
     }
     public function render(int $select)
