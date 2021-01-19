@@ -41,14 +41,14 @@ namespace wishlist\vues;
                     <h2 align='center'>{$this->data->titre}</h2>
                         <p><strong>Description </strong>: {$this->data->description}</p>
                         <p><strong>Date d'expiration </strong>: {$this->data->expiration}</p>
-                        <p>Items de la liste : </p>";
-
+                        <p>Items de la liste : </p>
+                        <ul>";
         foreach ($this->data->items as $item){
             $url_item = $this->container->router->pathFor('afficherItem', ['token' => $item->token]);
-            $html.= "<ul><li><a class=\"nav - link\" href=\"$url_item\">{$item->nom}</a></li></ul>";
+            $html.= "<li><a class=\"nav - link\" href=\"$url_item\">{$item->nom}</a></li>";
         }
 
-        $html.= "<br>
+        $html.= "</ul>
                 Messages de la liste :<br><ul>";
 
                     foreach ($this->data->message as $message){
@@ -59,7 +59,7 @@ namespace wishlist\vues;
                 <br>
                 <p> Ajouter un message : </p>
                 <textarea type=text id='msg', name='msg'></textarea>
-                <p> Prenom : </p>             
+                <p> Prénom : </p>             
                 <input type='text', id='prenom', name='prenom'>
                 </section>
                 <br>
@@ -73,10 +73,19 @@ namespace wishlist\vues;
            switch ($select){
                 case 1 : {
                     $content=$this->htmlListeSouhait();
+                    $link1="../public/html/vendor/bootstrap/css/bootstrap.min.css";
+                    $link2="../public/html/css/shop-homepage.css";
+                    $link3="../public/html/vendor/jquery/jquery.min.js";
+                    $link4="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
+
                     break;
                 }
                 case 2 : {
                     $content=$this->htmlListeItems();
+                    $link1="../../public/html/vendor/bootstrap/css/bootstrap.min.css";
+                    $link2="../../public/html/css/shop-homepage.css";
+                    $link3="../../public/html/vendor/jquery/jquery.min.js";
+                    $link4="../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
                     break;
                 }
             }
@@ -100,10 +109,10 @@ namespace wishlist\vues;
                   <title>MyWishlist</title>
                 
                   <!-- Bootstrap core CSS -->
-                  <link href="../public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+                  <link href=$link1 rel="stylesheet">
                 
                   <!-- Custom styles for this template -->
-                  <link href="../public/html/css/shop-homepage.css" rel="stylesheet">
+                  <link href=$link2 rel="stylesheet">
                 
                 </head>
                 
@@ -150,8 +159,8 @@ namespace wishlist\vues;
                 </footer>
                 
                   <!-- Bootstrap core JavaScript -->
-                  <script src="../public/html/vendor/jquery/jquery.min.js"></script>
-                  <script src="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                  <script src=$link3></script>
+                  <script src=$link4></script>
                 
                 </body>
                 

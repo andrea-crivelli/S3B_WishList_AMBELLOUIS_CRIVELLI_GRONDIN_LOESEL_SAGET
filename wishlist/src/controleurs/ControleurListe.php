@@ -91,9 +91,36 @@ class ControleurListe extends Controleur {
         {
             $data['tokencreation']=$args['tokencreation' ];
             $data[0]=$this->c->router->pathFor('formulaireItem',['tokencreation'=>$args['tokencreation']]);
-            $data[1]=$this->c->router->pathFor('modifierListe',['tokencreation'=>$args['tokencreation']]);
+            $data[1]=$this->c->router->pathFor('afficherFormulaireModification',['tokencreation'=>$args['tokencreation']]);
             $v=new VueCreateurListe($this->c,$data);
             $rs->getBody()->write($v->render(3));
             return $rs;
         }
+
+    public function afficherFormulaireModification(Request $rq, Response $rs, array $args) : Response {
+        $vue=new VueCreateurListe($this->c,[]);
+        $rs->getBody()->write($vue->render(4),[]);
+        return $rs;
     }
+
+    public function modifierListe(Request $request, Response $response, array $args) : Response {
+        $titre = filter_var($request->getParsedBodyParam('titre'), FILTER_SANITIZE_STRING);
+        $description = filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
+        $dateExpiration = $request->getParsedBodyParam('dateExpi');
+        if (new DateTime() > new DateTime($dateExpiration)){
+            throw new Exception("La date d'expiration est antérieure à la date courante.");
+        }
+        $l=Liste::where('tokencreation','=',$args['tokencreation'])->first();
+        if ($titre != '' && $titre!=$l->titre) $l->titre=$titre;
+        if($description != ''&& $description != $l->description) $l->description=$description;
+        if ($dateExpiration != '' && newDateTime($dateExpiration)!= $l->expiration) $l->expiration=new DateTime($dateExpiration);
+        $l->save();
+
+        $url = $this->c->router->pathFor('afficherListe',['token' => $l->token]);
+        return $response->withRedirect($url);
+
+    }
+
+
+
+}
