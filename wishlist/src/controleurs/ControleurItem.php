@@ -52,7 +52,7 @@ class ControleurItem extends Controleur {
     public function reserverItem(Request $request, Response $response, array $args) : Response{
         $i=Item::where('id', '=', $args['id']);
         $i->reserve = 1;
-        $i->reserveur = $args['reserveur'];
+        $i->particiapnt = $args['particpant'];
         $i->save();
 
         return $response->withRedirect(pathFor('afficherListe',['token' => $args['token']]));
