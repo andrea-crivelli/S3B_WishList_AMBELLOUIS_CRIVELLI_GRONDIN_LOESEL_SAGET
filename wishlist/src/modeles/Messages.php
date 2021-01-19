@@ -3,14 +3,13 @@
 namespace wishlist\modeles;
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model {
+class Messages extends Model {
 
-    protected $table = 'item';
-    protected $primaryKey = 'id';
+    protected $table = 'message';
+    protected $primaryKey = 'idMessage';
     public $timestamps=false;
 
     public function liste(){
         return $this->belongsTo('\wishlist\modeles\Liste','liste_id');
     }
-
 }

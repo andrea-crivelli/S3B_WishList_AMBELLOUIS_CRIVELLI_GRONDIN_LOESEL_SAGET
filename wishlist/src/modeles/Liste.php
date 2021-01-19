@@ -12,12 +12,10 @@ class Liste extends Model {
         return $this->hasMany('\wishlist\modeles\Item','liste_id');
     }
 
-    public static function ListerListeSouhait(){
-        $listes=Liste::all();
-        foreach ($listes as $liste){
-            print $liste->titre."<br>";
-        }
+    public function message(){
+        return $this->hasMany('\wishlist\modeles\Messages','idListe');
     }
+
 
 
 }

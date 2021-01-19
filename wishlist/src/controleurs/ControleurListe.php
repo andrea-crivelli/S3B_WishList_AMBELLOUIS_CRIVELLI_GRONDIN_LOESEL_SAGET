@@ -56,6 +56,16 @@ class ControleurListe extends Controleur {
         return $response->withRedirect($url);
     }
 
+    public function creerMessageListe(Request $request,Response $response, array $args) : Response {
+        $message = filter_var($request->getParsedBodyParam('msg'), FILTER_SANITIZE_STRING);
+        $prenom = filter_var($request->getParsedBodyParam('prenom'), FILTER_SANITIZE_STRING);
+
+        $idListe=Liste::where('token','=',$args['token'])->first()->no;
+
+        $url = $this->c->router->pathFor('afficherListe',['token' => $args['token']]);
+        return $response->withRedirect($url);
+    }
+
     public function afficherPageValidation(Request $rq, Response $rs, array $args) : Response{
         //tokencreation
         $data[0]=$args['tokencreation'];

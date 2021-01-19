@@ -33,6 +33,9 @@ namespace wishlist\vues;
 
     //afficher les items de la liste en parametre
     private function htmlListeItems() : string{
+        $token=$this->data[0];
+        $url_message = $this->container->router->pathFor('creerMessageListe',['token'=>$token]);
+
         $html='';
         $html.= "<section class='content'>
                     <h2>{$this->data->titre}</h2>
@@ -40,12 +43,22 @@ namespace wishlist\vues;
                         <p><strong>Description </strong>: {$this->data->description}</p>
                         <p><strong>Date d'expiration </strong>: {$this->data->expiration}</p>
                         <p>Items de la liste : </p>";
+
         foreach ($this->data->items as $item){
             $url_item = $this->container->router->pathFor('afficherItem', ['token' => $item->token]);
             $html.= "<li> <a class=\"nav - link\" href=\"$url_item\">{$item->nom}</a></li>";
         }
+
         $html.= "</ul>
-                </section>";
+                <form method=post>
+                <p> Ajouter un message : </p>
+                <textarea type=text id='msg', name='msg'></textarea>
+                <p> Prenom : </p>             
+                <input type='text', id='prenom', name='prenom'>
+                </section>
+                <br>
+                <a href='$url_message'><button>Envoyer Message</button></a>
+                </form>";
         return $html;
     }
 
