@@ -50,10 +50,10 @@ class ControleurItem extends Controleur {
     }
 
     public function reserverItem(Request $request, Response $response, array $args) : Response{
-        $st-> $db->exec('update Item set reserve = 1, reserveur = ?  where id = ?');
-        $st->bidParam(1, $args['reserveur'], PDO::PARAM_STR, 40);
-        $st->bidParam(2, $args['id'], PDO::PARAM_INT);
-        $st->execute();
+        $i=Item::where('id', '=', $args['id']);
+        $i->reserve = 1;
+        $i->reserveur = $args['reserveur'];
+        $i->save();
 
         return $response->withRedirect(pathFor('afficherListe',['token' => $args['token']]));
     }
