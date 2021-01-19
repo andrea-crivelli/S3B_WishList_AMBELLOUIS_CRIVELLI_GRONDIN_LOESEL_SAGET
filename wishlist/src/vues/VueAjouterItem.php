@@ -43,7 +43,7 @@ class VueAjouterItem
                     </div>
                     
                     <div>
-                    <button>Valider </button></a>
+                    <button id="valider">Valider </button></a>
                     </div>
                 </form>
 END;
