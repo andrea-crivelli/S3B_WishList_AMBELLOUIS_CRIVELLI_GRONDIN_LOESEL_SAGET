@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Messages extends Model {
 
-    protected $table = 'message';
+    protected $table = 'messages';
     protected $primaryKey = 'idMessage';
     public $timestamps=false;
 

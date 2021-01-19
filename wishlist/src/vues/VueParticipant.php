@@ -42,15 +42,22 @@ namespace wishlist\vues;
                     <ul>
                         <p><strong>Description </strong>: {$this->data->description}</p>
                         <p><strong>Date d'expiration </strong>: {$this->data->expiration}</p>
-                        <p>Items de la liste : </p>";
+                        <p>Items de la liste : </p></ul>";
 
         foreach ($this->data->items as $item){
             $url_item = $this->container->router->pathFor('afficherItem', ['token' => $item->token]);
-            $html.= "<li> <a class=\"nav - link\" href=\"$url_item\">{$item->nom}</a></li>";
+            $html.= "<ul><li><a class=\"nav - link\" href=\"$url_item\">{$item->nom}</a></li></ul>";
         }
 
-        $html.= "</ul>
-                <form method=post>
+        $html.= "<br>
+                Messages de la liste :<br><ul>";
+
+                    foreach ($this->data->message as $message){
+                    $html.= "<li> {$message->participant} a écrit : {$message->message}</li>";
+                    }
+
+        $html.="</ul><form method=post>
+                <br>
                 <p> Ajouter un message : </p>
                 <textarea type=text id='msg', name='msg'></textarea>
                 <p> Prenom : </p>             
