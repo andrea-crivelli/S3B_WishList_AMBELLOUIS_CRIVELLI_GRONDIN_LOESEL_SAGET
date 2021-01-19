@@ -72,16 +72,9 @@ $app->get('/liste/{tokencreation}/ajouterItem[/]', ControleurItem::class.':affic
 //ajout d'item avec le token creation (createur)
 $app->post('/liste/{tokencreation}/ajouterItem[/]', ControleurItem::class.':creerItem')->setName('creationItem');
 
-<<<<<<< HEAD
-$app->get('/item/{token}/reservationItem[/]', ControleurItem::class.':afficherFormulaire')->setName('afficherReservation');
-
-$app->post('/item/{token}/reservationItem[/]', ControleurItem::class.':reserverItem')->setName('reserverItem');
-=======
 //affichage formulaire reservation item
-$app->get('/reservationItem[/]', ControleurItem::class.'afficherFormulaire')->setName('afficherReservation');
-//reservation de l'item
-$app->post('/reservationItem[/]', ControleurItem::class.'reserverItem')->setName('reserverItem');
->>>>>>> b8033a606daee232e2f2b1e6d47776fabb4f3d2a
+$app->get('/item/{token}/reservationItem[/]', ControleurItem::class.':afficherFormulaire')->setName('afficherReservation');
+$app->post('/item/{token}/reservationItem[/]', ControleurItem::class.':reserverItem')->setName('reserverItem');
 
 
 $app->run();
