@@ -19,7 +19,6 @@ class ControleurItem extends Controleur {
     }
 
     public function afficherFormulaireItem(Request $request, Response $response, array $args) : Response{
-        $response->getBody()->write("Affichage du formulaire");
         $vue=new VueAjouterItem($this->c);
         $response->getBody()->write($vue->render(1));
         return $response;

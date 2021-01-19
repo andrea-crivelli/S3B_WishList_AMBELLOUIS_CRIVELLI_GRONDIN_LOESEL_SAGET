@@ -24,25 +24,28 @@ class VueCreateurListe
         $html = <<<END
             <section class ='content'>
             <h1 align = center>Création d'une nouvelle liste</h1>
+            Veuillez rentrer les informations la lsite que vous souhaitez créer :
+
          <!-- Données pour créer une liste -->
                 <form method="post">
                     <div>
-                        <label>Titre* :</label>
+                        <label><strong>Titre* :</strong></label><br>
                         <input type="text" id="name" name="titre" class="creationListe">
                     </div>
                     <div>
-                        <label>Description :</label>
+                        <label><strong>Description :</strong></label><br>
                         <textarea type="texte" id="descr" name="descr" class="creationListe"></textarea>
                     </div>
                     <div>
-                        <label>DateExpiration :</label>
+                        <label><strong>DateExpiration :</strong></label><br>
                         <input type="date" id="dateExpir" name="dateExpi" class ="creationListe">
                     </div>
                     
                     <div>
-                    <button>Valider </button></a>
+                    <br> <button>Valider </button></a>
                     </div>
                 </form>
+</section>
 END;
         return $html;
     }
@@ -56,13 +59,13 @@ END;
         $url_partage=$this->data[2];
 
         $html = <<<END
-            <a class ='content'>
+            <section class ='content'>
                 <h2>Votre liste a été créée.</h2><br>
                 Si vous voulez la modifier, il vous fait utiliser l'url suivant :<br><a href="$url_modification">$url_modification</a><br><br>
                 Si vous souhaitez la partager, envoyer l'url suivant aux personnes concernées :<br> <a href = "$url_partage">$url_partage</a><br>
 
            
-           <button><a  href="$url_modifAjout">Modifier/Ajouter Item</button></a>
+           <br><button><a  href="$url_modifAjout">Modifier/Ajouter Item</a></button></section>
 </section>
 END;
         return $html;
@@ -73,7 +76,7 @@ END;
     $url_modif=$this->data[1];
 
         $html = <<<END
-            <a class ='content'>
+            <section class ='content'>
                 <h2 align="center">Modification / ajout d'items</h2>
                 Souhaitez-vous ajouter des items à votre liste ou modifier la liste ?<br><br>
                 
@@ -93,16 +96,28 @@ END;
             case 1 :
             {
                 $content = $this->htmlListe();
+                $link1="../public/html/vendor/bootstrap/css/bootstrap.min.css";
+                $link2="../public/html/css/shop-homepage.css";
+                $link3="../public/html/vendor/jquery/jquery.min.js";
+                $link4="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
                 break;
             }
             case 2 :
             {
                 $content = $this->htmlLienListe();
+                $link1="../../../../public/html/vendor/bootstrap/css/bootstrap.min.css";
+                $link2="../../../../public/html/css/shop-homepage.css";
+                $link3="../../../../public/html/vendor/jquery/jquery.min.js";
+                $link4="../../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
                 break;
             }
             case 3 :
             {
                 $content = $this->htmlModifAjout();
+                $link1="../../../public/html/vendor/bootstrap/css/bootstrap.min.css";
+                $link2="../../../public/html/css/shop-homepage.css";
+                $link3="../../../public/html/vendor/jquery/jquery.min.js";
+                $link4="../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
                 break;
             }
 
@@ -126,10 +141,10 @@ END;
               <title>MyWishlist</title>
             
               <!-- Bootstrap core CSS -->
-              <link href="../public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+              <link href=$link1 rel="stylesheet">
             
               <!-- Custom styles for this template -->
-              <link href="../public/html/css/shop-homepage.css" rel="stylesheet">
+              <link href=$link2 rel="stylesheet">
             
             </head>
             
@@ -162,8 +177,11 @@ END;
                   </div>
                 </div>
               </nav>
-            
-                $content
+              
+              <div class="m-3">
+              $content
+                </div>
+                
             
               <!-- Footer -->
               <footer class="py-5 bg-dark">
@@ -174,8 +192,8 @@ END;
               </footer>
             
               <!-- Bootstrap core JavaScript -->
-              <script src="../public/html/vendor/jquery/jquery.min.js"></script>
-              <script src="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+              <script src=$link3></script>
+              <script src=$link4></script>
             
             </body>
             
