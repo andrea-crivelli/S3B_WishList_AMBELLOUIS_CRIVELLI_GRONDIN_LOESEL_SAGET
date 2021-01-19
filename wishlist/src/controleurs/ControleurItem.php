@@ -11,6 +11,7 @@ use wishlist\vues\VueItem;
 
 class ControleurItem extends Controleur {
 
+    //affichage d'un item selon son etat de reservation
     public function afficherItem(Request $rq, Response $rs, array $args): Response{
         $item = Item::where('token', '=', $args['token'])->first();
         $vue = new VueItem($item, $this->c);
@@ -22,14 +23,39 @@ class ControleurItem extends Controleur {
         return $rs;
     }
 
+    //affichage du formulaire pour ajouter un item
     public function afficherFormulaireItem(Request $request, Response $response, array $args) : Response{
         $vue=new VueAjouterItem($this->c);
         $response->getBody()->write($vue->render(1));
         return $response;
     }
 
+    //affichage du formulaire pour reserver un item
+    public function afficherFormulaire (Request $request, Response $response, array $args) : Response{
+        $i=Item::where('token', '=', $args['token'])->first();
+        $vue = new VueItem($i, $this->c);
+        $response->getBody()->write($vue->render(3));
+        return $response;
+    }
 
+    //affichage des items d'une liste (pour suppression ou modification)
+    public function afficherChoixItem(Request $request, Response $response, array $args) : Response{
+        $l=Liste::where('tokencreation','=',$args['tokencreation'])->first();
+        $data['liste']=$l;
+        $data['tokencreation']=$args['tokencreation'];
+        $vue = new VueItem($data,$this->c);
+        $response->getBody()->write($vue->render(4));
+        return $response;
+    }
 
+    //affichage du formulaire pour modifier un item
+    public function afficherFormulaireItemModification (Request $request, Response $response, array $args) : Response{
+        $vue = new VueItem([], $this->c);
+        $response->getBody()->write($vue->render(5));
+        return $response;
+    }
+
+    //methode qu icree un item et l'ajoute a la base de donnees
     public function creerItem (Request $request, Response $response, array $args) : Response{
         $titre=filter_var($request->getParsedBodyParam('titre'),FILTER_SANITIZE_STRING);
         $description=filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
@@ -50,11 +76,11 @@ class ControleurItem extends Controleur {
             $i->tokencreation = bin2hex(openssl_random_pseudo_bytes(12));
             $i->save();
         }
-
         $url= $this->c->router->pathFor('modificationAjoutListe',['tokencreation'=>$args['tokencreation']]);
         return $response->withRedirect($url);
     }
 
+    //methode pour reserver un item
     public function reserverItem(Request $request, Response $response, array $args) : Response{
         $i=Item::where('token', '=', $args['token'])->first();
         $i->reserve = 'oui';
@@ -65,27 +91,7 @@ class ControleurItem extends Controleur {
         return $response->withRedirect($url);
     }
 
-    public function afficherFormulaire (Request $request, Response $response, array $args) : Response{
-        $i=Item::where('token', '=', $args['token'])->first();
-        $vue = new VueItem($i, $this->c);
-        $response->getBody()->write($vue->render(3));
-        return $response;
-    }
-
-    public function afficherChoixItem(Request $request, Response $response, array $args) : Response{
-        $l=Liste::where('tokencreation','=',$args['tokencreation'])->first();
-        $data['liste']=$l;
-        $data['tokencreation']=$args['tokencreation'];
-        $vue = new VueItem($data,$this->c);
-        $response->getBody()->write($vue->render(4));
-        return $response;
-}
-    public function afficherFormulaireItemModification (Request $request, Response $response, array $args) : Response{
-        $vue = new VueItem([], $this->c);
-        $response->getBody()->write($vue->render(5));
-        return $response;
-    }
-
+    //methode pour modifier un item
     public function modifierItem (Request $request, Response $response, array $args) : Response{
         $i=Item::where('id', '=', $args['id'])->first();
         $titre=filter_var($request->getParsedBodyParam('titre'),FILTER_SANITIZE_STRING);

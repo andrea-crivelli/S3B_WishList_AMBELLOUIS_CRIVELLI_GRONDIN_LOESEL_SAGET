@@ -15,6 +15,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 class ControleurListe extends Controleur {
 
+    //afficher toutes les listes de la base de donnees
     public function afficherListes(Request $rq, Response $rs, array $args): Response{
         $rs->getBody()->write("Affichage de la liste des listes");
         $listl = Liste::all();
@@ -24,20 +25,53 @@ class ControleurListe extends Controleur {
 
     }
 
+    //afficher une liste en particulier
     public function afficherListe(Request $rq, Response $rs, array $args): Response{
         $listl = Liste::where('token', '=', $args['token'])->first();
         $vue = new VueParticipant($listl, $this->c);
         $rs->getBody()->write($vue->render(2));
         return $rs;
     }
-
+    //affiche le formulaire pour la creation d'une liste
     public function afficherFormulaire(Request $rq,Response $rs, array $args) : Response{
         $vue=new VueCreateurListe($this->c,[]);
         $rs->getBody()->write($vue->render(1),[]);
         return $rs;
     }
 
+    //affichage de la page de validation avec les liens de modification et de partage
+    public function afficherPageValidation(Request $rq, Response $rs, array $args) : Response{
+        //tokencreation
+        $data[0]=$args['tokencreation'];
+        //url de modification
+        $data[1]=$this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
+        //url de partage
+        $data[2]=$this->c->router->pathFor('afficherListe',['token' => $args['token']]);
+        $v=new VueCreateurListe($this->c,$data);
+        $rs->getBody()->write($v->render(2));
+        return $rs;
+    }
 
+    //affichage de la page qui laisse le choix au createur des actions a faire sur la liste
+    public function afficherModifAjoutListe(Request $rq, Response $rs, array $args) : Response
+    {
+        $data['tokencreation']=$args['tokencreation' ];
+        $data[0]=$this->c->router->pathFor('formulaireItem',['tokencreation'=>$args['tokencreation']]);
+        $data[1]=$this->c->router->pathFor('afficherFormulaireModification',['tokencreation'=>$args['tokencreation']]);
+        $data[2]=$this->c->router->pathFor('choixModification',['tokencreation'=>$args['tokencreation']]);
+        $v=new VueCreateurListe($this->c,$data);
+        $rs->getBody()->write($v->render(3));
+        return $rs;
+    }
+
+    //affichage du formulaire permettant la modification de la liste
+    public function afficherFormulaireModification(Request $rq, Response $rs, array $args) : Response {
+        $vue=new VueCreateurListe($this->c,[]);
+        $rs->getBody()->write($vue->render(4),[]);
+        return $rs;
+    }
+
+    //methode qui cree une liste et l'ajoute a la base de donnees
     public function creerListe (Request $request,Response $response, array $args) : Response{
         $titre = filter_var($request->getParsedBodyParam('titre'), FILTER_SANITIZE_STRING);
         $description = filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
@@ -58,6 +92,7 @@ class ControleurListe extends Controleur {
         return $response->withRedirect($url);
     }
 
+    //methode qui permet d'ajouter un message public a une liste
     public function creerMessageListe(Request $request,Response $response, array $args) : Response {
         $message = filter_var($request->getParsedBodyParam('msg'), FILTER_SANITIZE_STRING);
         $prenom = filter_var($request->getParsedBodyParam('prenom'), FILTER_SANITIZE_STRING);
@@ -75,35 +110,7 @@ class ControleurListe extends Controleur {
         return $response->withRedirect($url);
     }
 
-    public function afficherPageValidation(Request $rq, Response $rs, array $args) : Response{
-        //tokencreation
-        $data[0]=$args['tokencreation'];
-        //url de modification
-        $data[1]=$this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
-        //url de partage
-        $data[2]=$this->c->router->pathFor('afficherListe',['token' => $args['token']]);
-        $v=new VueCreateurListe($this->c,$data);
-        $rs->getBody()->write($v->render(2));
-        return $rs;
-    }
-
-    public function afficherModifAjoutListe(Request $rq, Response $rs, array $args) : Response
-        {
-            $data['tokencreation']=$args['tokencreation' ];
-            $data[0]=$this->c->router->pathFor('formulaireItem',['tokencreation'=>$args['tokencreation']]);
-            $data[1]=$this->c->router->pathFor('afficherFormulaireModification',['tokencreation'=>$args['tokencreation']]);
-            $data[2]=$this->c->router->pathFor('choixModification',['tokencreation'=>$args['tokencreation']]);
-            $v=new VueCreateurListe($this->c,$data);
-            $rs->getBody()->write($v->render(3));
-            return $rs;
-        }
-
-    public function afficherFormulaireModification(Request $rq, Response $rs, array $args) : Response {
-        $vue=new VueCreateurListe($this->c,[]);
-        $rs->getBody()->write($vue->render(4),[]);
-        return $rs;
-    }
-
+    //methode pour modifier les informations generales d'une liste
     public function modifierListe(Request $request, Response $response, array $args) : Response {
         $titre = filter_var($request->getParsedBodyParam('titre'), FILTER_SANITIZE_STRING);
         $description = filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);

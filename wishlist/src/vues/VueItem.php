@@ -71,7 +71,6 @@ class VueItem
                       <div>
                        <ul class='list-unstyled mt-3 mb-4'>
                           <p><a href='{$this->data->url}'>{$this->data->url}</a></p>
-                          <p>Participant : {$this->data->participant}</p>
                           
                         </ul>
                         <button><a  href='$url_reservation'>Réserver</a></button>

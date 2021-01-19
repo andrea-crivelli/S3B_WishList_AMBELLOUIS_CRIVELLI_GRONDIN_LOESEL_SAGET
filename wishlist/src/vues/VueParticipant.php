@@ -82,9 +82,9 @@ namespace wishlist\vues;
                 }
                 case 2 : {
                     $content=$this->htmlListeItems();
-                    $link1="../public/html/vendor/bootstrap/css/bootstrap.min.css";
-                    $link2="../public/html/css/shop-homepage.css";
-                    $link3="../public/html/vendor/jquery/jquery.min.js";
+                    $link1="../../public/html/vendor/bootstrap/css/bootstrap.min.css";
+                    $link2="../../public/html/css/shop-homepage.css";
+                    $link3="../../public/html/vendor/jquery/jquery.min.js";
                     $link4="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
                     break;
                 }
