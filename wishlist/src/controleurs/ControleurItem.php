@@ -24,6 +24,8 @@ class ControleurItem extends Controleur {
         return $response;
     }
 
+
+
     public function creerItem (Request $request, Response $response, array $args) : Response{
         $titre=filter_var($request->getParsedBodyParam('titre'),FILTER_SANITIZE_STRING);
         $description=filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
@@ -56,5 +58,11 @@ class ControleurItem extends Controleur {
         $i->save();
 
         return $response->withRedirect(pathFor('afficherListe',['token' => $args['token']]));
+    }
+
+    public function afficherFormulaire (Request $request, Response $response, array $args) : Response{
+        $vue = new VueItem([], $this->c);
+        $response->getBody()->write($vue->render(3));
+        return $response;
     }
 }
