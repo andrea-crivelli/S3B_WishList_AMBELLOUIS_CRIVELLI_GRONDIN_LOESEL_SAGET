@@ -49,7 +49,7 @@ class VueItem
     }
 
     public function htmlAfficherItemNonReserve() :string {
-        $url_reservation = $this->container->router->pathFor('afficherReservation');
+        $url_reservation = $this->container->router->pathFor('afficherReservation',['token' => $this->data['token']]);
         $html= "<main class='container'>
                   <div class='pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center'>
                     <h1 class='display-4'>{$this->data->nom}</h1>
@@ -104,7 +104,7 @@ class VueItem
     }
 
     public function afficherReservation() {
-        $url_participer = $this->container->router->pathFor('reserverItem');
+        $url_participer = $this->container->router->pathFor('reserverItem', ['token' => $this->data['token']]);
         $html= "<main class='container'>
                 <form method=post>
                 <br>
@@ -115,6 +115,8 @@ class VueItem
                 <a href='$url_participer'><button>Participer</button></a>
                 </form>
                 </main> ";
+
+        return $html;
     }
     public function render(int $select)
     {

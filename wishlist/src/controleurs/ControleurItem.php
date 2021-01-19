@@ -14,7 +14,11 @@ class ControleurItem extends Controleur {
     public function afficherItem(Request $rq, Response $rs, array $args): Response{
         $item = Item::where('token', '=', $args['token'])->first();
         $vue = new VueItem($item, $this->c);
-        $rs->getBody()->write($vue->render(1));
+        if ($item->reserve = 'non'){
+            $rs->getBody()->write($vue->render(2));
+        } elseif ($item->reserve = 'oui'){
+            $rs->getBody()->write($vue->render(1));
+        }
         return $rs;
     }
 
@@ -52,16 +56,18 @@ class ControleurItem extends Controleur {
     }
 
     public function reserverItem(Request $request, Response $response, array $args) : Response{
-        $i=Item::where('id', '=', $args['id']);
+        $i=Item::where('token', '=', $args['token'])->first();
         $i->reserve = 'oui';
-        $i->particiapnt = $args['particpant'];
+        $i->participant = $args['participant'];
         $i->save();
 
-        return $response->withRedirect(pathFor('afficherListe',['token' => $args['token']]));
+        $url = $this->c->router->pathFor('afficherListe',['token' => $args['token']]);
+        return $response->withRedirect($url);
     }
 
     public function afficherFormulaire (Request $request, Response $response, array $args) : Response{
-        $vue = new VueItem([], $this->c);
+        $i=Item::where('token', '=', $args['token'])->first();
+        $vue = new VueItem($i, $this->c);
         $response->getBody()->write($vue->render(3));
         return $response;
     }

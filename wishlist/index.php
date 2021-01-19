@@ -71,9 +71,9 @@ $app->post('/liste/{tokencreation}/ajouterItem', ControleurItem::class.':creerIt
 
 //$app->get('/item/', ControleurItem::class.':afficherItem')->setName('afficherItem');
 
-$app->get('/reservationItem[/]', ControleurItem::class.'afficherFormulaire')->setName('afficherReservation');
+$app->get('/item/{token}/reservationItem[/]', ControleurItem::class.':afficherFormulaire')->setName('afficherReservation');
 
-$app->post('/reservationItem[/]', ControleurItem::class.'reserverItem')->setName('reserverItem');
+$app->post('/item/{token}/reservationItem[/]', ControleurItem::class.':reserverItem')->setName('reserverItem');
 
 
 
