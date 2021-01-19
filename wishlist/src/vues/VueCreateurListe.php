@@ -80,6 +80,8 @@ END;
                 
                 <button align = "center"><a href="$url_modif">Modifier la liste</a></button>
                 <button><a href="$url_ajout">Ajouter des items</a> </button>
+                <button>Modifier des items</button>
+                <button>Supprimer des items</button>
 
            
 </section>

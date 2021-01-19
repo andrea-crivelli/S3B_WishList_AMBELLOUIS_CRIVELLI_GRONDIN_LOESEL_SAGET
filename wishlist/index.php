@@ -77,5 +77,9 @@ $app->get('/reservationItem[/]', ControleurItem::class.'afficherFormulaire')->se
 //reservation de l'item
 $app->post('/reservationItem[/]', ControleurItem::class.'reserverItem')->setName('reserverItem');
 
+//affichage formulaire modification item
+$app->get('/liste/{tokencreation}/modifierItem[/]', ControleurItem::class.':afficherFormulaireItemModification')->setName('formulaireItem');
+//ajout d'item avec le token creation (createur)
+$app->post('/liste/{tokencreation}/modifierItem[/]', ControleurItem::class.':modifierItem')->setName('creationItem');
 
 $app->run();
