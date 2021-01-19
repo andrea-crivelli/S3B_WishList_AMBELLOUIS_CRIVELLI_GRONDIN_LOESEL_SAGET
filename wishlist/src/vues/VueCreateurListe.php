@@ -72,16 +72,18 @@ END;
     {
         $url_ajout = $this->data[0];
         $url_modif = $this->data[1];
+        $url_choixModif=$this->data[2];
+        $url_choixSuppr=$this->data[3];
 
         $html = <<<END
             <section class ='content'>
-                <h2 align="center">Modification / ajout d'items</h2>
-                Souhaitez-vous ajouter des items à votre liste ou modifier la liste ?<br><br>
+                <h2 align="center">Modifications des items et de la liste</h2>
+                Que souhaitez-vous faire ?<br><br>
                 
                 <button align = "center"><a href="$url_modif">Modifier la liste</a></button>
                 <button><a href="$url_ajout">Ajouter des items</a> </button>
-                <button>Modifier des items</button>
-                <button>Supprimer des items</button>
+                <button><a href="$url_choixModif">Modifier des items</a></button>
+                <button><a href="$url_choixSuppr">Supprimer des items</a></button>
 
            
 </section>
@@ -98,7 +100,7 @@ END;
          <!-- Données pour créer une liste -->
                 <form method="post">
                     <div>
-                        <label><strong>Titre* :</strong></label><br>
+                        <label><strong>Titre :</strong></label><br>
                         <input type="text" id="name" name="titre" class="creationListe">
                     </div>
                     <div>

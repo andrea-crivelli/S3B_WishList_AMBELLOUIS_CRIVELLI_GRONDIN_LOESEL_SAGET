@@ -71,4 +71,38 @@ class ControleurItem extends Controleur {
         $response->getBody()->write($vue->render(3));
         return $response;
     }
+
+    public function afficherChoixItem(Request $request, Response $response, array $args) : Response{
+        $l=Liste::where('tokencreation','=',$args['tokencreation'])->first();
+        $data['liste']=$l;
+        $data['tokencreation']=$args['tokencreation'];
+        $vue = new VueItem($data,$this->c);
+        $response->getBody()->write($vue->render(4));
+        return $response;
+}
+    public function afficherFormulaireItemModification (Request $request, Response $response, array $args) : Response{
+        $vue = new VueItem([], $this->c);
+        $response->getBody()->write($vue->render(5));
+        return $response;
+    }
+
+    public function modifierItem (Request $request, Response $response, array $args) : Response{
+        $i=Item::where('id', '=', $args['id'])->first();
+        $titre=filter_var($request->getParsedBodyParam('titre'),FILTER_SANITIZE_STRING);
+        $description=filter_var($request->getParsedBodyParam('descr'), FILTER_SANITIZE_STRING);
+        $prix=filter_var($request->getParsedBodyParam('prix'),FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $image=filter_var($request->getParsedBodyParam('img'),FILTER_SANITIZE_STRING);
+        $urlexterne=filter_var($request->getParsedBodyParam('url'),FILTER_SANITIZE_STRING);
+        $idListe=Liste::where('tokencreation','=',$args['tokencreation'])->first()->no;
+        if ($i->reserve == 'non') {
+            if ($titre != '' && $titre != $i->nom) $i->nom = $titre;
+            if ($description != '' && $description != $i->descr) $i->descr = $description;
+            if ($image != '' && $image != $i->img) $i->img = $image;
+            if ($urlexterne != '' && $urlexterne != $i->url) $i->url = $urlexterne;
+            if ($prix != '' && $prix != $i->tarif) $i->tarif = $prix;
+            $i->save();
+        }
+        $url = $this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
+        return $response->withRedirect($url);
+    }
 }

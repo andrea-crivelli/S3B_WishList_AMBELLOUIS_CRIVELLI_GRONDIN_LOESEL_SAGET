@@ -53,7 +53,7 @@ $app->post('/creationListe[/]', ControleurListe::class . ':creerListe')->setName
 //affichage page de validation de creation
 $app->get('/creationListe/validation/{tokencreation}/{token}[/]',ControleurListe::class.':afficherPageValidation')->setName('validationCreation');
 
-//choisir entre ajouter des items ou modifier la liste
+//page pour faire des modifications
 $app->get('/liste/modificationAjout/{tokencreation}[/]',ControleurListe::class.':afficherModifAjoutListe')->setName('modificationAjoutListe');
 
 //afficher le formulaire de modification la liste
@@ -76,9 +76,12 @@ $app->post('/liste/{tokencreation}/ajouterItem[/]', ControleurItem::class.':cree
 $app->get('/item/{token}/reservationItem[/]', ControleurItem::class.':afficherFormulaire')->setName('afficherReservation');
 $app->post('/item/{token}/reservationItem[/]', ControleurItem::class.':reserverItem')->setName('reserverItem');
 
+//affichage choix items a modifier
+$app->get('/liste/{tokencreation}/modifierItem[/]',ControleurItem::class.':afficherChoixItem')->setName('choixModification');
+
 //affichage formulaire modification item
-$app->get('/liste/{tokencreation}/modifierItem[/]', ControleurItem::class.':afficherFormulaireItemModification')->setName('formulaireItem');
-//ajout d'item avec le token creation (createur)
-$app->post('/liste/{tokencreation}/modifierItem[/]', ControleurItem::class.':modifierItem')->setName('creationItem');
+$app->get('/liste/{tokencreation}/modifierItem/{id}[/]', ControleurItem::class.':afficherFormulaireItemModification')->setName('formulaireModificationItem');
+//modification d'item avec le token creation (createur)
+$app->post('/liste/{tokencreation}/modifierItem/{id}[/]', ControleurItem::class.':modifierItem')->setName('modificationItem');
 
 $app->run();

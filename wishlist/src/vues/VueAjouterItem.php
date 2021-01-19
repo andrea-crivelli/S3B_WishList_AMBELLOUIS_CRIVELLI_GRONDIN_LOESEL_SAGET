@@ -35,7 +35,7 @@ class VueAjouterItem
                     </div>
                     <div>
                         <label><strong>Prix :</strong></label><br>
-                        <input type="number" id="tarif" name="tarif">
+                        <input type="text" id="tarif" name="tarif">
                     </div>
                     <div>
                         <label><strong>Url externe du produit :</strong></label><br>
@@ -77,10 +77,10 @@ END;
               <title>MyWishlist</title>
             
               <!-- Bootstrap core CSS -->
-              <link href="../../public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+              <link href="../../../public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
             
               <!-- Custom styles for this template -->
-              <link href="../../public/html/css/shop-homepage.css" rel="stylesheet">
+              <link href="../../../public/html/css/shop-homepage.css" rel="stylesheet">
             
             </head>
             
@@ -127,8 +127,8 @@ END;
               </footer>
             
               <!-- Bootstrap core JavaScript -->
-              <script src="../../public/html/vendor/jquery/jquery.min.js"></script>
-              <script src="../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+              <script src="../../../public/html/vendor/jquery/jquery.min.js"></script>
+              <script src="../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
             
             </body>
             

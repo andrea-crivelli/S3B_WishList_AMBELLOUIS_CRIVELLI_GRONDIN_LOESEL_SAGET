@@ -92,6 +92,7 @@ class ControleurListe extends Controleur {
             $data['tokencreation']=$args['tokencreation' ];
             $data[0]=$this->c->router->pathFor('formulaireItem',['tokencreation'=>$args['tokencreation']]);
             $data[1]=$this->c->router->pathFor('afficherFormulaireModification',['tokencreation'=>$args['tokencreation']]);
+            $data[2]=$this->c->router->pathFor('choixModification',['tokencreation'=>$args['tokencreation']]);
             $v=new VueCreateurListe($this->c,$data);
             $rs->getBody()->write($v->render(3));
             return $rs;
@@ -113,10 +114,10 @@ class ControleurListe extends Controleur {
         $l=Liste::where('tokencreation','=',$args['tokencreation'])->first();
         if ($titre != '' && $titre!=$l->titre) $l->titre=$titre;
         if($description != ''&& $description != $l->description) $l->description=$description;
-        if ($dateExpiration != '' && newDateTime($dateExpiration)!= $l->expiration) $l->expiration=new DateTime($dateExpiration);
+        if ($dateExpiration != '' && new DateTime($dateExpiration)!= $l->expiration) $l->expiration=new DateTime($dateExpiration);
         $l->save();
 
-        $url = $this->c->router->pathFor('afficherListe',['token' => $l->token]);
+        $url = $this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
         return $response->withRedirect($url);
 
     }
