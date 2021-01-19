@@ -77,7 +77,7 @@
                   
                   <!--  Acceuil -->    
                     <div class="container">
-                       <h1>Bienvenu à tous</h1>
+                       <h1>Bienvenue à tous</h1>
                             </div>
                       
                  

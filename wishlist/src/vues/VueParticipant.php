@@ -118,7 +118,9 @@ namespace wishlist\vues;
                     </div>
                   </nav>
                 
-                 $content
+                 <div class="m-3">
+              $content
+                </div>
                 
                 <!-- Footer -->
                 <footer class="py-5 bg-dark">

@@ -138,9 +138,9 @@ class VueItem
               </nav>
 
               <!-- Page Content -->
-              <div class="container">
-                $content
-              </div>
+              <div class="m-3">
+              $content
+                </div>
 
             <!-- Footer -->
             <footer class="py-5 bg-dark">

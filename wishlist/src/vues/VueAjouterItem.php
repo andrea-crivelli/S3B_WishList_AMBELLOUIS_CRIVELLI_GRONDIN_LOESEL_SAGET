@@ -17,33 +17,33 @@ class VueAjouterItem
     public function creerItem(){
         $html = <<<END
             <section class ='content'>
-            <h1>Ajouter un item</h1>
-            Veuillez rentrer les informatiosn sur l'item à ajouter à votre liste :
+            <h1 align="center">Ajouter un item</h1>
+            Veuillez rentrer les informations sur l'item à ajouter à votre liste :
          <!-- Données pour créer une liste -->
                 <form method="post">
                     <div>
-                        <label>Titre* :</label>
+                        <label><strong>Titre* :</strong></label><br>
                         <input type="text" id="name" name="titre">
                     </div>
                     <div>
-                        <label>Description :</label>
+                        <label><strong>Description :</strong></label><br>
                         <textarea type="texte" id="descr" name="descr"></textarea>
                     </div>
                     <div>
-                        <label>Image :</label>
+                        <label><strong>Image :</strong></label><br>
                         <input id="img" name="img">
                     </div>
                     <div>
-                        <label>Prix :</label>
+                        <label><strong>Prix :</strong></label><br>
                         <input type="number" id="tarif" name="tarif">
                     </div>
                     <div>
-                        <label>Url :</label>
+                        <label><strong>Url externe du produit :</strong></label><br>
                         <input id="url" name="url">
                     </div>
                     
                     <div>
-                    <button id="valider">Valider </button></a>
+                    <br><button id="valider">Valider </button></a>
                     </div>
                 </form>
 END;
@@ -77,10 +77,10 @@ END;
               <title>MyWishlist</title>
             
               <!-- Bootstrap core CSS -->
-              <link href="../public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+              <link href="../../public/html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
             
               <!-- Custom styles for this template -->
-              <link href="../public/html/css/shop-homepage.css" rel="stylesheet">
+              <link href="../../public/html/css/shop-homepage.css" rel="stylesheet">
             
             </head>
             
@@ -114,7 +114,9 @@ END;
                 </div>
               </nav>
 
-                $content
+                <div class="m-3">
+              $content
+                </div>
             
               <!-- Footer -->
               <footer class="py-5 bg-dark">
@@ -125,8 +127,8 @@ END;
               </footer>
             
               <!-- Bootstrap core JavaScript -->
-              <script src="public/html/vendor/jquery/jquery.min.js"></script>
-              <script src="public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+              <script src="../../public/html/vendor/jquery/jquery.min.js"></script>
+              <script src="../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
             
             </body>
             
