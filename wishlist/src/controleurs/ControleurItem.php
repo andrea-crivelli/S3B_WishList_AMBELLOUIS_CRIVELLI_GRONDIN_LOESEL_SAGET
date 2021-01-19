@@ -51,7 +51,7 @@ class ControleurItem extends Controleur {
 
     public function reserverItem(Request $request, Response $response, array $args) : Response{
         $i=Item::where('id', '=', $args['id']);
-        $i->reserve = 1;
+        $i->reserve = 'oui';
         $i->particiapnt = $args['particpant'];
         $i->save();
 
