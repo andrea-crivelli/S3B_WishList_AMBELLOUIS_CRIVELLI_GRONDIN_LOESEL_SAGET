@@ -137,6 +137,8 @@ class ControleurItem extends Controleur {
         var_dump($args);
         Item::where('id','=',$args['id'])->first()->delete();
 
+
+
         $url = $this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
         return $response->withRedirect($url);
 
