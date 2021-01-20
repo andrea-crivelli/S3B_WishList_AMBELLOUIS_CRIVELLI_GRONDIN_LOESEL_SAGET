@@ -27,11 +27,14 @@ class ControleurListe extends Controleur {
 
     //afficher une liste en particulier
     public function afficherListe(Request $rq, Response $rs, array $args): Response{
+        $data['token'] = $args['token'];
         $listl = Liste::where('token', '=', $args['token'])->first();
-        $vue = new VueParticipant($listl, $this->c);
+        $data['liste']=$listl;
+        $vue = new VueParticipant($data, $this->c);
         $rs->getBody()->write($vue->render(2));
         return $rs;
     }
+
     //affiche le formulaire pour la creation d'une liste
     public function afficherFormulaire(Request $rq,Response $rs, array $args) : Response{
         $vue=new VueCreateurListe($this->c,[]);

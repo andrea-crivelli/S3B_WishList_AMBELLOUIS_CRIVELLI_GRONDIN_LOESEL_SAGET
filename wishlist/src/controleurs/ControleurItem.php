@@ -104,10 +104,11 @@ class ControleurItem extends Controleur {
     public function reserverItem(Request $request, Response $response, array $args) : Response{
         $i=Item::where('token', '=', $args['token'])->first();
         $i->reserve = 'oui';
-        $i->participant = $args['participant'];
+        $participant= filter_var($request->getParsedBodyParam('participant'), FILTER_SANITIZE_STRING);
+        $i->participant = $participant;
         $i->save();
-
-        $url = $this->c->router->pathFor('afficherListe',['token' => $args['token']]);
+        $tokenliste=Liste::where('no','=',$i->liste_id)->first()->token;
+        $url = $this->c->router->pathFor('afficherListe',['token' => $tokenliste]);
         return $response->withRedirect($url);
     }
 

@@ -33,17 +33,17 @@ namespace wishlist\vues;
 
     //afficher les items de la liste en parametre
     private function htmlListeItems() : string{
-        $token=$this->data[0];
+        $token=$this->data['token'];
         $url_message = $this->container->router->pathFor('creerMessageListe',['token'=>$token]);
 
         $html='';
         $html.= "<section class='content'>
-                    <h2 align='center'>{$this->data->titre}</h2>
-                        <p><strong>Description </strong>: {$this->data->description}</p>
-                        <p><strong>Date d'expiration </strong>: {$this->data->expiration}</p>
+                    <h2 align='center'>{$this->data['liste']->titre}</h2>
+                        <p><strong>Description </strong>: {$this->data['liste']->description}</p>
+                        <p><strong>Date d'expiration </strong>: {$this->data['liste']->expiration}</p>
                         <p>Items de la liste : </p>
                         <ul>";
-        foreach ($this->data->items as $item){
+        foreach ($this->data['liste']->items as $item){
             $url_item = $this->container->router->pathFor('afficherItem', ['token' => $item->token]);
             $html.= "<li><a class=\"nav - link\" href=\"$url_item\">{$item->nom}</a></li>";
         }
@@ -51,7 +51,7 @@ namespace wishlist\vues;
         $html.= "</ul>
                 Messages de la liste :<br><ul>";
 
-                    foreach ($this->data->message as $message){
+                    foreach ($this->data['liste']->message as $message){
                     $html.= "<li> {$message->participant} a écrit : {$message->message}</li>";
                     }
 
