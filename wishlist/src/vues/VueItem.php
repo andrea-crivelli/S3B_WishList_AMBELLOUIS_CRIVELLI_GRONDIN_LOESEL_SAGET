@@ -38,7 +38,7 @@ class VueItem
                       <div>
                        <ul class='list-unstyled mt-3 mb-4'>
                           <p><a href='{$this->data->url}'>{$this->data->url}</a></p>
-                          <p>Participant : {$this->data->participant}</p>
+                          <p> Réservé par {$this->data->participant}</p>
                         </ul>
                       </div>
                     </div>
@@ -84,12 +84,16 @@ class VueItem
     private function afficherReservation() {
         $url_participer = $this->container->router->pathFor('reserverItem', ['token' => $this->data['token']]);
         $html= "<main class='container'>
+            <h2 align='center'>Réservation d'un item</h2>
+            <br>Veuillez rentrez votre nom pour valider voter réservation.<br>
+            Vous pouvez également ajouter un message qui l'accompagnera<br>
                 <form method=post>
                 <br>
-                <p> Participant : </p>             
-                <input type='text', id='participant', name='participant'>
-                </section>
-                <br>
+                <label> Participant* : </label>             
+                <input type='text', id='participant', name='participant'><br><br>
+                <label>Message :</label>
+                <textarea type='text' name='message'></textarea>
+                <br><br>
                 <a href='$url_participer'><button>Participer</button></a>
                 </form>
                 </main> ";
@@ -205,10 +209,10 @@ END;
             break;
             }case 3 : {
                 $content=$this->afficherReservation();
-                $link1="../public/html/vendor/bootstrap/css/bootstrap.min.css";
-                $link2="../public/html/css/shop-homepage.css";
-                $link3="../public/html/vendor/jquery/jquery.min.js";
-                $link4="../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
+                $link1="../../../public/html/vendor/bootstrap/css/bootstrap.min.css";
+                $link2="../../../public/html/css/shop-homepage.css";
+                $link3="../../../public/html/vendor/jquery/jquery.min.js";
+                $link4="../../../public/html/vendor/bootstrap/js/bootstrap.bundle.min.js";
             break;
             }case 4 : {
                 $content=$this->afficherItemModifier();

@@ -31,11 +31,14 @@ class VueAjouterItem
                     </div>
                     <div>
                         <label><strong>Image :</strong></label><br>
-                        <input id="img" name="img">
+                        <input id="img" name="img"><br>
+                        <font size='1pt'>Veuillez indiquer le nom du fichier image présent dans le répertoire public/img</font>
                     </div>
                     <div>
                         <label><strong>Prix :</strong></label><br>
-                        <input type="text" id="tarif" name="tarif">
+                        <input type="text" id="tarif" name="tarif"><br>
+                        <font size='1pt'>Veuillez rentrer le prix suivant la syntaxe suivante : 00.00</font>
+
                     </div>
                     <div>
                         <label><strong>Url externe du produit :</strong></label><br>

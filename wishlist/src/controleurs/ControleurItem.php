@@ -103,10 +103,16 @@ class ControleurItem extends Controleur {
     //methode pour reserver un item
     public function reserverItem(Request $request, Response $response, array $args) : Response{
         $i=Item::where('token', '=', $args['token'])->first();
-        $i->reserve = 'oui';
         $participant= filter_var($request->getParsedBodyParam('participant'), FILTER_SANITIZE_STRING);
-        $i->participant = $participant;
-        $i->save();
+        $message=filter_var($request->getParsedBodyParam('message'), FILTER_SANITIZE_STRING);
+        if($participant!=''){
+            $i->reserve = 'oui';
+            $i->participant = $participant;
+            if ($message != '') $i->messageReservation=$message;
+            $i->save();
+        }
+
+
         $tokenliste=Liste::where('no','=',$i->liste_id)->first()->token;
         $url = $this->c->router->pathFor('afficherListe',['token' => $tokenliste]);
         return $response->withRedirect($url);
