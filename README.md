@@ -37,7 +37,7 @@ Pour voir plus en détail --> [Excel](document/TableauDeBord.ods)
 - [x] *Afficher une liste de souhaits* 
 - [x] *Afficher un item d'une liste* 
 - [x] *Réserver un item* 
-- [ ] *Ajouter un message avec sa réservation* 
+- [x] *Ajouter un message avec sa réservation* 
 - [x] *Ajouter un message sur une liste* 
 
 ### Créateur
