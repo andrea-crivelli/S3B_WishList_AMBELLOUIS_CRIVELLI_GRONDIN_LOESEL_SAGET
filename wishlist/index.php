@@ -97,6 +97,6 @@ $app->get('/liste/{tokencreation}/supprimerItem[/]',ControleurItem::class.':affi
 //affichage formulaire suppression item
 $app->get('/liste/{tokencreation}/supprimerItem/{id}[/]', ControleurItem::class.':afficherFormulaireItemSuppression')->setName('formulaireSuppressionItem');
 //suppression d'item avec le token creation (createur)
-$app->post('/liste/{tokencreation}/supprimerItem/{id}[/]', ControleurItem::class.':supprimerItem')->setName('suppressionItem');
+$app->post('/liste/{tokencreation}/supprimerLItem/{id}[/]', ControleurItem::class.':supprimerItem')->setName('suppressionItem');
 
 $app->run();
