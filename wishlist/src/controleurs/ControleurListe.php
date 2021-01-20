@@ -145,7 +145,7 @@ class ControleurListe extends Controleur {
     public function supprimerListe(Request $request, Response $response, array $args) : Response{
         Liste::where('tokencreation','=',$args['tokencreation'])->delete();
 
-        $url = $this->c->router->pathFor('modificationAjoutListe',['tokencreation' => $args['tokencreation']]);
+        $url = $this->c->router->pathFor('accueil');
         return $response->withRedirect($url);
 
     }

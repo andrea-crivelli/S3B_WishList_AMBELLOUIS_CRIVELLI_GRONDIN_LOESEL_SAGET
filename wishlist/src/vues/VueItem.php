@@ -168,20 +168,22 @@ END;
 
         //fonction qui affiche le formulaire de suppression de l'item
         private function htmlFormulaireSuppression(){
+        var_dump($this->data);
             $url_oui = $this->container->router->pathFor('suppressionItem', ['id' => $this->data['id'], 'tokencreation'=>$this->data['tokencreation']]);
             $url_non=$this->container->router->pathFor('modificationAjoutListe', ['tokencreation'=>$this->data['tokencreation']]);
             $html=<<<END
         <section class='content'>
         <h1 align="center">Suppression des items </h1>
-       Voulez-vous réellement supprimer cet item ?
-       <button><a href="$url_oui">Oui</a></button>
-       <button><a href="$url_non">Non</a></button>
+        <form method="post">
+            Voulez-vous réellement supprimer cet item ?<br>
+            <button><a href="$url_oui">Oui</a></button>
+            <button><a href="$url_non">Non</a></button>
+            </form>
         </section>
 END;
             return $html;
         }
 
-//<form action="." method=POST"><a onclick="this.parentNode.submit()">Oui</a></form>
     public function render(int $select)
     {
         switch ($select){

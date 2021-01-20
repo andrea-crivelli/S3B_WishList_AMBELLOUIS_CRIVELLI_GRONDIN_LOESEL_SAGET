@@ -64,7 +64,7 @@ $app->post('/liste/modification/{tokencreation}[/]',ControleurListe::class.':mod
 //afficher le formulaire de suppression la liste
 $app->get('/liste/supression/{tokencreation}[/]',ControleurListe::class.':afficherFormulaireSuppression')->setName('afficherFormulaireSuppression');
 //modifier la liste
-$app->post('/liste/suppression/{tokencreation}[/]',ControleurListe::class.':supprimerListe')->setName('supprimerListe');
+$app->get('/liste/suppressionListe/{tokencreation}[/]',ControleurListe::class.':supprimerListe')->setName('supprimerListe');
 
 /**
  * Routes concernant les items
@@ -97,6 +97,6 @@ $app->get('/liste/{tokencreation}/supprimerItem[/]',ControleurItem::class.':affi
 //affichage formulaire suppression item
 $app->get('/liste/{tokencreation}/supprimerItem/{id}[/]', ControleurItem::class.':afficherFormulaireItemSuppression')->setName('formulaireSuppressionItem');
 //suppression d'item avec le token creation (createur)
-$app->post('/liste/{tokencreation}/supprimerLItem/{id}[/]', ControleurItem::class.':supprimerItem')->setName('suppressionItem');
+$app->get('/liste/{tokencreation}/supprimerLItem/{id}[/]', ControleurItem::class.':supprimerItem')->setName('suppressionItem');
 
 $app->run();
