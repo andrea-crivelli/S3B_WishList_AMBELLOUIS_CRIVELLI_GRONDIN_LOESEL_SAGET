@@ -131,12 +131,8 @@ END;
         <section class='content'>
         <h1 align="center">Suppression de la liste </h1>
        Voulez-vous réellement supprimer cette liste ?
-                <form method="post">
-       <div>
-               <button id="valider"><a href="$url_oui">Oui</a></button>
+        <button><a href="$url_oui">Oui</a></button>
 
-       </div>
-    </form>
        <button><a href="$url_non">Non</a></button>
         </section>
 END;
